@@ -182,7 +182,7 @@ export default function HomePage() {
         }}
       />
       <SectionQuickProofs
-        title="Provas rápidas"
+        title="Métricas importantes"
         description="Métricas que mostram como entregamos resultados confiáveis com agilidade e suporte próximo."
         metrics={quickProofsMetrics}
       />

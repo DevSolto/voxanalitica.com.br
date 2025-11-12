@@ -193,18 +193,7 @@ export function SectionHero({ title, subtitle, primaryCta, secondaryCta, badges 
           </div>
         </div>
       </div>
-      <div className="border-t border-white/60 bg-white/80 py-6">
-        <div
-          className="mx-auto flex max-w-6xl flex-wrap items-center justify-center gap-x-8 gap-y-3 text-xs font-medium uppercase tracking-[0.3em] text-[#495057]"
-          aria-label="Segmentos atendidos pela VoxAnalitica"
-        >
-          {heroLogos.map((label) => (
-            <span key={label} className="text-neutral-600/90">
-              {label}
-            </span>
-          ))}
-        </div>
-      </div>
+      
     </section>
   );
 }
