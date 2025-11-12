@@ -75,8 +75,8 @@ function StepCard({ step, index }: StepCardProps) {
     <motion.article
       tabIndex={0}
       className={cn(
-        "group rounded-2xl border border-[#E9ECEF] bg-white p-6 shadow-sm transition",
-        "hover:shadow-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#4F9CF9]",
+        "group rounded-3xl border border-white/70 bg-white/90 p-6 shadow-md transition backdrop-blur",
+        "hover:-translate-y-1 hover:shadow-lg focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#4F9CF9]",
       )}
       initial="hidden"
       whileInView="visible"
@@ -99,14 +99,17 @@ function StepCard({ step, index }: StepCardProps) {
       }}
       aria-label={`${step.title} — ${step.desc}`}
     >
-      <div className="mb-3 inline-flex h-10 w-10 items-center justify-center rounded-xl bg-[#E8F2FF]" aria-hidden="true">
+      <div
+        className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-[#4F9CF9]/10 text-[#043873] shadow-inner"
+        aria-hidden="true"
+      >
         {step.iconNode}
       </div>
-      <h3 className="text-lg font-semibold text-[#212529]">
+      <h3 className="text-lg font-semibold text-[#043873]">
         <span aria-hidden="true">{step.title}</span>
         <span className="sr-only">Etapa {index + 1}: {step.title}</span>
       </h3>
-      <p className="mt-1 text-sm text-[#495057]">{step.desc}</p>
+      <p className="mt-2 text-sm text-[#495057]">{step.desc}</p>
     </motion.article>
   );
 }
@@ -143,31 +146,35 @@ export function SectionHowItWorks({
     <section
       id={sectionId}
       aria-labelledby="how-it-works-title"
-      className="relative w-full bg-[#F8FAFF] py-16 md:py-24"
+      className="relative isolate overflow-hidden bg-neutral-50 py-16 md:py-24"
     >
+      <div className="absolute inset-x-0 top-0 -z-10 h-64 bg-gradient-to-b from-white/80 to-transparent" aria-hidden="true" />
+      <div className="absolute inset-0 -z-20 hero-surface" aria-hidden="true" />
       <div className="mx-auto max-w-7xl px-4 md:px-6">
         <header className="max-w-3xl">
-          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#4F9CF9]">
-            Pesquisa no WhatsApp · Análise de dados
-          </p>
-          <h2 id="how-it-works-title" className="mt-3 text-2xl font-bold tracking-tight text-[#043873] md:text-4xl">
+          <div className="inline-flex items-center gap-2 rounded-full bg-white/80 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-[#043873] shadow-sm">
+            <span>PESQUISA NO WHATSAPP</span>
+            <span aria-hidden="true" className="text-[#4F9CF9]">·</span>
+            <span>ANÁLISE DE DADOS</span>
+          </div>
+          <h2 id="how-it-works-title" className="mt-6 text-3xl font-bold tracking-tight text-[#043873] md:text-4xl">
             {title}
           </h2>
-          <p className="mt-3 text-base text-[#495057] md:text-lg">{subtitle}</p>
+          <p className="mt-4 text-base text-[#495057] md:text-lg">{subtitle}</p>
         </header>
 
-        <div className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2 md:gap-6 xl:grid-cols-4">
+        <div className="mt-12 grid grid-cols-1 gap-4 sm:grid-cols-2 md:gap-6 xl:grid-cols-4">
           {resolvedSteps.map((step, index) => (
             <StepCard key={step.title} step={step} index={index} />
           ))}
         </div>
 
         {metricsBadges.length > 0 && (
-          <div className="mt-8 flex flex-wrap gap-2">
+          <div className="mt-10 flex flex-wrap gap-2">
             {metricsBadges.map((badge) => (
               <span
                 key={badge.label}
-                className="rounded-full border border-[#D0D5DD] bg-white px-3 py-1 text-xs font-medium text-[#212529] shadow-sm"
+                className="rounded-full border border-white/70 bg-white/80 px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-[#043873]/80 shadow-sm"
                 title={badge.tooltip}
                 aria-label={badge.tooltip ? `${badge.label}. ${badge.tooltip}` : badge.label}
               >
@@ -192,10 +199,7 @@ export function SectionHowItWorks({
           </div>
         )}
       </div>
-      <div
-        className="pointer-events-none absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-white/70 to-transparent"
-        aria-hidden="true"
-      />
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 -z-10 h-32 bg-gradient-to-t from-white/80 to-transparent" aria-hidden="true" />
     </section>
   );
 }
