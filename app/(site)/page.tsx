@@ -1,315 +1,142 @@
-import type { Metadata } from "next";
-
-import { Nav } from "@/components/Nav";
-import { Footer } from "@/components/Footer";
-import { HeroSection } from "@/components/sections/Hero";
-import { SolutionsSection } from "@/components/sections/Solutions";
-import { MethodologySection } from "@/components/sections/Methodology";
-import { CasesSection, type CaseStudy } from "@/components/sections/Cases";
-import { TestimonialsSection } from "@/components/sections/Testimonials";
-import { InsightsSection } from "@/components/sections/Insights";
-import { FaqSection } from "@/components/sections/Faq";
-import { FinalCtaSection } from "@/components/sections/FinalCta";
-import { ContactSection } from "@/components/sections/Contact";
-import { buildWhatsAppLink } from "@/lib/whatsapp";
-
-export const metadata: Metadata = {
-  title: "VoxAnalitica — Pesquisa & Inteligência de Dados",
-  description:
-    "Decisões orientadas por dados com recorte local, relatórios express e vídeos explicativos.",
-  openGraph: {
-    title: "VoxAnalitica — Pesquisa & Inteligência de Dados",
-    description:
-      "Decisões orientadas por dados com recorte local, relatórios express e vídeos explicativos.",
-    images: [
-      {
-        url: "/og/hero.png",
-        width: 1200,
-        height: 630,
-        alt: "VoxAnalitica hero",
-      },
-    ],
-  },
-};
-
-const cases: CaseStudy[] = [
-  {
-    title: "Audiência jovem nas capitais",
-    segment: "Gestão Pública",
-    summary:
-      "Mapeamento de interesses e hábitos de jovens em capitais do Nordeste para calibrar políticas de educação e cultura.",
-    challenge:
-      "Identificar expectativas de públicos com baixa participação em consultas tradicionais e consolidar dados qualitativos e quantitativos em um material executivo.",
-    approach:
-      "Aplicamos questionário interativo via WhatsApp, grupos de discussão com estudantes bolsistas e análise de sentimento sobre menções públicas.",
-    result:
-      "Priorização de três programas estratégicos, com aprovação de orçamento e cronograma acelerado para implementação.",
-    metrics: [
-      { label: "Entrevistados", value: "2.4k" },
-      { label: "Estados", value: "3" },
-      { label: "Satisfação", value: "92%" },
-      { label: "Prazo", value: "28 dias" },
-    ],
-  },
-  {
-    title: "Reposicionamento para fintech B2B",
-    segment: "Mercado Privado",
-    summary:
-      "Diagnóstico de percepção de marca em PMEs e redes de franquias para reposicionar a solução de crédito inteligente.",
-    challenge:
-      "Entender objeções comerciais em diferentes estágios do funil e gerar evidências para uma nova narrativa de produto.",
-    approach:
-      "Entrevistas em profundidade com leads ativos, painel quantitativo com 1.200 respondentes e leitura de concorrência com web scraping.",
-    result:
-      "Aumento de 35% no NPS e 18% na taxa de conversão após ajustes de discurso e jornada comercial.",
-    metrics: [
-      { label: "Respondentes", value: "1.2k" },
-      { label: "IDIs", value: "28" },
-      { label: "Conversão", value: "+18%" },
-      { label: "SLA", value: "6 semanas" },
-    ],
-  },
-];
-
-const testimonials = [
-  {
-    name: "Mariana Albuquerque",
-    role: "Secretária de Juventude",
-    company: "Prefeitura de João Pessoa",
-    quote:
-      "Conseguimos montar uma política de juventude com metas realistas porque tivemos evidências claras sobre necessidades e linguagem dos nossos jovens.",
-  },
-  {
-    name: "Rodrigo Farias",
-    role: "Head de Marketing",
-    company: "Fintech B2B",
-    quote:
-      "O material da VoxAnalitica virou apresentação oficial no conselho. Sintetiza dados complexos em argumentos simples para decisão.",
-  },
-  {
-    name: "Ana Luiza Campos",
-    role: "Diretora de Pesquisa",
-    company: "Instituto Independente",
-    quote:
-      "A equipe consegue conectar campo, análise e storytelling multimídia em prazos que outras consultorias não conseguem atingir.",
-  },
-];
-
-const insights = [
-  {
-    title: "WhatsApp como canal de pesquisa: boas práticas",
-    description:
-      "Checklist de configuração, roteiros e validações para rodar estudos quantitativos e qualitativos no aplicativo.",
-    category: "Guia",
-    href: "#contato",
-  },
-  {
-    title: "Como explicar resultados com vídeos executivos",
-    description:
-      "Formato ideal de roteiro, visual e narrativa para compartilhar achados com stakeholders em poucos minutos.",
-    category: "Playbook",
-    href: "#contato",
-  },
-  {
-    title: "LGPD em pesquisas locais",
-    description:
-      "Checklist de segurança, consentimento e governança para estudos com dados sensíveis de municípios.",
-    category: "Compliance",
-    href: "#politica",
-  },
-  {
-    title: "Painéis de opinião contínua",
-    description:
-      "Modelo VoxAnalitica de monitoramento recorrente com dashboards e alertas semanais.",
-    category: "Estratégia",
-    href: "#solucoes",
-  },
-];
-
-const faqItems = [
-  {
-    question: "Quanto tempo leva para receber um relatório?",
-    answer:
-      "Projetos express são entregues entre 24 e 72 horas após o campo. Estudos híbridos levam de 2 a 6 semanas, conforme a complexidade.",
-  },
-  {
-    question: "Quais canais vocês utilizam para coleta?",
-    answer:
-      "Operamos com WhatsApp, web, telefone assistido e parcerias de campo. A escolha depende do público-alvo e da taxa de resposta esperada.",
-  },
-  {
-    question: "Vocês atendem órgãos públicos?",
-    answer:
-      "Sim. Adequamos contratos e fluxos à legislação vigente, com cláusulas de confidencialidade e aderência à LGPD.",
-  },
-  {
-    question: "Como funciona o suporte pós-entrega?",
-    answer:
-      "Incluímos sessão de apresentação, ajustes pontuais no relatório e acompanhamento de indicadores por 30 dias para projetos recorrentes.",
-  },
-];
-
-export default function HomePage() {
-  const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER;
-  const whatsappHref = buildWhatsAppLink(whatsappNumber, { utmContent: "hero_primary_cta" });
-
-  const heroBadges = [
-    { label: "Relatório Express 24–72h", variant: "accent" as const },
-    { label: "Transparência Metodológica", variant: "outline" as const },
-  ];
-
-  const solutionItems = [
-    {
-      icon: "MessageSquare" as const,
-      title: "Pesquisa via WhatsApp",
-      description:
-        "Questionários conversacionais com filtros, regras de qualidade e acompanhamento diário do campo.",
-      bullets: ["Funis por persona", "Checagem de respostas", "Painel em tempo real"],
-      tag: "Automação",
-    },
-    {
-      icon: "Users" as const,
-      title: "Entrevistas em profundidade",
-      description: "Roteiros guiados, gravação e síntese temática para captar nuances que números não mostram.",
-      bullets: ["Guias customizados", "Codificação temática", "Clipes em vídeo"],
-    },
-    {
-      icon: "ClipboardList" as const,
-      title: "Campo presencial",
-      description:
-        "Rede de pesquisadores treinados, controle de amostra e auditoria contínua para garantir representatividade.",
-      bullets: ["Auditoria por GPS", "Supervisão híbrida", "Relatórios de campo"],
-    },
-    {
-      icon: "Briefcase" as const,
-      title: "Inteligência competitiva",
-      description:
-        "Desk research, web scraping e análise de concorrência com dashboards acionáveis para diretoria.",
-      bullets: ["Monitoramento semanal", "Alertas automáticos", "Resumo executivo"],
-    },
-    {
-      icon: "PlayCircle" as const,
-      title: "Vídeo e áudio briefing",
-      description:
-        "Narrativas em vídeo e podcasts curtos para apresentar descobertas a stakeholders e imprensa.",
-      bullets: ["Roteiro enxuto", "Motion simplificado", "Distribuição fácil"],
-    },
-  ];
-
-  const methodologySteps = [
-    {
-      icon: "MessageSquare" as const,
-      title: "Imersão & briefing",
-      description:
-        "Entendimento do desafio, definição de recortes e seleção de abordagens qualitativas ou quantitativas.",
-    },
-    {
-      icon: "Database" as const,
-      title: "Coleta & qualidade",
-      description:
-        "Programação de questionários, disparos multicanal e auditorias automáticas para garantir consistência dos dados.",
-    },
-    {
-      icon: "Sparkles" as const,
-      title: "Análise & storytelling",
-      description:
-        "Modelos estatísticos, recortes territoriais e geração de hipóteses com apoio de insights qualitativos.",
-    },
-    {
-      icon: "PlayCircle" as const,
-      title: "Entrega multimídia",
-      description:
-        "Relatório executivo, dashboards interativos e vídeo explicativo para engajar o time decisor.",
-    },
-  ];
-
+export default function Home() {
   return (
-    <div className="bg-white">
-      <Nav />
-      <main>
-        <HeroSection
-          title="Pesquisa que vira estratégia."
-          subtitle="Da coleta automatizada pelo WhatsApp à decisão com menos risco — relatórios express em texto, vídeo e áudio."
-          primaryCta={{
-            label: "Falar no WhatsApp",
-            href: whatsappHref || "#contato",
-            id: "cta-whatsapp",
-            disabled: !whatsappHref,
-            ariaLabel: "Abrir conversa no WhatsApp",
-          }}
-          secondaryCta={{
-            label: "Solicitar proposta",
-            href: "#contato",
-            id: "cta-proposta",
-            ariaLabel: "Ir para formulário de contato",
-          }}
-          badges={heroBadges}
-        />
-        <SolutionsSection
-          title="Soluções para entender e agir rápido"
-          subtitle="Diagnóstico completo: coleta inteligente, análise aprofundada e apresentações que convencem quem decide."
-          items={solutionItems}
-          primaryCta={{
-            label: "Montar meu projeto",
-            href: "#contato",
-            id: "cta-solucoes-primary",
-          }}
-          secondaryCta={{
-            label: "Ver metodologia",
-            href: "#metodologia",
-            id: "cta-solucoes-secondary",
-          }}
-        />
-        <MethodologySection
-          title="Metodologia transparente de ponta a ponta"
-          subtitle="Processo enxuto, validado e documentado para transformar respostas em decisões acionáveis."
-          steps={methodologySteps}
-          cta={{
-            label: "Quero este fluxo",
-            href: "#contato",
-            id: "cta-metodologia",
-          }}
-        />
-        <CasesSection
-          title="Cases que aceleraram decisões"
-          subtitle="Projetos recentes que combinaram dados de campo, análise automatizada e storytelling audiovisual."
-          items={cases}
-        />
-        <TestimonialsSection
-          title="Confiança de gestores e líderes"
-          subtitle="Quem trabalha conosco destaca o equilíbrio entre profundidade analítica, velocidade e clareza na entrega."
-          items={testimonials}
-        />
-        <InsightsSection
-          title="Insights e materiais exclusivos"
-          subtitle="Conteúdos para guiar seu próximo projeto de pesquisa e comunicação orientada por dados."
-          items={insights}
-        />
-        <FaqSection
-          title="Perguntas frequentes"
-          subtitle="Ainda está com dúvidas? Confira respostas diretas sobre prazos, canais de coleta e suporte."
-          items={faqItems}
-        />
-        <FinalCtaSection
-          title="Vamos mapear seu próximo projeto de pesquisa?"
-          subtitle="Montamos o escopo com você em uma call rápida e enviamos proposta personalizada em até 24 horas."
-          primaryCta={{
-            label: "Agendar conversa",
-            href: "#contato",
-            id: "cta-final-primary",
-          }}
-          secondaryCta={{
-            label: "Baixar one-pager",
-            href: "#insights",
-            id: "cta-final-secondary",
-          }}
-        />
-        <ContactSection
-          title="Conte sobre o desafio que precisa resolver"
-          subtitle="Preencha o briefing rápido para receber um plano de pesquisa e investimento estimado."
-        />
-      </main>
-      <Footer />
-    </div>
+    <section data-loc="client/src/pages/Home.tsx:47" className="relative pt-32 pb-20 px-4 overflow-hidden">
+      <div data-loc="client/src/pages/Home.tsx:48" className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-accent/10"></div>
+      <div data-loc="client/src/pages/Home.tsx:49" className="container relative z-10">
+        <div data-loc="client/src/pages/Home.tsx:50" className="max-w-4xl mx-auto text-center">
+          <h1 data-loc="client/src/pages/Home.tsx:51" className="text-5xl md:text-7xl font-bold text-foreground mb-6 leading-tight">
+            A Inteligência que <span data-loc="client/src/pages/Home.tsx:52" className="text-primary">Vence Eleições</span> e Transforma Governos
+          </h1>
+          <p data-loc="client/src/pages/Home.tsx:54" className="text-xl md:text-2xl text-muted-foreground mb-8">
+            Transformamos a Opinião Pública em <span data-loc="client/src/pages/Home.tsx:55" className="text-primary font-semibold">Subsídios Estratégicos</span> Acionáveis. Pare de Chutar. Comece a Decidir com Segurança.
+          </p>
+          <div data-loc="client/src/pages/Home.tsx:57" className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <button
+              data-loc="client/src/pages/Home.tsx:58"
+              data-slot="button"
+              className="inline-flex items-center justify-center gap-2 whitespace-nowrap font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive h-10 rounded-md has-[&gt;svg]:px-4 bg-primary text-primary-foreground hover:bg-primary/90 text-lg px-8 py-6"
+            >
+              Fale com um Estrategista
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="lucide lucide-arrow-right ml-2"
+                data-loc="client/src/pages/Home.tsx:63"
+              >
+                <path d="M5 12h14" />
+                <path d="m12 5 7 7-7 7" />
+              </svg>
+            </button>
+            <button
+              data-loc="client/src/pages/Home.tsx:65"
+              data-slot="button"
+              className="inline-flex items-center justify-center gap-2 whitespace-nowrap font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive border bg-transparent shadow-xs hover:bg-accent dark:bg-transparent dark:border-input dark:hover:bg-input/50 h-10 rounded-md has-[&gt;svg]:px-4 text-lg px-8 py-6"
+            >
+              Conheça Nossas Soluções
+            </button>
+          </div>
+        </div>
+        <div data-loc="client/src/pages/Home.tsx:77" className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-16 max-w-5xl mx-auto">
+          <div data-loc="client/src/pages/Home.tsx:78" data-slot="card" className="text-card-foreground flex flex-col gap-6 rounded-xl border py-6 shadow-sm bg-card/50 backdrop-blur-sm border-primary/20">
+            <div data-loc="client/src/pages/Home.tsx:79" data-slot="card-header" className="@container/card-header grid auto-rows-min grid-rows-[auto_auto] items-start gap-2 px-6 has-data-[slot=card-action]:grid-cols-[1fr_auto] [.border-b]:pb-6">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="32"
+                height="32"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="lucide lucide-brain text-primary mb-2"
+                data-loc="client/src/pages/Home.tsx:80"
+              >
+                <path d="M12 5a3 3 0 1 0-5.997.125 4 4 0 0 0-2.526 5.77 4 4 0 0 0 .556 6.588A4 4 0 1 0 12 18Z" />
+                <path d="M12 5a3 3 0 1 1 5.997.125 4 4 0 0 1 2.526 5.77 4 4 0 0 1-.556 6.588A4 4 0 1 1 12 18Z" />
+                <path d="M15 13a4.5 4.5 0 0 1-3-4 4.5 4.5 0 0 1-3 4" />
+                <path d="M17.599 6.5a3 3 0 0 0 .399-1.375" />
+                <path d="M6.003 5.125A3 3 0 0 0 6.401 6.5" />
+                <path d="M3.477 10.896a4 4 0 0 1 .585-.396" />
+                <path d="M19.938 10.5a4 4 0 0 1 .585.396" />
+                <path d="M6 18a4 4 0 0 1-1.967-.516" />
+                <path d="M19.967 17.484A4 4 0 0 1 18 18" />
+              </svg>
+              <div data-loc="client/src/pages/Home.tsx:81" data-slot="card-title" className="leading-none font-semibold text-foreground">
+                Decifre o Eleitorado
+              </div>
+            </div>
+            <div data-loc="client/src/pages/Home.tsx:83" data-slot="card-content" className="px-6">
+              <p data-loc="client/src/pages/Home.tsx:84" className="text-muted-foreground">
+                Vá além da intenção de voto. Entenda o <em data-loc="client/src/pages/Home.tsx:84">porquê</em> o eleitor escolhe, rejeita ou se emociona.
+              </p>
+            </div>
+          </div>
+          <div data-loc="client/src/pages/Home.tsx:87" data-slot="card" className="text-card-foreground flex flex-col gap-6 rounded-xl border py-6 shadow-sm bg-card/50 backdrop-blur-sm border-primary/20">
+            <div data-loc="client/src/pages/Home.tsx:88" data-slot="card-header" className="@container/card-header grid auto-rows-min grid-rows-[auto_auto] items-start gap-2 px-6 has-data-[slot=card-action]:grid-cols-[1fr_auto] [.border-b]:pb-6">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="32"
+                height="32"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="lucide lucide-target text-primary mb-2"
+                data-loc="client/src/pages/Home.tsx:89"
+              >
+                <circle cx="12" cy="12" r="10" />
+                <circle cx="12" cy="12" r="6" />
+                <circle cx="12" cy="12" r="2" />
+              </svg>
+              <div data-loc="client/src/pages/Home.tsx:90" data-slot="card-title" className="leading-none font-semibold text-foreground">
+                Subsídios Estratégicos
+              </div>
+            </div>
+            <div data-loc="client/src/pages/Home.tsx:92" data-slot="card-content" className="px-6">
+              <p data-loc="client/src/pages/Home.tsx:93" className="text-muted-foreground">
+                Transforme dados brutos em insumos valiosos para narrativas vencedoras e planos de governo com impacto real.
+              </p>
+            </div>
+          </div>
+          <div data-loc="client/src/pages/Home.tsx:96" data-slot="card" className="text-card-foreground flex flex-col gap-6 rounded-xl border py-6 shadow-sm bg-card/50 backdrop-blur-sm border-primary/20">
+            <div data-loc="client/src/pages/Home.tsx:97" data-slot="card-header" className="@container/card-header grid auto-rows-min grid-rows-[auto_auto] items-start gap-2 px-6 has-data-[slot=card-action]:grid-cols-[1fr_auto] [.border-b]:pb-6">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="32"
+                height="32"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="lucide lucide-shield text-primary mb-2"
+                data-loc="client/src/pages/Home.tsx:98"
+              >
+                <path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z" />
+              </svg>
+              <div data-loc="client/src/pages/Home.tsx:99" data-slot="card-title" className="leading-none font-semibold text-foreground">
+                Segurança na Decisão
+              </div>
+            </div>
+            <div data-loc="client/src/pages/Home.tsx:101" data-slot="card-content" className="px-6">
+              <p data-loc="client/src/pages/Home.tsx:102" className="text-muted-foreground">
+                Reduza a incerteza e blinde sua campanha contra surpresas.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
   );
 }
