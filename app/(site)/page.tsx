@@ -11,18 +11,7 @@ import { InsightsSection } from "@/components/sections/Insights";
 import { FaqSection } from "@/components/sections/Faq";
 import { FinalCtaSection } from "@/components/sections/FinalCta";
 import { ContactSection } from "@/components/sections/Contact";
-
-const WHATSAPP_MESSAGE = "Olá VoxAnalitica, gostaria de uma proposta";
-
-const encodeMessage = (message: string) => encodeURIComponent(message);
-
-function buildWhatsAppLink(rawNumber: string | undefined) {
-  if (!rawNumber) return "";
-  const digits = rawNumber.replace(/[^0-9+]/g, "");
-  if (!digits) return "";
-  const message = encodeMessage(WHATSAPP_MESSAGE);
-  return `https://wa.me/${digits}?text=${message}`;
-}
+import { buildWhatsAppLink } from "@/lib/whatsapp";
 
 export const metadata: Metadata = {
   title: "VoxAnalitica — Pesquisa & Inteligência de Dados",
@@ -162,7 +151,7 @@ const faqItems = [
 
 export default function HomePage() {
   const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER;
-  const whatsappHref = buildWhatsAppLink(whatsappNumber);
+  const whatsappHref = buildWhatsAppLink(whatsappNumber, { utmContent: "hero_primary_cta" });
 
   const heroBadges = [
     { label: "Relatório Express 24–72h", variant: "accent" as const },
