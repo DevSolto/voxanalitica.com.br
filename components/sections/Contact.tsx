@@ -1,17 +1,12 @@
 "use client";
 
-import { ChangeEvent, FormEvent, useState } from "react";
+import { ChangeEvent, FormEvent, useMemo, useState } from "react";
 import { Section, SectionHeader } from "@/components/Section";
 import { Button } from "@/components/ui/button";
+import { contactFormSchema, ContactFormInput, honeypotFieldName, MIN_SUBMIT_DELAY_MS } from "@/lib/validation/contact";
 
-const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-type ContactFormValues = {
-  name: string;
-  email: string;
-  company: string;
+type ContactFormValues = ContactFormInput & {
   phone: string;
-  message: string;
 };
 
 type ContactSectionProps = {
@@ -22,7 +17,7 @@ type ContactSectionProps = {
 const initialValues: ContactFormValues = {
   name: "",
   email: "",
-  company: "",
+  organization: "",
   phone: "",
   message: "",
 };
@@ -32,29 +27,29 @@ export function ContactSection({ title, subtitle }: ContactSectionProps) {
   const [touched, setTouched] = useState<Record<keyof ContactFormValues, boolean>>({
     name: false,
     email: false,
-    company: false,
+    organization: false,
     phone: false,
     message: false,
   });
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
+  const [honeypotValue, setHoneypotValue] = useState("");
+  const [formStartedAt, setFormStartedAt] = useState(() => Date.now());
 
-  const errors: Partial<Record<keyof ContactFormValues, string>> = {};
-
-  if (!values.name.trim()) {
-    errors.name = "Informe seu nome";
-  }
-  if (!EMAIL_REGEX.test(values.email)) {
-    errors.email = "E-mail inválido";
-  }
-  if (!values.company.trim()) {
-    errors.company = "Informe a organização";
-  }
-  if (!values.message.trim()) {
-    errors.message = "Conte um pouco sobre o projeto";
-  }
+  const validationResult = useMemo(() => contactFormSchema.safeParse(values), [values]);
+  const fieldErrors = validationResult.success ? {} : validationResult.error.flatten().fieldErrors;
+  const errors: Partial<Record<keyof ContactFormValues, string>> = {
+    name: fieldErrors.name?.[0],
+    email: fieldErrors.email?.[0],
+    organization: fieldErrors.organization?.[0],
+    phone: fieldErrors.phone?.[0],
+    message: fieldErrors.message?.[0],
+  };
 
   const handleChange = (field: keyof ContactFormValues) => (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setSubmitted(false);
+    setSubmitError(null);
     setValues((prev) => ({ ...prev, [field]: event.target.value }));
   };
 
@@ -62,13 +57,57 @@ export function ContactSection({ title, subtitle }: ContactSectionProps) {
     setTouched((prev) => ({ ...prev, [field]: true }));
   };
 
-  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    setTouched({ name: true, email: true, company: true, phone: true, message: true });
+    setTouched({ name: true, email: true, organization: true, phone: true, message: true });
 
-    if (Object.keys(errors).length === 0) {
+    if (Date.now() - formStartedAt < MIN_SUBMIT_DELAY_MS) {
+      setSubmitError("Por favor, revise as informações antes de enviar.");
+      return;
+    }
+
+    if (honeypotValue.trim()) {
+      setSubmitError("Não foi possível enviar o formulário.");
+      return;
+    }
+
+    if (!validationResult.success) {
+      setSubmitError("Verifique os campos destacados e tente novamente.");
+      return;
+    }
+
+    setIsSubmitting(true);
+    setSubmitError(null);
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          ...validationResult.data,
+          [honeypotFieldName]: honeypotValue,
+          formStartedAt,
+        }),
+      });
+
+      const payload = (await response.json().catch(() => null)) as { message?: string } | null;
+
+      if (!response.ok) {
+        const errorMessage = payload?.message ?? "Não foi possível enviar. Tente novamente.";
+        setSubmitError(errorMessage);
+        return;
+      }
+
       setSubmitted(true);
       setValues(initialValues);
+      setTouched({ name: false, email: false, organization: false, phone: false, message: false });
+      setHoneypotValue("");
+      setFormStartedAt(Date.now());
+    } catch (error) {
+      console.error("Falha ao enviar formulário de contato", error);
+      setSubmitError("Falha de conexão. Tente novamente em instantes.");
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -77,6 +116,20 @@ export function ContactSection({ title, subtitle }: ContactSectionProps) {
       <SectionHeader eyebrow="Contato" title={title} subtitle={subtitle} align="center" className="mx-auto max-w-2xl" />
       <div className="mx-auto mt-10 max-w-3xl rounded-3xl border border-[#E9ECEF] bg-white p-8 shadow-sm">
         <form className="space-y-6" noValidate onSubmit={handleSubmit}>
+          <div className="hidden" aria-hidden="true">
+            <label htmlFor="contact-website" className="sr-only">
+              Não preencha este campo
+            </label>
+            <input
+              id="contact-website"
+              name={honeypotFieldName}
+              type="text"
+              tabIndex={-1}
+              autoComplete="off"
+              value={honeypotValue}
+              onChange={(event) => setHoneypotValue(event.target.value)}
+            />
+          </div>
           <div className="grid gap-6 md:grid-cols-2">
             <div className="space-y-2">
               <label htmlFor="contact-name" className="text-sm font-semibold text-[#212529]">
@@ -125,24 +178,24 @@ export function ContactSection({ title, subtitle }: ContactSectionProps) {
           </div>
           <div className="grid gap-6 md:grid-cols-2">
             <div className="space-y-2">
-              <label htmlFor="contact-company" className="text-sm font-semibold text-[#212529]">
+              <label htmlFor="contact-organization" className="text-sm font-semibold text-[#212529]">
                 Organização
               </label>
               <input
-                id="contact-company"
-                name="company"
+                id="contact-organization"
+                name="organization"
                 type="text"
-                value={values.company}
-                onChange={handleChange("company")}
-                onBlur={handleBlur("company")}
+                value={values.organization}
+                onChange={handleChange("organization")}
+                onBlur={handleBlur("organization")}
                 className="w-full rounded-xl border border-[#CED4DA] px-4 py-3 text-sm focus:border-[#4F9CF9] focus:outline-none focus:ring-2 focus:ring-[#4F9CF9]/40"
                 placeholder="Empresa, órgão público ou projeto"
-                aria-invalid={Boolean(touched.company && errors.company)}
-                aria-describedby={touched.company && errors.company ? "error-company" : undefined}
+                aria-invalid={Boolean(touched.organization && errors.organization)}
+                aria-describedby={touched.organization && errors.organization ? "error-organization" : undefined}
               />
-              {touched.company && errors.company ? (
-                <p id="error-company" className="text-xs text-red-500">
-                  {errors.company}
+              {touched.organization && errors.organization ? (
+                <p id="error-organization" className="text-xs text-red-500">
+                  {errors.organization}
                 </p>
               ) : null}
             </div>
@@ -159,7 +212,14 @@ export function ContactSection({ title, subtitle }: ContactSectionProps) {
                 onBlur={handleBlur("phone")}
                 className="w-full rounded-xl border border-[#CED4DA] px-4 py-3 text-sm focus:border-[#4F9CF9] focus:outline-none focus:ring-2 focus:ring-[#4F9CF9]/40"
                 placeholder="(00) 90000-0000"
+                aria-invalid={Boolean(touched.phone && errors.phone)}
+                aria-describedby={touched.phone && errors.phone ? "error-phone" : undefined}
               />
+              {touched.phone && errors.phone ? (
+                <p id="error-phone" className="text-xs text-red-500">
+                  {errors.phone}
+                </p>
+              ) : null}
             </div>
           </div>
           <div className="space-y-2">
@@ -188,12 +248,17 @@ export function ContactSection({ title, subtitle }: ContactSectionProps) {
             <p className="text-xs text-[#868E96]">
               Ao enviar, você concorda com nossa <a href="#politica" className="font-semibold text-[#043873] underline">Política de Privacidade</a>.
             </p>
-            <Button type="submit" className="justify-center">
-              Enviar briefing
+            <Button type="submit" className="justify-center" disabled={isSubmitting}>
+              {isSubmitting ? "Enviando..." : "Enviar briefing"}
             </Button>
           </div>
+          {submitError ? (
+            <div className="rounded-xl border border-[#FFC9C9] bg-[#FFE3E3] px-4 py-3 text-sm text-[#C92A2A]" role="alert">
+              {submitError}
+            </div>
+          ) : null}
           {submitted ? (
-            <div className="rounded-xl border border-[#51CF66] bg-[#D3F9D8] px-4 py-3 text-sm text-[#2B8A3E]">
+            <div className="rounded-xl border border-[#51CF66] bg-[#D3F9D8] px-4 py-3 text-sm text-[#2B8A3E]" role="status" aria-live="polite">
               Mensagem enviada! Entraremos em contato em até 1 dia útil.
             </div>
           ) : null}
