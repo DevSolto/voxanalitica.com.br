@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { SectionHero } from "@/components/section-hero";
 import { SectionHowItWorks } from "@/components/section-how-it-works";
+import { SectionQuickProofs } from "@/components/section-quick-proofs";
 
 const WHATSAPP_MESSAGE = "Olá VoxAnalitica, gostaria de uma proposta";
 
@@ -71,6 +72,37 @@ export default function HomePage() {
     { label: "Privacidade", tooltip: "Boas práticas de dados e consentimento" },
   ];
 
+  const quickProofsMetrics = [
+    {
+      id: "metric-projetos",
+      label: "Projetos entregues",
+      value: 120,
+      suffix: "+",
+      tooltip: "Inclui estudos eleitorais e de opinião",
+    },
+    {
+      id: "metric-sla",
+      label: "SLA típico",
+      value: 24,
+      suffix: "–72h",
+      tooltip: "Janela comum para relatório express",
+    },
+    {
+      id: "metric-videos",
+      label: "Entregas em vídeo",
+      value: 80,
+      suffix: "%+",
+      tooltip: "Projetos com vídeo explicativo",
+    },
+    {
+      id: "metric-estados",
+      label: "Estados atendidos",
+      value: 2,
+      suffix: "+",
+      tooltip: "PB, PE e expansão regional",
+    },
+  ];
+
   return (
     <main className="bg-white">
       <SectionHero
@@ -102,6 +134,11 @@ export default function HomePage() {
           ariaLabel: "Solicitar proposta de projeto VoxAnalitica",
           id: "cta-how-it-works",
         }}
+      />
+      <SectionQuickProofs
+        title="Provas rápidas"
+        description="Métricas que mostram como entregamos resultados confiáveis com agilidade e suporte próximo."
+        metrics={quickProofsMetrics}
       />
     </main>
   );
