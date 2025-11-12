@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { SectionHero } from "@/components/section-hero";
 import { SectionHowItWorks } from "@/components/section-how-it-works";
 import { SectionQuickProofs } from "@/components/section-quick-proofs";
+import { SectionServices } from "@/components/section-services";
 
 const WHATSAPP_MESSAGE = "Olá VoxAnalitica, gostaria de uma proposta";
 
@@ -103,6 +104,51 @@ export default function HomePage() {
     },
   ];
 
+  const services = [
+    {
+      icon: "MessageSquare",
+      title: "Pesquisa via WhatsApp",
+      desc: "Questionários automatizados, regras de qualidade e funis conversacionais.",
+      bullets: ["Triagem por perfil", "Validação de respostas", "Alta taxa de retorno"],
+      tag: "Diferencial",
+    },
+    {
+      icon: "Users",
+      title: "Qualitativa (IDIs/Grupos)",
+      desc: "Entrevistas em profundidade e grupos focais com roteiro e síntese temática.",
+      bullets: ["Guias customizados", "Codificação temática", "Insights acionáveis"],
+    },
+    {
+      icon: "ClipboardList",
+      title: "Quantitativa de Campo",
+      desc: "Amostras representativas, coleta assistida e auditoria de consistência.",
+      bullets: ["Desenho amostral", "Pesquisadores treinados", "Checagem por GPS"],
+    },
+    {
+      icon: "BarChart3",
+      title: "Relatório Express",
+      desc: "Resumo executivo com gráficos claros e storytelling de achados.",
+      bullets: ["SLA 24–72h", "Sumário para decisão", "Recomendações práticas"],
+      tag: "Rápido",
+    },
+    {
+      icon: "PlayCircle",
+      title: "Vídeo Explicativo",
+      desc: "Apresentação didática para stakeholders entenderem o cenário em minutos.",
+      bullets: ["Roteiro enxuto", "Narrativa visual", "Export em HD"],
+    },
+    {
+      icon: "AudioLines",
+      title: "Relatórios em Áudio",
+      desc: "Briefings narrados no estilo podcast para contextualizar cenários em minutos.",
+      bullets: [
+        "Roteiro sintetizado",
+        "Explicação guiada por analista",
+        "Arquivo leve para compartilhar",
+      ],
+    },
+  ] as const;
+
   return (
     <main className="bg-white">
       <SectionHero
@@ -139,6 +185,23 @@ export default function HomePage() {
         title="Provas rápidas"
         description="Métricas que mostram como entregamos resultados confiáveis com agilidade e suporte próximo."
         metrics={quickProofsMetrics}
+      />
+      <SectionServices
+        title="Serviços"
+        subtitle="Pesquisa, análise e apresentação clara para decisões com menos risco."
+        services={services}
+        ctaPrimary={{
+          label: "Montar meu projeto",
+          href: "/contato",
+          id: "cta-services-primary",
+          ariaLabel: "Solicitar proposta VoxAnalitica",
+        }}
+        ctaSecondary={{
+          label: "Falar no WhatsApp",
+          href_template: "https://wa.me/${NEXT_PUBLIC_WHATSAPP_NUMBER}",
+          id: "cta-services-secondary",
+          ariaLabel: "Falar com a VoxAnalitica no WhatsApp",
+        }}
       />
     </main>
   );
