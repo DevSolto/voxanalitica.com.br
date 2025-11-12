@@ -1,6 +1,15 @@
 "use client";
 
-import { Briefcase, ClipboardList, MessageSquare, PlayCircle, Users } from "lucide-react";
+import {
+  Brain,
+  Briefcase,
+  ClipboardList,
+  MessageSquare,
+  PlayCircle,
+  TrendingUp,
+  Users,
+  Zap,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Section, SectionColumns, SectionHeader } from "@/components/Section";
 
@@ -15,20 +24,31 @@ type SolutionItem = {
 type SolutionsProps = {
   title: string;
   subtitle: string;
+  itemsTitle?: string;
   items: SolutionItem[];
   primaryCta: { label: string; href: string; id?: string; ariaLabel?: string };
   secondaryCta?: { label: string; href: string; id?: string; ariaLabel?: string };
 };
 
 const iconMap = {
+  Brain,
   MessageSquare,
+  TrendingUp,
   Users,
   ClipboardList,
   Briefcase,
   PlayCircle,
+  Zap,
 };
 
-export function SolutionsSection({ title, subtitle, items, primaryCta, secondaryCta }: SolutionsProps) {
+export function SolutionsSection({
+  title,
+  subtitle,
+  itemsTitle,
+  items,
+  primaryCta,
+  secondaryCta,
+}: SolutionsProps) {
   return (
     <Section id="solucoes" className="bg-[#F8F9FA]">
       <SectionHeader
@@ -38,6 +58,9 @@ export function SolutionsSection({ title, subtitle, items, primaryCta, secondary
         align="center"
         className="mx-auto max-w-3xl"
       />
+      {itemsTitle ? (
+        <p className="mt-6 text-center text-base font-semibold text-[#212529]">{itemsTitle}</p>
+      ) : null}
       <SectionColumns className="mt-12 grid-cols-1 md:grid-cols-2 xl:grid-cols-3">
         {items.map((item) => {
           const Icon = iconMap[item.icon] ?? MessageSquare;
