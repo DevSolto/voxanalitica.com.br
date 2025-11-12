@@ -4,9 +4,9 @@ import * as React from "react";
 import Link from "next/link";
 import { motion, useReducedMotion } from "framer-motion";
 import {
+  AudioLines,
   BarChart3,
   ClipboardList,
-  LayoutDashboard,
   MessageSquare,
   PlayCircle,
   Users,
@@ -22,7 +22,7 @@ type IconName =
   | "ClipboardList"
   | "BarChart3"
   | "PlayCircle"
-  | "LayoutDashboard"
+  | "AudioLines"
   | (string & {});
 
 const iconMap = {
@@ -31,7 +31,7 @@ const iconMap = {
   ClipboardList,
   BarChart3,
   PlayCircle,
-  LayoutDashboard,
+  AudioLines,
 };
 
 export type ServiceItem = {
@@ -68,8 +68,8 @@ const SECTION_KEYWORDS = [
   "pesquisa qualitativa",
   "pesquisa quantitativa",
   "relatórios",
-  "dashboards",
-  "mapas",
+  "relatórios em áudio",
+  "vídeos explicativos",
 ];
 
 function getIconComponent(name: IconName) {

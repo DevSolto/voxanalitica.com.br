@@ -138,10 +138,14 @@ export default function HomePage() {
       bullets: ["Roteiro enxuto", "Narrativa visual", "Export em HD"],
     },
     {
-      icon: "LayoutDashboard",
-      title: "Dashboards & Mapas",
-      desc: "Painéis interativos e recortes geográficos por bairro/segmento.",
-      bullets: ["Filtros por público", "Mapa de calor", "Export CSV/PNG"],
+      icon: "AudioLines",
+      title: "Relatórios em Áudio",
+      desc: "Briefings narrados no estilo podcast para contextualizar cenários em minutos.",
+      bullets: [
+        "Roteiro sintetizado",
+        "Explicação guiada por analista",
+        "Arquivo leve para compartilhar",
+      ],
     },
   ] as const;
 
