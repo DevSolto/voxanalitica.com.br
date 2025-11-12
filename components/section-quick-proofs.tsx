@@ -21,8 +21,8 @@ export type SectionQuickProofsProps = {
   disclaimer?: string;
 };
 
-const SECTION_ID = "provas-rapidas";
-const SECTION_ANALYTICS_ID = "provas-rapidas";
+const SECTION_ID = "metricas-importantes";
+const SECTION_ANALYTICS_ID = "metricas-importantes";
 
 function useCountUp(target: number, shouldStart: boolean, shouldReduceMotion: boolean, duration = 1.2) {
   const [value, setValue] = React.useState(() => (shouldReduceMotion ? target : 0));
@@ -140,14 +140,14 @@ export function SectionQuickProofs({ metrics, title, description, disclaimer }: 
       ref={sectionRef}
       aria-labelledby={headingId}
       className="relative isolate overflow-hidden bg-neutral-50 py-16 md:py-20"
-      data-keywords="cases,clientes,provas sociais,números de credibilidade"
+      data-keywords="cases,clientes,provas sociais,números de credibilidade,métricas importantes"
     >
       <div className="absolute inset-x-0 top-0 -z-10 h-60 bg-gradient-to-b from-white/80 to-transparent" aria-hidden="true" />
       <div className="absolute inset-0 -z-20 hero-surface" aria-hidden="true" />
       <div className="mx-auto max-w-7xl px-4 md:px-6">
         <div className="max-w-2xl">
           <div className="inline-flex items-center gap-2 rounded-full bg-white/80 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-[#043873] shadow-sm">
-            <span>PROVAS RÁPIDAS</span>
+            <span>MÉTRICAS IMPORTANTES</span>
             <span aria-hidden="true" className="text-[#4F9CF9]">
               ·
             </span>
