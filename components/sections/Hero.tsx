@@ -1,7 +1,6 @@
 "use client";
 
 import * as React from "react";
-import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { ExpressBadge } from "@/components/express-badge";
@@ -23,6 +22,7 @@ type HeroProps = {
   primaryCta: Cta;
   secondaryCta: Cta;
   badges?: Array<{ label: string; variant?: "accent" | "outline" }>;
+  cards?: Array<{ title: string; content: string }>;
 };
 
 const WhatsAppIcon = () => (
@@ -77,7 +77,7 @@ function useRevealAnimation<T extends HTMLElement>() {
   return { ref, isVisible } as const;
 }
 
-export function HeroSection({ title, subtitle, primaryCta, secondaryCta, badges = [] }: HeroProps) {
+export function HeroSection({ title, subtitle, primaryCta, secondaryCta, badges = [], cards = [] }: HeroProps) {
   const { ref, isVisible } = useRevealAnimation<HTMLDivElement>();
 
   const handlePrimaryClick = React.useCallback(
@@ -103,79 +103,73 @@ export function HeroSection({ title, subtitle, primaryCta, secondaryCta, badges 
   return (
     <Section id="home" className="relative isolate overflow-hidden bg-neutral-50 pb-20 pt-24 md:pb-24">
       <div className="absolute inset-x-0 top-0 -z-10 h-72 bg-gradient-to-b from-white/60 to-transparent" aria-hidden="true" />
-      <div className="flex flex-col gap-16 lg:flex-row lg:items-center" ref={ref}>
-        <div
-          className={cn(
-            "flex-1", "transition-all duration-700",
-            isVisible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0",
-          )}
-        >
-          <div className="inline-flex items-center gap-2 rounded-full bg-white/80 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-[#043873] shadow-sm">
-            <span>PESQUISA E INTELIGÊNCIA</span>
-          </div>
-          <h1 className="mt-6 font-bold tracking-tight text-[#043873] text-3xl leading-tight md:text-5xl md:leading-[1.1]">
-            {title}
-          </h1>
-          <p className="mt-4 max-w-xl text-base text-[#495057] md:text-lg">{subtitle}</p>
-          {badges.length > 0 && (
-            <div className="mt-6 flex flex-wrap items-center gap-3">
-              {badges.map((badge) => (
-                <ExpressBadge key={badge.label} label={badge.label} variant={badge.variant} />
-              ))}
-            </div>
-          )}
-          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-            <Button.Link
-              id={primaryCta.id}
-              href={primaryCta.href}
-              aria-label={primaryCta.ariaLabel ?? "Abrir conversa no WhatsApp"}
-              onClick={handlePrimaryClick}
-              variant={primaryCta.disabled ? "outline" : "secondary"}
-              className={cn(
-                primaryCta.disabled ? "cursor-not-allowed border-dashed opacity-60" : "",
-                "justify-center",
-              )}
-              rel={primaryRel}
-              target={primaryTarget}
-              title={primaryCta.disabled ? "Informe o número do WhatsApp para habilitar" : undefined}
-              aria-disabled={primaryCta.disabled}
-              tabIndex={primaryCta.disabled ? -1 : undefined}
-              as={primaryComponent}
-              icon={!primaryCta.disabled ? <WhatsAppIcon /> : undefined}
-            >
-              {primaryCta.label}
-            </Button.Link>
-            <Button.Link
-              id={secondaryCta.id}
-              href={secondaryCta.href}
-              aria-label={secondaryCta.ariaLabel ?? "Ir para formulário de proposta"}
-              onClick={handleSecondaryClick}
-              variant="outline"
-              className="justify-center"
-              as={Link}
-            >
-              {secondaryCta.label}
-            </Button.Link>
-          </div>
+      <div
+        className={cn(
+          "flex flex-col items-center text-center", "transition-all duration-700",
+          isVisible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0",
+        )}
+        ref={ref}
+      >
+        <div className="inline-flex items-center gap-2 rounded-full bg-white/80 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-[#043873] shadow-sm">
+          <span>PESQUISA E INTELIGÊNCIA</span>
         </div>
-        <div
-          className={cn(
-            "flex flex-1 justify-center", "transition-all duration-700",
-            isVisible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0",
-          )}
-        >
-          <div className="relative w-full max-w-lg">
-            <div className="absolute -inset-6 -z-10 rounded-3xl bg-[#4F9CF9]/10 blur-3xl" aria-hidden="true" />
-            <Image
-              src="/hero-visual.svg"
-              alt="Dashboards e mapas representando insights da VoxAnalitica"
-              width={640}
-              height={520}
-              priority
-              className="w-full rounded-3xl shadow-xl"
-            />
+        <h1 className="mt-6 max-w-4xl font-bold tracking-tight text-[#043873] text-3xl leading-tight md:text-5xl md:leading-[1.1]">
+          {title}
+        </h1>
+        <p className="mt-4 max-w-2xl text-base text-[#495057] md:text-lg">{subtitle}</p>
+        {badges.length > 0 && (
+          <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
+            {badges.map((badge) => (
+              <ExpressBadge key={badge.label} label={badge.label} variant={badge.variant} />
+            ))}
           </div>
+        )}
+        <div className="mt-8 flex w-full flex-col gap-3 sm:w-auto sm:flex-row sm:justify-center">
+          <Button.Link
+            id={primaryCta.id}
+            href={primaryCta.href}
+            aria-label={primaryCta.ariaLabel ?? "Abrir conversa no WhatsApp"}
+            onClick={handlePrimaryClick}
+            variant={primaryCta.disabled ? "outline" : "secondary"}
+            className={cn(
+              primaryCta.disabled ? "cursor-not-allowed border-dashed opacity-60" : "",
+              "justify-center",
+            )}
+            rel={primaryRel}
+            target={primaryTarget}
+            title={primaryCta.disabled ? "Informe o número do WhatsApp para habilitar" : undefined}
+            aria-disabled={primaryCta.disabled}
+            tabIndex={primaryCta.disabled ? -1 : undefined}
+            as={primaryComponent}
+            icon={!primaryCta.disabled ? <WhatsAppIcon /> : undefined}
+          >
+            {primaryCta.label}
+          </Button.Link>
+          <Button.Link
+            id={secondaryCta.id}
+            href={secondaryCta.href}
+            aria-label={secondaryCta.ariaLabel ?? "Ir para formulário de proposta"}
+            onClick={handleSecondaryClick}
+            variant="outline"
+            className="justify-center"
+            as={Link}
+          >
+            {secondaryCta.label}
+          </Button.Link>
         </div>
+        {cards.length > 0 && (
+          <div className="mt-12 grid w-full max-w-4xl gap-4 md:grid-cols-3">
+            {cards.map((card) => (
+              <article
+                key={card.title}
+                className="rounded-2xl border border-[#E9ECEF] bg-white/90 p-6 text-left shadow-sm"
+              >
+                <h3 className="text-lg font-semibold text-[#043873]">{card.title}</h3>
+                <p className="mt-2 text-sm text-[#495057]">{card.content}</p>
+              </article>
+            ))}
+          </div>
+        )}
       </div>
     </Section>
   );

@@ -157,6 +157,21 @@ export default function HomePage() {
     { label: "Relatório Express 24–72h", variant: "accent" as const },
     { label: "Transparência Metodológica", variant: "outline" as const },
   ];
+  const heroCards = [
+    {
+      title: "Decifre o Eleitorado",
+      content: "Vá além da intenção de voto. Entenda o porquê o eleitor escolhe, rejeita ou se emociona.",
+    },
+    {
+      title: "Subsídios Estratégicos",
+      content:
+        "Transforme dados brutos em insumos valiosos para narrativas vencedoras e planos de governo com impacto real.",
+    },
+    {
+      title: "Segurança na Decisão",
+      content: "Reduza a incerteza e blinde sua campanha contra surpresas.",
+    },
+  ];
 
   const solutionItems = [
     {
@@ -228,22 +243,23 @@ export default function HomePage() {
       <Nav />
       <main>
         <HeroSection
-          title="Pesquisa que vira estratégia."
-          subtitle="Da coleta automatizada pelo WhatsApp à decisão com menos risco — relatórios express em texto, vídeo e áudio."
+          title="A Inteligência que Vence Eleições e Transforma Governos"
+          subtitle="Transformamos a Opinião Pública em Subsídios Estratégicos Acionáveis. Pare de Chutar. Comece a Decidir com Segurança."
           primaryCta={{
-            label: "Falar no WhatsApp",
+            label: "Fale com um Estrategista",
             href: whatsappHref || "#contato",
             id: "cta-whatsapp",
             disabled: !whatsappHref,
             ariaLabel: "Abrir conversa no WhatsApp",
           }}
           secondaryCta={{
-            label: "Solicitar proposta",
-            href: "#contato",
+            label: "Conheça Nossas Soluções",
+            href: "#solucoes",
             id: "cta-proposta",
-            ariaLabel: "Ir para formulário de contato",
+            ariaLabel: "Ir para seção de soluções",
           }}
           badges={heroBadges}
+          cards={heroCards}
         />
         <SolutionsSection
           title="Soluções para entender e agir rápido"
