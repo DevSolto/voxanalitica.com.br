@@ -176,38 +176,24 @@ export default function HomePage() {
   const solutionItems = [
     {
       icon: "MessageSquare" as const,
-      title: "Pesquisa via WhatsApp",
-      description:
-        "Questionários conversacionais com filtros, regras de qualidade e acompanhamento diário do campo.",
-      bullets: ["Funis por persona", "Checagem de respostas", "Painel em tempo real"],
-      tag: "Automação",
+      title: "Qualitativa de Rua",
+      description: "Capturamos a verdade nua e crua do eleitorado em seu ambiente natural. É a voz das ruas traduzida em inteligência.",
     },
     {
-      icon: "Users" as const,
-      title: "Entrevistas em profundidade",
-      description: "Roteiros guiados, gravação e síntese temática para captar nuances que números não mostram.",
-      bullets: ["Guias customizados", "Codificação temática", "Clipes em vídeo"],
+      icon: "Zap" as const,
+      title: "Inteligência Híbrida e Automação",
+      description:
+        "Utilizamos IA e automação via WhatsApp (PesqZap) para pesquisas em escala, com velocidade e baixo custo.",
     },
     {
-      icon: "ClipboardList" as const,
-      title: "Campo presencial",
-      description:
-        "Rede de pesquisadores treinados, controle de amostra e auditoria contínua para garantir representatividade.",
-      bullets: ["Auditoria por GPS", "Supervisão híbrida", "Relatórios de campo"],
+      icon: "Brain" as const,
+      title: "Foco na Emoção e Sentimento",
+      description: "Nossas análises se aprofundam nas motivações emocionais que definem o voto.",
     },
     {
-      icon: "Briefcase" as const,
-      title: "Inteligência competitiva",
-      description:
-        "Desk research, web scraping e análise de concorrência com dashboards acionáveis para diretoria.",
-      bullets: ["Monitoramento semanal", "Alertas automáticos", "Resumo executivo"],
-    },
-    {
-      icon: "PlayCircle" as const,
-      title: "Vídeo e áudio briefing",
-      description:
-        "Narrativas em vídeo e podcasts curtos para apresentar descobertas a stakeholders e imprensa.",
-      bullets: ["Roteiro enxuto", "Motion simplificado", "Distribuição fácil"],
+      icon: "TrendingUp" as const,
+      title: "Tradução Estratégica",
+      description: "Transformamos relatórios complexos em subsídios valiosos para a sua estratégia.",
     },
   ];
 
@@ -262,8 +248,9 @@ export default function HomePage() {
           cards={heroCards}
         />
         <SolutionsSection
-          title="Soluções para entender e agir rápido"
-          subtitle="Diagnóstico completo: coleta inteligente, análise aprofundada e apresentações que convencem quem decide."
+          title="Vox Analytica: Ciência Política Aplicada à Vitória"
+          subtitle="A Vox Analytica nasceu da convicção de que a pesquisa política precisava evoluir. Fundada por especialistas com vasta experiência em campanhas e gestão pública, nossa empresa se estabeleceu como uma referência em inteligência estratégica no Nordeste, atuando onde a pesquisa tradicional falha: na captura da emoção e do sentimento não-racional do eleitor. Não somos apenas coletores de dados; somos tradutores de realidades políticas."
+          itemsTitle="Nossos Diferenciais Metodológicos"
           items={solutionItems}
           primaryCta={{
             label: "Montar meu projeto",
