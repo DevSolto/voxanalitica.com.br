@@ -1,0 +1,65 @@
+"use client";
+
+import { Section, SectionHeader } from "@/components/Section";
+import { Button } from "@/components/ui/button";
+import { Database, MessageSquare, PlayCircle, Sparkles } from "lucide-react";
+
+type MethodologyStep = {
+  icon: keyof typeof iconMap;
+  title: string;
+  description: string;
+};
+
+type MethodologyProps = {
+  title: string;
+  subtitle: string;
+  steps: MethodologyStep[];
+  cta: { label: string; href: string; id?: string; ariaLabel?: string };
+};
+
+const iconMap = {
+  MessageSquare,
+  Database,
+  Sparkles,
+  PlayCircle,
+};
+
+export function MethodologySection({ title, subtitle, steps, cta }: MethodologyProps) {
+  return (
+    <Section id="metodologia">
+      <SectionHeader eyebrow="Metodologia" title={title} subtitle={subtitle} className="max-w-3xl" />
+      <div className="mt-12 grid gap-6 md:grid-cols-2">
+        {steps.map((step, index) => {
+          const Icon = iconMap[step.icon] ?? MessageSquare;
+          return (
+            <article
+              key={step.title}
+              className="relative flex h-full flex-col rounded-2xl border border-[#E9ECEF] bg-white p-6 shadow-sm"
+            >
+              <div className="flex items-start gap-4">
+                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-[#E8F2FF] text-[#043873]">
+                  <Icon className="h-6 w-6" aria-hidden="true" />
+                </div>
+                <div>
+                  <p className="text-xs font-semibold uppercase tracking-[0.3em] text-[#ADB5BD]">Etapa {index + 1}</p>
+                  <h3 className="mt-1 text-lg font-semibold text-[#212529]">{step.title}</h3>
+                  <p className="mt-2 text-sm text-[#495057]">{step.description}</p>
+                </div>
+              </div>
+            </article>
+          );
+        })}
+      </div>
+      <div className="mt-12 flex justify-center">
+        <Button.Link
+          id={cta.id}
+          href={cta.href}
+          aria-label={cta.ariaLabel ?? cta.label}
+          variant="secondary"
+        >
+          {cta.label}
+        </Button.Link>
+      </div>
+    </Section>
+  );
+}
