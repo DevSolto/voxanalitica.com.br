@@ -1,7 +1,6 @@
 "use client";
 
 import * as React from "react";
-import Image from "next/image";
 import { useInView, useReducedMotion } from "framer-motion";
 
 import { trackEvent } from "@/lib/analytics";
@@ -14,18 +13,10 @@ export type QuickProofMetric = {
   tooltip?: string;
 };
 
-export type QuickProofLogo = {
-  alt: string;
-  src: string;
-  width?: number;
-  height?: number;
-  href?: string;
-};
-
 export type SectionQuickProofsProps = {
   metrics: QuickProofMetric[];
-  logos: QuickProofLogo[];
-  titleSrOnly?: string;
+  title: string;
+  description?: string;
   disclaimer?: string;
 };
 
@@ -108,51 +99,7 @@ function MetricCard({ metric, shouldStart, shouldReduceMotion }: { metric: Quick
   );
 }
 
-function LogoItem({ logo }: { logo: QuickProofLogo }) {
-  const content = (
-    <Image
-      src={logo.src}
-      alt={logo.alt}
-      width={logo.width ?? 160}
-      height={logo.height ?? 40}
-      sizes="(min-width: 768px) 20vw, 50vw"
-      className="h-auto w-auto"
-      priority={false}
-    />
-  );
-
-  if (logo.href) {
-    const handleClick = () => {
-      trackEvent("logo_click", {
-        section: SECTION_ANALYTICS_ID,
-        logoAlt: logo.alt,
-      });
-    };
-
-    return (
-      <li className="shrink-0">
-        <a
-          href={logo.href}
-          target="_blank"
-          rel="noreferrer noopener"
-          aria-label={`Abrir case ou site de ${logo.alt}`}
-          className="inline-flex items-center justify-center rounded-md px-2 py-1 text-[#495057] opacity-80 transition hover:opacity-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#4F9CF9]"
-          onClick={handleClick}
-        >
-          {content}
-        </a>
-      </li>
-    );
-  }
-
-  return (
-    <li className="shrink-0 opacity-80 transition hover:opacity-100">
-      <div className="inline-flex items-center justify-center">{content}</div>
-    </li>
-  );
-}
-
-export function SectionQuickProofs({ metrics, logos, titleSrOnly = "Provas rápidas", disclaimer }: SectionQuickProofsProps) {
+export function SectionQuickProofs({ metrics, title, description, disclaimer }: SectionQuickProofsProps) {
   const sectionRef = React.useRef<HTMLElement | null>(null);
   const inView = useInView(sectionRef, { once: true, amount: 0.4 });
   const shouldReduceMotion = useReducedMotion();
@@ -184,9 +131,17 @@ export function SectionQuickProofs({ metrics, logos, titleSrOnly = "Provas rápi
       data-keywords="cases,clientes,provas sociais,números de credibilidade"
     >
       <div className="mx-auto max-w-7xl px-4 md:px-6">
-        <h2 id={headingId} className="sr-only">
-          {titleSrOnly}
-        </h2>
+        <div className="max-w-2xl">
+          <h2
+            id={headingId}
+            className="text-2xl font-semibold text-[#043873] md:text-3xl"
+          >
+            {title}
+          </h2>
+          {description ? (
+            <p className="mt-3 text-base text-[#495057] md:text-lg">{description}</p>
+          ) : null}
+        </div>
 
         <div className="grid grid-cols-2 gap-4 md:grid-cols-4 md:gap-6">
           {metrics.map((metric) => (
@@ -197,17 +152,6 @@ export function SectionQuickProofs({ metrics, logos, titleSrOnly = "Provas rápi
               shouldReduceMotion={shouldReduceMotion}
             />
           ))}
-        </div>
-
-        <div
-          className="mt-10 overflow-x-auto scroll-smooth [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
-          aria-label="Logotipos de clientes e parceiros"
-        >
-          <ul className="flex items-center gap-8 md:grid md:grid-cols-5 md:gap-10 md:justify-items-center">
-            {logos.map((logo) => (
-              <LogoItem key={logo.alt} logo={logo} />
-            ))}
-          </ul>
         </div>
 
         {disclaimer ? (

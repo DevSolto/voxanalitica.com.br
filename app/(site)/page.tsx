@@ -103,14 +103,6 @@ export default function HomePage() {
     },
   ];
 
-  const quickProofsLogos = [
-    { alt: "Prefeitura X", src: "/logos/prefeitura-x.svg", width: 140, height: 36 },
-    { alt: "Câmara Municipal Y", src: "/logos/camara-y.svg", width: 160, height: 36 },
-    { alt: "Instituto Z", src: "/logos/instituto-z.svg", width: 150, height: 36 },
-    { alt: "Rede de Mídia W", src: "/logos/rede-w.svg", width: 150, height: 36 },
-    { alt: "Universidade V", src: "/logos/universidade-v.svg", width: 170, height: 36 },
-  ];
-
   return (
     <main className="bg-white">
       <SectionHero
@@ -144,10 +136,9 @@ export default function HomePage() {
         }}
       />
       <SectionQuickProofs
-        titleSrOnly="Provas rápidas"
+        title="Provas rápidas"
+        description="Métricas que mostram como entregamos resultados confiáveis com agilidade e suporte próximo."
         metrics={quickProofsMetrics}
-        logos={quickProofsLogos}
-        disclaimer="Marcas exibidas apenas como exemplo de layout."
       />
     </main>
   );
