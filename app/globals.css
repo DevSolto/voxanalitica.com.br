@@ -1,17 +1,32 @@
 @import "tailwindcss";
 
+/* === Tokens raiz (claro/escuro via media) === */
 :root {
   --background: #ffffff;
   --foreground: #171717;
+
+  /* Se você usa next/font (ex.: Geist), mapeie aqui: */
+  /* --font-geist-sans: var(--your-loaded-sans); */
+  /* --font-geist-mono: var(--your-loaded-mono); */
 }
 
-@theme inline {
+/* Tema Tailwind a partir dos tokens (v4) */
+@theme {
+
+  --color-brand-600: #043873;
+  --color-brand-400: #4F9CF9;
+  --color-accent-300: #FFE6A8;
+
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+
+  /* Mapeando para utilities font-sans e font-mono */
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, SFMono-Regular, Menlo, monospace;
 }
 
+/* Dark mode automático por media query */
+/* Se preferir alternar por classe/atributo, veja a seção 3 */
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
@@ -19,8 +34,18 @@
   }
 }
 
+/* Base mínima — deixe cores/fonte para as classes no HTML */
+html {
+  /* Dica: defina as classes "globais" no HTML (ver layout.tsx) */
+  /* Aqui, só mantenho um fallback bem neutro */
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Evite fixar font-family direto no body se vai usar font-sans do Tailwind.
+   Se quiser um fallback duro enquanto configura next/font, pode deixar: */
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
 }
