@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { SectionHero } from "@/components/section-hero";
+import { SectionHowItWorks } from "@/components/section-how-it-works";
 
 const WHATSAPP_MESSAGE = "Olá VoxAnalitica, gostaria de uma proposta";
 
@@ -41,6 +42,35 @@ export default function HomePage() {
     { label: "Transparência Metodológica", variant: "outline" as const },
   ];
 
+  const howItWorksSteps = [
+    {
+      icon: "MessageSquare",
+      title: "Coleta no WhatsApp",
+      desc: "Disparamos questionários e recebemos respostas direto no WhatsApp, com funis e regras de qualidade.",
+    },
+    {
+      icon: "Database",
+      title: "Tratamento & Análise",
+      desc: "Limpeza, checagens e modelos estatísticos para cortar ruído e elevar a precisão.",
+    },
+    {
+      icon: "BarChart3",
+      title: "Relatório Express",
+      desc: "Resumo executivo + dashboards e pontos-chave em texto. SLA típico: 24–72 horas.",
+    },
+    {
+      icon: "PlayCircle",
+      title: "Vídeo Explicativo",
+      desc: "Entrega de vídeo curto e didático para stakeholders entenderem o cenário em minutos.",
+    },
+  ];
+
+  const howItWorksBadges = [
+    { label: "SLA 24–72h", tooltip: "Prazo comum para projetos padrão" },
+    { label: "Qualidade amostral", tooltip: "Validações e filtros de inconsistência" },
+    { label: "Privacidade", tooltip: "Boas práticas de dados e consentimento" },
+  ];
+
   return (
     <main className="bg-white">
       <SectionHero
@@ -60,6 +90,18 @@ export default function HomePage() {
           ariaLabel: "Ir para formulário de proposta",
         }}
         badges={heroBadges}
+      />
+      <SectionHowItWorks
+        title="Como funciona"
+        subtitle="Do contato ao insight acionável em horas, não semanas."
+        steps={howItWorksSteps}
+        metricsBadges={howItWorksBadges}
+        cta={{
+          label: "Quero esse fluxo",
+          href: "/contato",
+          ariaLabel: "Solicitar proposta de projeto VoxAnalitica",
+          id: "cta-how-it-works",
+        }}
       />
     </main>
   );
