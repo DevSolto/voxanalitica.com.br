@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { ExpressBadge } from "@/components/express-badge";
 import { cn } from "@/lib/utils";
 import { trackEvent } from "@/lib/analytics";
+import { Section } from "@/components/Section";
 
 type Cta = {
   label: string;
@@ -16,7 +17,7 @@ type Cta = {
   disabled?: boolean;
 };
 
-type SectionHeroProps = {
+type HeroProps = {
   title: string;
   subtitle: string;
   primaryCta: Cta;
@@ -76,7 +77,7 @@ function useRevealAnimation<T extends HTMLElement>() {
   return { ref, isVisible } as const;
 }
 
-export function SectionHero({ title, subtitle, primaryCta, secondaryCta, badges = [] }: SectionHeroProps) {
+export function HeroSection({ title, subtitle, primaryCta, secondaryCta, badges = [] }: HeroProps) {
   const { ref, isVisible } = useRevealAnimation<HTMLDivElement>();
 
   const handlePrimaryClick = React.useCallback(
@@ -94,27 +95,15 @@ export function SectionHero({ title, subtitle, primaryCta, secondaryCta, badges 
     trackEvent("cta_proposal_click", { section: "hero" });
   }, []);
 
-  const heroLogos = [
-    "Prefeituras", "Institutos", "Startups", "Universidades", "ONGs",
-  ];
-
   const isPrimaryExternal = primaryCta.href.startsWith("http");
-  const primaryAsComponent = primaryCta.disabled ? "a" : isPrimaryExternal ? "a" : Link;
+  const primaryComponent = primaryCta.disabled ? "a" : isPrimaryExternal ? "a" : Link;
   const primaryTarget = !primaryCta.disabled && isPrimaryExternal ? "_blank" : undefined;
   const primaryRel = !primaryCta.disabled && isPrimaryExternal ? "noopener noreferrer" : undefined;
 
   return (
-    <section
-      ref={ref}
-      aria-labelledby="hero-title"
-      className={cn(
-        "relative isolate overflow-hidden",
-        "hero-surface",
-        "bg-neutral-50",
-      )}
-    >
+    <Section id="home" className="relative isolate overflow-hidden bg-neutral-50 pb-20 pt-24 md:pb-24">
       <div className="absolute inset-x-0 top-0 -z-10 h-72 bg-gradient-to-b from-white/60 to-transparent" aria-hidden="true" />
-      <div className="mx-auto flex max-w-7xl flex-col gap-16 px-4 py-16 md:px-6 md:py-24 lg:flex-row lg:items-center">
+      <div className="flex flex-col gap-16 lg:flex-row lg:items-center" ref={ref}>
         <div
           className={cn(
             "flex-1", "transition-all duration-700",
@@ -124,15 +113,10 @@ export function SectionHero({ title, subtitle, primaryCta, secondaryCta, badges 
           <div className="inline-flex items-center gap-2 rounded-full bg-white/80 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-[#043873] shadow-sm">
             <span>PESQUISA E INTELIGÊNCIA</span>
           </div>
-          <h1
-            id="hero-title"
-            className="mt-6 font-bold tracking-tight text-[#043873] text-3xl leading-tight md:text-5xl md:leading-[1.1]"
-          >
+          <h1 className="mt-6 font-bold tracking-tight text-[#043873] text-3xl leading-tight md:text-5xl md:leading-[1.1]">
             {title}
           </h1>
-          <p className="mt-4 max-w-xl text-base text-[#495057] md:text-lg">
-            {subtitle}
-          </p>
+          <p className="mt-4 max-w-xl text-base text-[#495057] md:text-lg">{subtitle}</p>
           {badges.length > 0 && (
             <div className="mt-6 flex flex-wrap items-center gap-3">
               {badges.map((badge) => (
@@ -156,7 +140,7 @@ export function SectionHero({ title, subtitle, primaryCta, secondaryCta, badges 
               title={primaryCta.disabled ? "Informe o número do WhatsApp para habilitar" : undefined}
               aria-disabled={primaryCta.disabled}
               tabIndex={primaryCta.disabled ? -1 : undefined}
-              as={primaryAsComponent}
+              as={primaryComponent}
               icon={!primaryCta.disabled ? <WhatsAppIcon /> : undefined}
             >
               {primaryCta.label}
@@ -193,7 +177,6 @@ export function SectionHero({ title, subtitle, primaryCta, secondaryCta, badges 
           </div>
         </div>
       </div>
-      
-    </section>
+    </Section>
   );
 }
