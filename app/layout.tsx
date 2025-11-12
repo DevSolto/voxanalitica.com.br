@@ -1,9 +1,17 @@
-// app/layout.tsx
 import "./globals.css";
-import { Geist, Geist_Mono } from "next/font/google"; // ou @next/font/local
+import { Inter, Montserrat } from "next/font/google";
 
-const geistSans = Geist({ subsets: ["latin"], variable: "--font-geist-sans" });
-const geistMono = Geist_Mono({ subsets: ["latin"], variable: "--font-geist-mono" });
+const headingFont = Montserrat({
+  subsets: ["latin"],
+  variable: "--font-heading",
+  display: "swap",
+});
+
+const bodyFont = Inter({
+  subsets: ["latin"],
+  variable: "--font-body",
+  display: "swap",
+});
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -14,12 +22,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         "bg-background text-foreground",
         // Familia tipográfica padrão
         "font-sans",
-        // Registra as CSS vars vindas do next/font (variáveis usadas no @theme)
-        geistSans.variable,
-        geistMono.variable,
+        headingFont.variable,
+        bodyFont.variable,
       ].join(" ")}
     >
-      <body className="antialiased">{children}</body>
+      <body className="antialiased font-[var(--font-body,inherit)]">{children}</body>
     </html>
   );
 }

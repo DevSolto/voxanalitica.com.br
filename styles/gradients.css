@@ -1,0 +1,14 @@
+@layer utilities {
+  .hero-surface {
+    background-image: radial-gradient(
+        ellipse at top right,
+        rgba(79, 156, 249, 0.18),
+        transparent 45%
+      ),
+      radial-gradient(
+        ellipse at bottom left,
+        rgba(255, 230, 168, 0.22),
+        transparent 40%
+      );
+  }
+}
