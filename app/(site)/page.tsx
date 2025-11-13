@@ -126,36 +126,45 @@ const successCases = [
   },
 ];
 
-const insights = [
-  {
-    title: "WhatsApp como canal de pesquisa: boas práticas",
-    description:
-      "Checklist de configuração, roteiros e validações para rodar estudos quantitativos e qualitativos no aplicativo.",
-    category: "Guia",
-    href: "#contato",
-  },
-  {
-    title: "Como explicar resultados com vídeos executivos",
-    description:
-      "Formato ideal de roteiro, visual e narrativa para compartilhar achados com stakeholders em poucos minutos.",
-    category: "Playbook",
-    href: "#contato",
-  },
-  {
-    title: "LGPD em pesquisas locais",
-    description:
-      "Checklist de segurança, consentimento e governança para estudos com dados sensíveis de municípios.",
-    category: "Compliance",
-    href: "#politica",
-  },
-  {
-    title: "Painéis de opinião contínua",
-    description:
-      "Modelo VoxAnalitica de monitoramento recorrente com dashboards e alertas semanais.",
-    category: "Estratégia",
-    href: "#solucoes",
-  },
-];
+const blogSection = {
+  section_id: "blog",
+  section_title: "Insights Vox",
+  section_subtitle: "Análises e conteúdo para quem decide com dados.",
+  cta_label: "Ver todos os artigos",
+  cta_href: "/blog",
+  posts: [
+    {
+      slug: "como-ler-pesquisas-eleitorais-sem-cair-em-armadilhas",
+      title: "Como ler pesquisas eleitorais sem cair em armadilhas",
+      excerpt:
+        "Margem de erro, recorte territorial, metodologia e recortes sociodemográficos: o que realmente importa antes de confiar em um número.",
+      category: "Eleições",
+      read_time: "8 min",
+      published_at: "2025-09-10",
+      featured: true,
+    },
+    {
+      slug: "whatsapp-como-canal-de-coleta-o-que-ninguem-te-conta",
+      title: "WhatsApp como canal de coleta: o que ninguém te conta",
+      excerpt:
+        "Vieses, vantagens e limites da pesquisa via WhatsApp — e como a automação certa reduz riscos sem perder velocidade.",
+      category: "Metodologia",
+      read_time: "7 min",
+      published_at: "2025-09-02",
+      featured: false,
+    },
+    {
+      slug: "humor-do-eleitor-no-nordeste-licoes-da-ultima-temporada",
+      title: "Humor do eleitor no Nordeste: lições da última temporada",
+      excerpt:
+        "Quais temas realmente mobilizaram voto, quais narrativas perderam força e como isso impacta campanhas municipais.",
+      category: "Opinião Pública",
+      read_time: "6 min",
+      published_at: "2025-08-25",
+      featured: false,
+    },
+  ],
+};
 
 const faqItems = [
   {
@@ -323,9 +332,12 @@ export default function HomePage() {
           cases={successCases}
         />
         <InsightsSection
-          title="Insights e materiais exclusivos"
-          subtitle="Conteúdos para guiar seu próximo projeto de pesquisa e comunicação orientada por dados."
-          items={insights}
+          sectionId={blogSection.section_id}
+          title={blogSection.section_title}
+          subtitle={blogSection.section_subtitle}
+          ctaLabel={blogSection.cta_label}
+          ctaHref={blogSection.cta_href}
+          posts={blogSection.posts}
         />
         <FaqSection
           title="Perguntas frequentes"
@@ -342,7 +354,7 @@ export default function HomePage() {
           }}
           secondaryCta={{
             label: "Baixar one-pager",
-            href: "#insights",
+            href: "#blog",
             id: "cta-final-secondary",
           }}
         />

@@ -17,7 +17,7 @@ export const NAV_ITEMS: NavItem[] = [
   { id: "metodologia", label: "Metodologia", href: "#metodologia" },
   { id: "vantagem", label: "A Vantagem Vox", href: "#vantagem" },
   { id: "vitorias", label: "Nossas Vitórias", href: "#vitorias" },
-  { id: "insights", label: "Insights", href: "#insights" },
+  { id: "blog", label: "Insights Vox", href: "#blog" },
   { id: "faq", label: "FAQ", href: "#faq" },
   { id: "contato", label: "Contato", href: "#contato" },
   { id: "politica", label: "Política", href: "#politica" },
