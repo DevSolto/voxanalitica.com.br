@@ -12,17 +12,17 @@ type FinalCtaProps = {
 
 export function FinalCtaSection({ title, subtitle, primaryCta, secondaryCta }: FinalCtaProps) {
   return (
-    <Section id="cta-final" className="bg-[#043873] text-white">
-      <div className="flex flex-col items-center gap-6 text-center bg-[#043873]">
+    <Section id="cta-final" className="bg-[var(--color-primary)] text-[var(--color-primary-foreground)]">
+      <div className="flex flex-col items-center gap-6 text-center">
         <SectionHeader
           eyebrow="Vamos conversar?"
           title={title}
           subtitle={subtitle}
           align="center"
           className="mx-auto max-w-3xl"
-          eyebrowClassName="text-white/70"
-          titleClassName="text-white"
-          subtitleClassName="text-white/80"
+          eyebrowClassName="text-[color-mix(in_srgb,var(--color-primary-foreground)_70%,transparent)]"
+          titleClassName="text-[var(--color-primary-foreground)]"
+          subtitleClassName="text-[color-mix(in_srgb,var(--color-primary-foreground)_80%,transparent)]"
         />
         <div className="flex flex-col gap-3 sm:flex-row">
           <Button.Link
@@ -39,7 +39,7 @@ export function FinalCtaSection({ title, subtitle, primaryCta, secondaryCta }: F
               href={secondaryCta.href}
               aria-label={secondaryCta.ariaLabel ?? secondaryCta.label}
               variant="outline"
-              className="border-white text-white hover:bg-white/10"
+              className="border-[var(--color-primary-foreground)] text-[var(--color-primary-foreground)] hover:bg-[color-mix(in_srgb,var(--color-primary-foreground)_10%,transparent)]"
             >
               {secondaryCta.label}
             </Button.Link>

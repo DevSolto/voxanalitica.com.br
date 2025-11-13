@@ -32,11 +32,15 @@ export function Footer() {
   }, [open, closeDialog]);
 
   return (
-    <footer id="politica" data-section-id="politica" className="bg-[#021F46] text-white">
+    <footer
+      id="politica"
+      data-section-id="politica"
+      className="bg-[color-mix(in_srgb,var(--color-primary)_95%,black)] text-[var(--color-primary-foreground)]"
+    >
       <div className="mx-auto flex w-full max-w-6xl flex-col gap-10 px-4 py-12 md:px-6 md:py-16 lg:flex-row lg:justify-between">
         <div className="max-w-md space-y-4">
           <div className="flex items-center gap-3">
-            <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-[#4F9CF9] text-lg font-semibold">
+            <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-[var(--color-accent)] text-lg font-semibold text-[var(--color-accent-foreground)]">
               VA
             </span>
             <p className="text-lg font-semibold">VoxAnalitica Pesquisa & Dados</p>
@@ -100,20 +104,20 @@ export function Footer() {
             role="dialog"
             aria-modal="true"
             aria-labelledby="privacy-policy-title"
-            className="relative max-h-[90vh] w-full max-w-3xl overflow-y-auto rounded-3xl bg-white p-8 text-[#212529] shadow-2xl"
+            className="relative max-h-[90vh] w-full max-w-3xl overflow-y-auto rounded-3xl bg-[var(--color-background)] p-8 text-[var(--color-foreground)] shadow-2xl"
           >
             <button
               type="button"
               onClick={closeDialog}
-              className="absolute right-4 top-4 rounded-full border border-[#DEE2E6] p-2 text-[#495057] hover:text-[#212529]"
+              className="absolute right-4 top-4 rounded-full border border-[var(--color-border)] p-2 text-[var(--color-muted-foreground)] hover:text-[var(--color-foreground)]"
               aria-label="Fechar Política de Privacidade"
             >
               <X className="h-4 w-4" aria-hidden="true" />
             </button>
-            <h3 id="privacy-policy-title" className="text-2xl font-semibold text-[#043873]">
+            <h3 id="privacy-policy-title" className="text-2xl font-semibold text-[var(--color-primary)]">
               Política de Privacidade VoxAnalitica
             </h3>
-            <div className="mt-6 space-y-4 text-sm leading-relaxed text-[#495057]">
+            <div className="mt-6 space-y-4 text-sm leading-relaxed text-[var(--color-muted-foreground)]">
               <p>
                 A VoxAnalitica coleta dados fornecidos diretamente pelos clientes para execução de projetos de pesquisa e análises de dados. Utilizamos as informações exclusivamente para cumprir os contratos firmados e gerar entregáveis com segurança.
               </p>
@@ -131,7 +135,7 @@ export function Footer() {
               <button
                 type="button"
                 onClick={closeDialog}
-                className="rounded-full border border-[#043873] px-4 py-2 text-sm font-semibold text-[#043873] hover:bg-[#043873]/10"
+                className="rounded-full border border-[var(--color-primary)] px-4 py-2 text-sm font-semibold text-[var(--color-primary)] hover:bg-[color-mix(in_srgb,var(--color-primary)_10%,transparent)]"
               >
                 Entendi
               </button>

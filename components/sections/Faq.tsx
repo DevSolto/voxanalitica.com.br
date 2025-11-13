@@ -37,23 +37,23 @@ export function FaqSection({ title, subtitle, items }: FaqProps) {
   );
 
   return (
-    <Section id="faq" className="bg-[#F8F9FA]">
+    <Section id="faq" className="bg-[color-mix(in_srgb,var(--color-primary)_4%,var(--color-background))]">
       <SectionHeader eyebrow="FAQ" title={title} subtitle={subtitle} className="mx-auto max-w-3xl text-center" align="center" />
       <div className="mx-auto mt-10 max-w-3xl space-y-3">
         {items.map((item, index) => {
           const isOpen = openIndex === index;
           return (
-            <div key={item.question} className="overflow-hidden rounded-2xl border border-[#E9ECEF] bg-white">
+            <div key={item.question} className="overflow-hidden rounded-2xl border border-[var(--color-border)] bg-[var(--color-background)]">
               <button
                 type="button"
                 onClick={() => setOpenIndex(isOpen ? -1 : index)}
                 className="flex w-full items-center justify-between gap-4 px-6 py-4 text-left"
                 aria-expanded={isOpen}
               >
-                <span className="text-sm font-semibold text-[#212529]">{item.question}</span>
+                <span className="text-sm font-semibold text-[var(--color-foreground)]">{item.question}</span>
                 <ChevronDown
                   className={cn(
-                    "h-5 w-5 text-[#495057] transition-transform",
+                    "h-5 w-5 text-[var(--color-muted-foreground)] transition-transform",
                     isOpen ? "rotate-180" : "rotate-0",
                   )}
                   aria-hidden="true"
@@ -66,7 +66,7 @@ export function FaqSection({ title, subtitle, items }: FaqProps) {
                 )}
               >
                 <div className="overflow-hidden">
-                  <p className="px-6 pb-4 text-sm leading-relaxed text-[#495057]">{item.answer}</p>
+                  <p className="px-6 pb-4 text-sm leading-relaxed text-[var(--color-muted-foreground)]">{item.answer}</p>
                 </div>
               </div>
             </div>

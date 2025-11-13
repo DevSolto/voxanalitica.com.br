@@ -34,7 +34,7 @@ const WhatsAppIcon = () => (
     viewBox="0 0 24 24"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
-    className="text-white"
+    className="text-[var(--color-accent-foreground)]"
   >
     <path
       d="M12.0002 2.75C7.16894 2.75 3.25 6.5264 3.25 11.2419C3.25 13.1747 3.89779 14.9617 5.01198 16.4174L4.16667 20.75L8.62053 19.9436C9.95106 20.5936 11.4317 20.9837 13.0004 20.9837C17.8317 20.9837 21.7507 17.2073 21.7507 12.4918C21.7504 7.77636 17.8317 2.75 12.0002 2.75Z"
@@ -101,7 +101,7 @@ export function HeroSection({ title, subtitle, primaryCta, secondaryCta, badges 
   const primaryRel = !primaryCta.disabled && isPrimaryExternal ? "noopener noreferrer" : undefined;
 
   return (
-    <Section id="home" className="relative isolate overflow-hidden bg-neutral-50 pb-20 pt-24 md:pb-24">
+    <Section id="home" className="relative isolate overflow-hidden bg-[var(--color-background)] hero-surface pb-20 pt-24 md:pb-24">
       <div className="absolute inset-x-0 top-0 -z-10 h-72 bg-gradient-to-b from-white/60 to-transparent" aria-hidden="true" />
       <div
         className={cn(
@@ -110,13 +110,13 @@ export function HeroSection({ title, subtitle, primaryCta, secondaryCta, badges 
         )}
         ref={ref}
       >
-        <div className="inline-flex items-center gap-2 rounded-full bg-white/80 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-[#043873] shadow-sm">
+        <div className="inline-flex items-center gap-2 rounded-full bg-[color-mix(in_srgb,var(--color-primary)_6%,white)] px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-[var(--color-primary)] shadow-sm">
           <span>PESQUISA E INTELIGÊNCIA</span>
         </div>
-        <h1 className="mt-6 max-w-4xl font-bold tracking-tight text-[#043873] text-3xl leading-tight md:text-5xl md:leading-[1.1]">
+        <h1 className="mt-6 max-w-4xl text-3xl font-bold leading-tight tracking-tight text-[var(--color-primary)] md:text-5xl md:leading-[1.1]">
           {title}
         </h1>
-        <p className="mt-4 max-w-2xl text-base text-[#495057] md:text-lg">{subtitle}</p>
+        <p className="mt-4 max-w-2xl text-base text-[var(--color-muted-foreground)] md:text-lg">{subtitle}</p>
         {badges.length > 0 && (
           <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
             {badges.map((badge) => (
@@ -162,10 +162,10 @@ export function HeroSection({ title, subtitle, primaryCta, secondaryCta, badges 
             {cards.map((card) => (
               <article
                 key={card.title}
-                className="rounded-2xl border border-[#E9ECEF] bg-white/90 p-6 text-left shadow-sm"
+                className="rounded-2xl border border-[var(--color-border)] bg-[color-mix(in_srgb,var(--color-background)_90%,white)] p-6 text-left shadow-sm"
               >
-                <h3 className="text-lg font-semibold text-[#043873]">{card.title}</h3>
-                <p className="mt-2 text-sm text-[#495057]">{card.content}</p>
+                <h3 className="text-lg font-semibold text-[var(--color-primary)]">{card.title}</h3>
+                <p className="mt-2 text-sm text-[var(--color-muted-foreground)]">{card.content}</p>
               </article>
             ))}
           </div>

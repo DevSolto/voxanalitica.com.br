@@ -114,7 +114,7 @@ export function ContactSection({ title, subtitle }: ContactSectionProps) {
   return (
     <Section id="contato">
       <SectionHeader eyebrow="Contato" title={title} subtitle={subtitle} align="center" className="mx-auto max-w-2xl" />
-      <div className="mx-auto mt-10 max-w-3xl rounded-3xl border border-[#E9ECEF] bg-white p-8 shadow-sm">
+      <div className="mx-auto mt-10 max-w-3xl rounded-3xl border border-[var(--color-border)] bg-[var(--color-background)] p-8 shadow-sm">
         <form className="space-y-6" noValidate onSubmit={handleSubmit}>
           <div className="hidden" aria-hidden="true">
             <label htmlFor="contact-website" className="sr-only">
@@ -132,7 +132,7 @@ export function ContactSection({ title, subtitle }: ContactSectionProps) {
           </div>
           <div className="grid gap-6 md:grid-cols-2">
             <div className="space-y-2">
-              <label htmlFor="contact-name" className="text-sm font-semibold text-[#212529]">
+              <label htmlFor="contact-name" className="text-sm font-semibold text-[var(--color-foreground)]">
                 Nome
               </label>
               <input
@@ -142,7 +142,7 @@ export function ContactSection({ title, subtitle }: ContactSectionProps) {
                 value={values.name}
                 onChange={handleChange("name")}
                 onBlur={handleBlur("name")}
-                className="w-full rounded-xl border border-[#CED4DA] px-4 py-3 text-sm focus:border-[#4F9CF9] focus:outline-none focus:ring-2 focus:ring-[#4F9CF9]/40"
+                className="w-full rounded-xl border border-[var(--color-border)] px-4 py-3 text-sm focus:border-[var(--color-primary)] focus:outline-none focus:ring-2 focus:ring-[color-mix(in_srgb,var(--color-primary)_30%,transparent)]"
                 placeholder="Como podemos te chamar?"
                 aria-invalid={Boolean(touched.name && errors.name)}
                 aria-describedby={touched.name && errors.name ? "error-name" : undefined}
@@ -154,7 +154,7 @@ export function ContactSection({ title, subtitle }: ContactSectionProps) {
               ) : null}
             </div>
             <div className="space-y-2">
-              <label htmlFor="contact-email" className="text-sm font-semibold text-[#212529]">
+              <label htmlFor="contact-email" className="text-sm font-semibold text-[var(--color-foreground)]">
                 E-mail
               </label>
               <input
@@ -164,7 +164,7 @@ export function ContactSection({ title, subtitle }: ContactSectionProps) {
                 value={values.email}
                 onChange={handleChange("email")}
                 onBlur={handleBlur("email")}
-                className="w-full rounded-xl border border-[#CED4DA] px-4 py-3 text-sm focus:border-[#4F9CF9] focus:outline-none focus:ring-2 focus:ring-[#4F9CF9]/40"
+                className="w-full rounded-xl border border-[var(--color-border)] px-4 py-3 text-sm focus:border-[var(--color-primary)] focus:outline-none focus:ring-2 focus:ring-[color-mix(in_srgb,var(--color-primary)_30%,transparent)]"
                 placeholder="email@empresa.com"
                 aria-invalid={Boolean(touched.email && errors.email)}
                 aria-describedby={touched.email && errors.email ? "error-email" : undefined}
@@ -178,7 +178,7 @@ export function ContactSection({ title, subtitle }: ContactSectionProps) {
           </div>
           <div className="grid gap-6 md:grid-cols-2">
             <div className="space-y-2">
-              <label htmlFor="contact-organization" className="text-sm font-semibold text-[#212529]">
+              <label htmlFor="contact-organization" className="text-sm font-semibold text-[var(--color-foreground)]">
                 Organização
               </label>
               <input
@@ -188,7 +188,7 @@ export function ContactSection({ title, subtitle }: ContactSectionProps) {
                 value={values.organization}
                 onChange={handleChange("organization")}
                 onBlur={handleBlur("organization")}
-                className="w-full rounded-xl border border-[#CED4DA] px-4 py-3 text-sm focus:border-[#4F9CF9] focus:outline-none focus:ring-2 focus:ring-[#4F9CF9]/40"
+                className="w-full rounded-xl border border-[var(--color-border)] px-4 py-3 text-sm focus:border-[var(--color-primary)] focus:outline-none focus:ring-2 focus:ring-[color-mix(in_srgb,var(--color-primary)_30%,transparent)]"
                 placeholder="Empresa, órgão público ou projeto"
                 aria-invalid={Boolean(touched.organization && errors.organization)}
                 aria-describedby={touched.organization && errors.organization ? "error-organization" : undefined}
@@ -200,7 +200,7 @@ export function ContactSection({ title, subtitle }: ContactSectionProps) {
               ) : null}
             </div>
             <div className="space-y-2">
-              <label htmlFor="contact-phone" className="text-sm font-semibold text-[#212529]">
+              <label htmlFor="contact-phone" className="text-sm font-semibold text-[var(--color-foreground)]">
                 WhatsApp (opcional)
               </label>
               <input
@@ -210,7 +210,7 @@ export function ContactSection({ title, subtitle }: ContactSectionProps) {
                 value={values.phone}
                 onChange={handleChange("phone")}
                 onBlur={handleBlur("phone")}
-                className="w-full rounded-xl border border-[#CED4DA] px-4 py-3 text-sm focus:border-[#4F9CF9] focus:outline-none focus:ring-2 focus:ring-[#4F9CF9]/40"
+                className="w-full rounded-xl border border-[var(--color-border)] px-4 py-3 text-sm focus:border-[var(--color-primary)] focus:outline-none focus:ring-2 focus:ring-[color-mix(in_srgb,var(--color-primary)_30%,transparent)]"
                 placeholder="(00) 90000-0000"
                 aria-invalid={Boolean(touched.phone && errors.phone)}
                 aria-describedby={touched.phone && errors.phone ? "error-phone" : undefined}
@@ -223,7 +223,7 @@ export function ContactSection({ title, subtitle }: ContactSectionProps) {
             </div>
           </div>
           <div className="space-y-2">
-            <label htmlFor="contact-message" className="text-sm font-semibold text-[#212529]">
+            <label htmlFor="contact-message" className="text-sm font-semibold text-[var(--color-foreground)]">
               Briefing do projeto
             </label>
             <textarea
@@ -233,7 +233,7 @@ export function ContactSection({ title, subtitle }: ContactSectionProps) {
               onChange={handleChange("message")}
               onBlur={handleBlur("message")}
               rows={5}
-              className="w-full rounded-xl border border-[#CED4DA] px-4 py-3 text-sm focus:border-[#4F9CF9] focus:outline-none focus:ring-2 focus:ring-[#4F9CF9]/40"
+              className="w-full rounded-xl border border-[var(--color-border)] px-4 py-3 text-sm focus:border-[var(--color-primary)] focus:outline-none focus:ring-2 focus:ring-[color-mix(in_srgb,var(--color-primary)_30%,transparent)]"
               placeholder="Conte objetivo, público e prazos desejados"
               aria-invalid={Boolean(touched.message && errors.message)}
               aria-describedby={touched.message && errors.message ? "error-message" : undefined}
@@ -245,20 +245,20 @@ export function ContactSection({ title, subtitle }: ContactSectionProps) {
             ) : null}
           </div>
           <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-            <p className="text-xs text-[#868E96]">
-              Ao enviar, você concorda com nossa <a href="#politica" className="font-semibold text-[#043873] underline">Política de Privacidade</a>.
+            <p className="text-xs text-[color-mix(in_srgb,var(--color-muted)_55%,white)]">
+              Ao enviar, você concorda com nossa <a href="#politica" className="font-semibold text-[var(--color-primary)] underline">Política de Privacidade</a>.
             </p>
             <Button type="submit" className="justify-center" disabled={isSubmitting}>
               {isSubmitting ? "Enviando..." : "Enviar briefing"}
             </Button>
           </div>
           {submitError ? (
-            <div className="rounded-xl border border-[#FFC9C9] bg-[#FFE3E3] px-4 py-3 text-sm text-[#C92A2A]" role="alert">
+            <div className="rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700" role="alert">
               {submitError}
             </div>
           ) : null}
           {submitted ? (
-            <div className="rounded-xl border border-[#51CF66] bg-[#D3F9D8] px-4 py-3 text-sm text-[#2B8A3E]" role="status" aria-live="polite">
+            <div className="rounded-xl border border-green-200 bg-green-50 px-4 py-3 text-sm text-green-700" role="status" aria-live="polite">
               Mensagem enviada! Entraremos em contato em até 1 dia útil.
             </div>
           ) : null}
