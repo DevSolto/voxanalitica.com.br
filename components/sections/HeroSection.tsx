@@ -101,7 +101,7 @@ export function HeroSection({ title, subtitle, primaryCta, secondaryCta, badges 
   const primaryRel = !primaryCta.disabled && isPrimaryExternal ? "noopener noreferrer" : undefined;
 
   return (
-    <Section id="home" className="relative isolate overflow-hidden bg-[var(--color-background)] hero-surface pb-20 pt-24 md:pb-24">
+    <Section id="home" className="relative isolate overflow-hidden hero-surface pb-20 pt-24 md:pb-24">
       <div
         className={cn(
           "flex flex-col items-center text-center", "transition-all duration-700",

@@ -13,7 +13,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       lang="pt-BR"
       className={[
         // Cores globais via tokens do @theme
-        "bg-background text-foreground",
+        "text-foreground",
         // Família tipográfica padrão
         "font-sans",
         montserrat.variable,

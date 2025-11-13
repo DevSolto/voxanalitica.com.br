@@ -84,7 +84,7 @@ export function Nav() {
   const closeMenu = () => setIsOpen(false);
 
   return (
-    <div className="sticky top-0 z-50 w-full border-b border-[color-mix(in_srgb,var(--color-primary)_35%,white)] bg-[var(--color-primary)]/95 text-[var(--color-primary-foreground)] backdrop-blur">
+    <div className="sticky top-0 z-50 w-full bg-[var(--color-primary)]/95 text-[var(--color-primary-foreground)] backdrop-blur">
       <nav className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 md:px-6">
         <Link
           href="#home"
