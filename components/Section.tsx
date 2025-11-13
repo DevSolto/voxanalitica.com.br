@@ -21,7 +21,7 @@ export function Section({
     <section
       id={id}
       data-section-id={id}
-      className={cn("py-20 md:py-28", className)}
+      className={cn("bg-neutral-50 py-20 md:py-28", className)}
       {...props}
     >
       <div className={cn("mx-auto w-full max-w-6xl px-4 md:px-6", containerClassName)}>

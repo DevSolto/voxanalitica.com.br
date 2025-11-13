@@ -53,13 +53,13 @@ export function AdvantageSection({
   benefits,
 }: AdvantageContent) {
   return (
-    <Section id="vantagem" className="bg-white">
+    <Section id="vantagem">
       <SectionHeader
         eyebrow="Por que VoxAnalitica"
         title={title}
         subtitle={subtitle}
         className="max-w-3xl"
-        align="center"
+        align="left"
         subtitleClassName="text-base md:text-lg text-[#495057]"
         titleClassName="text-3xl font-bold tracking-tight text-[#043873] md:text-4xl"
       />
