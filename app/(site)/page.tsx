@@ -277,7 +277,7 @@ export default function HomePage() {
   ];
 
   return (
-    <div className="bg-white">
+    <div className="bg-neutral-50">
       <Nav />
       <main>
         <HeroSection

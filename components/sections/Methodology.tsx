@@ -35,19 +35,15 @@ export function MethodologySection({ title, subtitle, blocks, cta }: Methodology
           return (
             <article
               key={block.title}
-              className="relative flex h-full flex-col rounded-2xl border border-[#E9ECEF] bg-white p-6 shadow-sm"
+              className="relative flex h-full flex-col items-center rounded-2xl border border-[#E9ECEF] bg-white p-6 text-center shadow-sm"
             >
-              <div className="flex items-start gap-4">
-                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-[#E8F2FF] text-[#043873]">
-                  <Icon className="h-6 w-6" aria-hidden="true" />
-                </div>
-                <div>
-                  <p className="text-xs font-semibold uppercase tracking-[0.3em] text-[#ADB5BD]">{block.subtitle}</p>
-                  <h3 className="mt-1 text-lg font-semibold text-[#212529]">{block.title}</h3>
-                </div>
+              <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-[#E8F2FF] text-[#043873]">
+                <Icon className="h-6 w-6" aria-hidden="true" />
               </div>
+              <p className="mt-4 text-xs font-semibold uppercase tracking-[0.3em] text-[#ADB5BD]">{block.subtitle}</p>
+              <h3 className="mt-1 text-lg font-semibold text-[#212529]">{block.title}</h3>
               <p className="mt-4 text-sm text-[#495057]">{block.description}</p>
-              <ul className="mt-4 space-y-3">
+              <ul className="mt-4 w-full space-y-3 text-left">
                 {block.items.map((item) => (
                   <li key={item} className="flex items-start gap-2 text-sm text-[#343A40]">
                     <span className="mt-1 h-1.5 w-1.5 rounded-full bg-[#0D6EFD]" aria-hidden="true" />
