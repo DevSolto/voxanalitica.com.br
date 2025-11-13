@@ -5,7 +5,10 @@ import { Footer } from "@/components/Footer";
 import { HeroSection } from "@/components/sections/Hero";
 import { SolutionsSection } from "@/components/sections/Solutions";
 import { MethodologySection } from "@/components/sections/Methodology";
-import { CasesSection, type CaseStudy } from "@/components/sections/Cases";
+import {
+  AdvantageSection,
+  type AdvantageContent,
+} from "@/components/sections/Advantage";
 import { TestimonialsSection } from "@/components/sections/Testimonials";
 import { InsightsSection } from "@/components/sections/Insights";
 import { FaqSection } from "@/components/sections/Faq";
@@ -32,44 +35,67 @@ export const metadata: Metadata = {
   },
 };
 
-const cases: CaseStudy[] = [
-  {
-    title: "Audiência jovem nas capitais",
-    segment: "Gestão Pública",
-    summary:
-      "Mapeamento de interesses e hábitos de jovens em capitais do Nordeste para calibrar políticas de educação e cultura.",
-    challenge:
-      "Identificar expectativas de públicos com baixa participação em consultas tradicionais e consolidar dados qualitativos e quantitativos em um material executivo.",
-    approach:
-      "Aplicamos questionário interativo via WhatsApp, grupos de discussão com estudantes bolsistas e análise de sentimento sobre menções públicas.",
-    result:
-      "Priorização de três programas estratégicos, com aprovação de orçamento e cronograma acelerado para implementação.",
-    metrics: [
-      { label: "Entrevistados", value: "2.4k" },
-      { label: "Estados", value: "3" },
-      { label: "Satisfação", value: "92%" },
-      { label: "Prazo", value: "28 dias" },
-    ],
-  },
-  {
-    title: "Reposicionamento para fintech B2B",
-    segment: "Mercado Privado",
-    summary:
-      "Diagnóstico de percepção de marca em PMEs e redes de franquias para reposicionar a solução de crédito inteligente.",
-    challenge:
-      "Entender objeções comerciais em diferentes estágios do funil e gerar evidências para uma nova narrativa de produto.",
-    approach:
-      "Entrevistas em profundidade com leads ativos, painel quantitativo com 1.200 respondentes e leitura de concorrência com web scraping.",
-    result:
-      "Aumento de 35% no NPS e 18% na taxa de conversão após ajustes de discurso e jornada comercial.",
-    metrics: [
-      { label: "Respondentes", value: "1.2k" },
-      { label: "IDIs", value: "28" },
-      { label: "Conversão", value: "+18%" },
-      { label: "SLA", value: "6 semanas" },
-    ],
-  },
-];
+const advantageContent: AdvantageContent = {
+  title: "A Vantagem Vox",
+  subtitle: "O que você ganha ao decidir com inteligência",
+  audiences: [
+    {
+      title: "Deputados",
+      subtitle: "Manter e expandir a base eleitoral",
+      description:
+        "Inteligência Territorial e Blindagem: Mapeamento preciso de sua base, avaliação de imagem e identificação de riscos regionais. Fornecemos os subsídios para que seus recursos sejam investidos onde o voto está.",
+      icon: "users",
+    },
+    {
+      title: "Prefeitos",
+      subtitle: "Garantir aprovação e planejar reeleição",
+      description:
+        "Diagnóstico de Gestão e Reeleição Segura: Leitura aprofundada das prioridades locais e percepção de gestão. Fornecemos os insumos para ajustar a comunicação e neutralizar a oposição.",
+      icon: "building",
+    },
+    {
+      title: "Partidos Políticos",
+      subtitle: "Definir narrativas macro",
+      description:
+        "Arquitetura de Narrativa: Inteligência para clusterização de eleitores e definição de narrativas que ressoem em diferentes regiões e grupos, fortalecendo a marca partidária.",
+      icon: "layers",
+    },
+    {
+      title: "Candidatos",
+      subtitle: "Identificar pontos fortes e fracos",
+      description:
+        "Discurso Vencedor e Estratégia Cirúrgica: Identificação de vulnerabilidades e forças. Ajuste fino do discurso e criação de \"vacinas\" e \"ataques\" estratégicos baseados em dados emocionais.",
+      icon: "target",
+    },
+  ],
+  benefitsTitle: "Ganhos Inegáveis",
+  benefits: [
+    {
+      title: "Vantagem Competitiva Real",
+      description:
+        "Você terá acesso a informações de bastidor e percepções que seus adversários não possuem.",
+      icon: "trophy",
+    },
+    {
+      title: "Planejamento Estratégico Sólido",
+      description:
+        "Fim do \"achismo\". Seu discurso, marketing e posicionamento serão definidos com precisão cirúrgica, baseados em nossos subsídios.",
+      icon: "compass",
+    },
+    {
+      title: "Tomada de Decisão com Segurança",
+      description:
+        "Reduza a incerteza em momentos críticos. Suas decisões serão baseadas em ciência política, não em especulação.",
+      icon: "shield-check",
+    },
+    {
+      title: "Transformação em Ação",
+      description:
+        "Transformamos a complexidade da opinião pública em subsídios para a estratégia prática de comunicação e ação governamental.",
+      icon: "refresh-cw",
+    },
+  ],
+};
 
 const testimonials = [
   {
@@ -285,11 +311,7 @@ export default function HomePage() {
             id: "cta-metodologia",
           }}
         />
-        <CasesSection
-          title="Cases que aceleraram decisões"
-          subtitle="Projetos recentes que combinaram dados de campo, análise automatizada e storytelling audiovisual."
-          items={cases}
-        />
+        <AdvantageSection {...advantageContent} />
         <TestimonialsSection
           title="Confiança de gestores e líderes"
           subtitle="Quem trabalha conosco destaca o equilíbrio entre profundidade analítica, velocidade e clareza na entrega."

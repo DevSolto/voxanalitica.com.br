@@ -15,7 +15,7 @@ export const NAV_ITEMS: NavItem[] = [
   { id: "home", label: "Início", href: "#home" },
   { id: "solucoes", label: "Soluções", href: "#solucoes" },
   { id: "metodologia", label: "Metodologia", href: "#metodologia" },
-  { id: "cases", label: "Cases", href: "#cases" },
+  { id: "vantagem", label: "A Vantagem Vox", href: "#vantagem" },
   { id: "depoimentos", label: "Depoimentos", href: "#depoimentos" },
   { id: "insights", label: "Insights", href: "#insights" },
   { id: "faq", label: "FAQ", href: "#faq" },
