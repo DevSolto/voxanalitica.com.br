@@ -65,7 +65,7 @@ export function InsightsSection({
       </div>
       <div className="mt-12 grid gap-8 lg:grid-cols-[1.1fr_0.9fr]">
         {featuredPost ? (
-          <article className="flex h-full flex-col justify-between rounded-3xl border border-[var(--color-border)] bg-[var(--color-background)] p-8 shadow-sm transition hover:-translate-y-1 hover:shadow-lg">
+          <article className="flex h-full flex-col justify-between rounded-3xl border border-accent-foreground bg-[var(--color-background)] p-8 shadow-sm transition hover:-translate-y-1 hover:shadow-lg">
             <div className="space-y-4">
               <p className="text-xs font-semibold uppercase tracking-[0.3em] text-[color-mix(in_srgb,var(--color-muted)_60%,white)]">{featuredPost.category}</p>
               <h3 className="text-3xl font-semibold text-[var(--color-foreground)]">{featuredPost.title}</h3>
@@ -74,7 +74,7 @@ export function InsightsSection({
             <div className="flex flex-col">
               <div className="mt-8 flex flex-wrap items-center gap-3 text-sm text-[color-mix(in_srgb,var(--color-muted)_70%,white)]">
                 <span>{formatDate(featuredPost.published_at)}</span>
-                <span className="h-1 w-1 rounded-full bg-[var(--color-border)]" aria-hidden="true" />
+                <span className="h-1 w-1 rounded-full bg-accent-foreground" aria-hidden="true" />
                 <span>{featuredPost.read_time} de leitura</span>
               </div>
               <div>
@@ -94,11 +94,11 @@ export function InsightsSection({
           {regularPosts.map((post) => (
             <article
               key={post.slug}
-              className="rounded-3xl border border-[var(--color-border)] bg-[var(--color-background)] p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-md"
+              className="rounded-3xl border border-accent-foreground bg-[var(--color-background)] p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-md"
             >
               <div className="flex flex-wrap items-center gap-3 text-xs font-semibold uppercase tracking-[0.3em] text-[color-mix(in_srgb,var(--color-muted)_60%,white)]">
                 <span>{post.category}</span>
-                <span className="h-1 w-1 rounded-full bg-[var(--color-border)]" aria-hidden="true" />
+                <span className="h-1 w-1 rounded-full bg-accent-foreground" aria-hidden="true" />
                 <span>{formatDate(post.published_at)}</span>
               </div>
               <h3 className="mt-3 text-xl font-semibold text-[var(--color-foreground)]">{post.title}</h3>

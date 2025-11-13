@@ -69,7 +69,7 @@ export function AdvantageSection({
           return (
             <article
               key={audience.title}
-              className="rounded-3xl border border-[var(--color-border)] bg-[var(--color-background)] p-6 shadow-sm transition hover:shadow-md"
+              className="rounded-3xl border border-accent-foreground p-6 shadow-sm transition hover:shadow-md"
             >
               <div className="flex items-start gap-4">
                 <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[color-mix(in_srgb,var(--color-primary)_12%,white)] text-[var(--color-primary)]">
@@ -88,7 +88,7 @@ export function AdvantageSection({
         })}
       </div>
 
-      <div className="mt-16 rounded-3xl bg-[var(--color-primary)] px-6 py-10 text-[var(--color-primary-foreground)] md:px-10">
+      <div className="mt-16 rounded-3xl bg-primary px-6 py-10 text-[var(--color-primary-foreground)] md:px-10">
         <div className="max-w-3xl">
           <p className="text-sm font-semibold uppercase tracking-[0.3em] text-[var(--color-accent)]">
             Ganhos estratégicos
@@ -102,7 +102,7 @@ export function AdvantageSection({
           {benefits.map((benefit) => {
             const Icon = ICONS[benefit.icon];
             return (
-              <div key={benefit.title} className="flex gap-4 rounded-2xl bg-white/5 p-5">
+              <div key={benefit.title} className="flex gap-4 rounded-2xl bg-accent-foreground p-5">
                 <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-white/10">
                   <Icon className="h-5 w-5" aria-hidden="true" />
                 </div>

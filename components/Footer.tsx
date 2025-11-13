@@ -109,7 +109,7 @@ export function Footer() {
             <button
               type="button"
               onClick={closeDialog}
-              className="absolute right-4 top-4 rounded-full border border-[var(--color-border)] p-2 text-[var(--color-muted-foreground)] hover:text-[var(--color-foreground)]"
+              className="absolute right-4 top-4 rounded-full border border-accent-foreground p-2 text-[var(--color-muted-foreground)] hover:text-[var(--color-foreground)]"
               aria-label="Fechar Política de Privacidade"
             >
               <X className="h-4 w-4" aria-hidden="true" />
