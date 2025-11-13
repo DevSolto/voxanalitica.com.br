@@ -2,18 +2,18 @@ import type { Metadata } from "next";
 
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
-import { HeroSection } from "@/components/sections/Hero";
-import { SolutionsSection } from "@/components/sections/Solutions";
-import { MethodologySection } from "@/components/sections/Methodology";
+import { HeroSection } from "@/components/sections/HeroSection";
+import { SolutionsSection } from "@/components/sections/SolutionsSection";
+import { MethodologySection } from "@/components/sections/MethodologySection";
 import {
   AdvantageSection,
   type AdvantageContent,
-} from "@/components/sections/Advantage";
-import { CasesSection } from "@/components/sections/Cases";
-import { InsightsSection } from "@/components/sections/Insights";
-import { FaqSection } from "@/components/sections/Faq";
-import { FinalCtaSection } from "@/components/sections/FinalCta";
-import { ContactSection } from "@/components/sections/Contact";
+} from "@/components/sections/AdvantageSection";
+import { CasesSection } from "@/components/sections/CasesSection";
+import { InsightsSection } from "@/components/sections/InsightsSection";
+import { FaqSection } from "@/components/sections/FaqSection";
+import { FinalCtaSection } from "@/components/sections/FinalCtaSection";
+import { ContactSection } from "@/components/sections/ContactSection";
 import { buildWhatsAppLink } from "@/lib/whatsapp";
 
 export const metadata: Metadata = {
