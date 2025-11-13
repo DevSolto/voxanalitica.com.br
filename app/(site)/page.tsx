@@ -197,30 +197,42 @@ export default function HomePage() {
     },
   ];
 
-  const methodologySteps = [
+  const methodologyBlocks = [
     {
       icon: "MessageSquare" as const,
-      title: "Imersão & briefing",
+      title: "Pesquisa Qualitativa",
+      subtitle: "A Profundidade",
       description:
-        "Entendimento do desafio, definição de recortes e seleção de abordagens qualitativas ou quantitativas.",
+        "Entrevistas em profundidade, análise de discurso e a inovadora Pesquisa Qualitativa de Rua. Focada em decifrar o porquê das intenções e sentimentos.",
+      items: [
+        "Diagnóstico de Gestão — entender a percepção real de aprovação e as prioridades não atendidas.",
+        "Testes de Narrativa — avaliar a ressonância de um discurso antes de lançá-lo publicamente.",
+        "Mapeamento de Sentimentos — identificar o estado emocional do eleitorado para ajustar a comunicação.",
+      ],
     },
     {
       icon: "Database" as const,
-      title: "Coleta & qualidade",
+      title: "Pesquisa Quantitativa",
+      subtitle: "A Escala",
       description:
-        "Programação de questionários, disparos multicanal e auditorias automáticas para garantir consistência dos dados.",
+        "Pesquisas tradicionais de grande escala, com rigor estatístico. Focada em medir a intenção de voto, avaliação de governo, perfil do eleitorado, recall e rejeição.",
+      items: [
+        "Intenção de Voto — medição precisa da corrida eleitoral e simulação de cenários.",
+        "Avaliação de Governo — índices de aprovação por área e segmentação demográfica.",
+        "Recall e Rejeição — identificação dos limites de crescimento e vulnerabilidades.",
+      ],
     },
     {
-      icon: "Sparkles" as const,
-      title: "Análise & storytelling",
+      icon: "Zap" as const,
+      title: "Pesquisa Híbrida e Automatizada",
+      subtitle: "A Velocidade",
       description:
-        "Modelos estatísticos, recortes territoriais e geração de hipóteses com apoio de insights qualitativos.",
-    },
-    {
-      icon: "PlayCircle" as const,
-      title: "Entrega multimídia",
-      description:
-        "Relatório executivo, dashboards interativos e vídeo explicativo para engajar o time decisor.",
+        "A fusão da profundidade qualitativa com a escala quantitativa, utilizando plataformas como o Pesquizap e automação via n8n. Permite pesquisas rápidas, segmentadas e com alto engajamento via WhatsApp.",
+      items: [
+        "Pulsos de Opinião — pesquisas diárias ou semanais para medir o impacto de eventos (tracking).",
+        "Segmentação de Mensagem — envio de perguntas específicas para nichos de eleitores via Meta Ads.",
+        "Captação Mista — combinação de tráfego pago e listas para maximizar a amostra.",
+      ],
     },
   ];
 
@@ -264,9 +276,9 @@ export default function HomePage() {
           }}
         />
         <MethodologySection
-          title="Metodologia transparente de ponta a ponta"
-          subtitle="Processo enxuto, validado e documentado para transformar respostas em decisões acionáveis."
-          steps={methodologySteps}
+          title="O Arsenal Completo de Inteligência"
+          subtitle="Oferecemos um portfólio de soluções de pesquisa e análise que se complementam, garantindo uma visão 360º do seu cenário político."
+          blocks={methodologyBlocks}
           cta={{
             label: "Quero este fluxo",
             href: "#contato",
