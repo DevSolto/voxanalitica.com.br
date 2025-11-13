@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -85,11 +86,20 @@ export function Nav() {
   return (
     <div className="sticky top-0 z-50 w-full border-b border-[color-mix(in_srgb,var(--color-primary)_35%,white)] bg-[var(--color-primary)]/95 text-[var(--color-primary-foreground)] backdrop-blur">
       <nav className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 md:px-6">
-        <Link href="#home" className="flex items-center gap-2 font-bold text-[var(--color-primary-foreground)]">
-          <span className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-[var(--color-accent)] text-[var(--color-accent-foreground)] font-semibold">
-            VA
-          </span>
-          <span className="hidden text-lg md:block">VoxAnalitica</span>
+        <Link
+          href="#home"
+          className="flex items-center gap-3 font-bold text-[var(--color-primary-foreground)]"
+          aria-label="VoxAnalitica"
+        >
+          <Image
+            src="/logo-vox-analitica.svg"
+            alt="VoxAnalitica"
+            width={190}
+            height={64}
+            priority
+            className="h-10 w-auto drop-shadow-[0_1px_2px_rgba(0,0,0,0.25)]"
+            sizes="(max-width: 768px) 140px, 190px"
+          />
         </Link>
         <button
           type="button"
