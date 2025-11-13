@@ -57,7 +57,7 @@ export function InsightsSection({
         />
         <Link
           href={ctaHref}
-          className="inline-flex items-center justify-center gap-2 rounded-full border border-[var(--color-primary)] px-5 py-3 text-sm font-semibold text-[var(--color-primary)] transition hover:bg-[var(--color-primary)] hover:text-[var(--color-primary-foreground)]"
+          className="inline-flex items-center justify-center gap-2 rounded-full border border-[color-mix(in_srgb,var(--color-primary)_65%,white)] px-5 py-3 text-sm font-semibold text-[var(--color-foreground)] transition hover:bg-[color-mix(in_srgb,var(--color-primary)_18%,transparent)]"
         >
           {ctaLabel}
           <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
@@ -80,7 +80,7 @@ export function InsightsSection({
               <div>
                 <Link
                   href={`/blog/${featuredPost.slug}`}
-                  className="inline-flex items-center gap-2 text-sm font-semibold text-[var(--color-primary)] hover:text-[color-mix(in_srgb,var(--color-primary)_80%,black)]"
+                  className="inline-flex items-center gap-2 text-sm font-semibold text-[var(--color-foreground)] hover:text-[var(--color-accent)]"
                 >
                   Ler artigo completo
                   <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
@@ -107,7 +107,7 @@ export function InsightsSection({
                 <span>{post.read_time} de leitura</span>
                 <Link
                   href={`/blog/${post.slug}`}
-                  className="inline-flex items-center gap-2 font-semibold text-[var(--color-primary)] hover:text-[color-mix(in_srgb,var(--color-primary)_80%,black)]"
+                  className="inline-flex items-center gap-2 font-semibold text-[var(--color-foreground)] hover:text-[var(--color-accent)]"
                 >
                   Ler artigo
                   <ArrowUpRight className="h-4 w-4" aria-hidden="true" />

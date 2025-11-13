@@ -23,7 +23,7 @@ const variantClasses: Record<ButtonVariant, string> = {
     "focus-visible:outline-[var(--color-primary)]",
   ),
   outline: cn(
-    "border border-[var(--color-primary)] text-[var(--color-primary)] hover:bg-[color-mix(in_srgb,var(--color-primary)_8%,white)]",
+    "border border-[color-mix(in_srgb,var(--color-primary)_65%,white)] text-[var(--color-foreground)] hover:bg-[color-mix(in_srgb,var(--color-primary)_20%,transparent)]",
     focusBase,
     "focus-visible:outline-[var(--color-accent)]",
   ),

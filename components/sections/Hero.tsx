@@ -109,7 +109,7 @@ export function HeroSection({ title, subtitle, primaryCta, secondaryCta, badges 
         )}
         ref={ref}
       >
-        <div className="inline-flex items-center gap-2 rounded-full bg-[color-mix(in_srgb,var(--color-primary)_6%,white)] px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-[var(--color-primary)] shadow-sm">
+        <div className="inline-flex items-center gap-2 rounded-full bg-[color-mix(in_srgb,var(--color-primary)_6%,white)] px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-[var(--color-foreground)] shadow-sm">
           <span>PESQUISA E INTELIGÊNCIA</span>
         </div>
         <h1 className="mt-6 max-w-4xl text-3xl font-bold leading-tight tracking-tight text-[var(--color-foreground)] md:text-5xl md:leading-[1.1]">

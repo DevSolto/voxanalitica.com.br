@@ -135,7 +135,7 @@ export function Footer() {
               <button
                 type="button"
                 onClick={closeDialog}
-                className="rounded-full border border-[var(--color-primary)] px-4 py-2 text-sm font-semibold text-[var(--color-primary)] hover:bg-[color-mix(in_srgb,var(--color-primary)_10%,transparent)]"
+                className="rounded-full border border-[color-mix(in_srgb,var(--color-primary)_65%,white)] px-4 py-2 text-sm font-semibold text-[var(--color-foreground)] hover:bg-[color-mix(in_srgb,var(--color-primary)_18%,transparent)]"
               >
                 Entendi
               </button>
