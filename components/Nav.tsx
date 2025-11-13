@@ -12,19 +12,17 @@ export type NavItem = {
 };
 
 export const NAV_ITEMS: NavItem[] = [
-  { id: "home", label: "Início", href: "#home" },
-  { id: "solucoes", label: "Soluções", href: "#solucoes" },
+  { id: "solucoes", label: "Diferenciais", href: "#solucoes" },
   { id: "metodologia", label: "Metodologia", href: "#metodologia" },
-  { id: "vantagem", label: "A Vantagem Vox", href: "#vantagem" },
-  { id: "vitorias", label: "Nossas Vitórias", href: "#vitorias" },
-  { id: "blog", label: "Insights Vox", href: "#blog" },
-  { id: "faq", label: "FAQ", href: "#faq" },
+  { id: "vantagem", label: "Vantagens", href: "#vantagem" },
+  { id: "vitorias", label: "Cases", href: "#vitorias" },
+  { id: "blog", label: "Blog", href: "#blog" },
+  { id: "faq", label: "FAC", href: "#faq" },
   { id: "contato", label: "Contato", href: "#contato" },
-  { id: "politica", label: "Política", href: "#politica" },
 ];
 
 export function Nav() {
-  const [activeId, setActiveId] = useState<string>("home");
+  const [activeId, setActiveId] = useState<string>(NAV_ITEMS[0]?.id ?? "");
   const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
