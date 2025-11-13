@@ -61,7 +61,6 @@ export function AdvantageSection({
         className="max-w-3xl"
         align="left"
         subtitleClassName="text-base text-[var(--color-muted-foreground)] md:text-lg"
-        titleClassName="text-3xl font-bold tracking-tight text-[var(--color-primary)] md:text-4xl"
       />
 
       <div className="mt-12 grid gap-6 md:grid-cols-2">
@@ -80,7 +79,7 @@ export function AdvantageSection({
                   <p className="text-xs font-semibold uppercase tracking-[0.3em] text-[color-mix(in_srgb,var(--color-muted)_60%,white)]">
                     {audience.subtitle}
                   </p>
-                  <h3 className="mt-2 text-xl font-semibold text-[var(--color-primary)]">{audience.title}</h3>
+                  <h3 className="mt-2 text-xl font-semibold text-[var(--color-foreground)]">{audience.title}</h3>
                 </div>
               </div>
               <p className="mt-4 text-sm leading-relaxed text-[var(--color-muted-foreground)]">{audience.description}</p>

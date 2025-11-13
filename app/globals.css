@@ -3,11 +3,12 @@
 
 /* === Tokens raiz (claro/escuro via media) === */
 :root {
-  --background: #f8fafc;
-  --foreground: #0f172a;
-  --muted: #e2e8f0;
-  --muted-foreground: #475569;
-  --border: #e2e8f0;
+  /* Tema escuro padrão: fundo azul profundo e texto claro */
+  --background: #071836;
+  --foreground: #f1f5ff;
+  --muted: #10244d;
+  --muted-foreground: #c7d2fe;
+  --border: #163366;
 
   /* Se você usa next/font (ex.: Geist), mapeie aqui: */
   /* --font-geist-sans: var(--your-loaded-sans); */
@@ -16,10 +17,10 @@
 
 /* Tema Tailwind a partir dos tokens (v4) */
 @theme {
-  --color-vox-blue: #1e3a6b;
-  --color-vox-yellow: #fea347;
-  --color-vox-muted: #475569;
-  --color-vox-border: #e2e8f0;
+  --color-vox-blue: #0f2a5c;
+  --color-vox-yellow: #ffb347;
+  --color-vox-muted: #7f8fb8;
+  --color-vox-border: #1e3a6b;
 
   --color-primary: var(--color-vox-blue);
   --color-primary-foreground: #f8fafc;
@@ -38,15 +39,7 @@
 
 /* Dark mode automático por media query */
 /* Se preferir alternar por classe/atributo, veja a seção 3 */
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0f172a;
-    --foreground: #f8fafc;
-    --muted: #1e293b;
-    --muted-foreground: #e2e8f0;
-    --border: #1e293b;
-  }
-}
+/* Mantemos o mesmo visual independentemente da preferência do SO */
 
 /* Base mínima — deixe cores/fonte para as classes no HTML */
 html {

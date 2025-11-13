@@ -102,7 +102,6 @@ export function HeroSection({ title, subtitle, primaryCta, secondaryCta, badges 
 
   return (
     <Section id="home" className="relative isolate overflow-hidden bg-[var(--color-background)] hero-surface pb-20 pt-24 md:pb-24">
-      <div className="absolute inset-x-0 top-0 -z-10 h-72 bg-gradient-to-b from-white/60 to-transparent" aria-hidden="true" />
       <div
         className={cn(
           "flex flex-col items-center text-center", "transition-all duration-700",
@@ -110,10 +109,10 @@ export function HeroSection({ title, subtitle, primaryCta, secondaryCta, badges 
         )}
         ref={ref}
       >
-        <div className="inline-flex items-center gap-2 rounded-full bg-[color-mix(in_srgb,var(--color-primary)_6%,white)] px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-[var(--color-primary)] shadow-sm">
+        <div className="inline-flex items-center gap-2 rounded-full bg-[color-mix(in_srgb,var(--color-primary)_6%,white)] px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-[var(--color-foreground)] shadow-sm">
           <span>PESQUISA E INTELIGÊNCIA</span>
         </div>
-        <h1 className="mt-6 max-w-4xl text-3xl font-bold leading-tight tracking-tight text-[var(--color-primary)] md:text-5xl md:leading-[1.1]">
+        <h1 className="mt-6 max-w-4xl text-3xl font-bold leading-tight tracking-tight text-[var(--color-foreground)] md:text-5xl md:leading-[1.1]">
           {title}
         </h1>
         <p className="mt-4 max-w-2xl text-base text-[var(--color-muted-foreground)] md:text-lg">{subtitle}</p>
@@ -164,7 +163,7 @@ export function HeroSection({ title, subtitle, primaryCta, secondaryCta, badges 
                 key={card.title}
                 className="rounded-2xl border border-[var(--color-border)] bg-[color-mix(in_srgb,var(--color-background)_90%,white)] p-6 text-left shadow-sm"
               >
-                <h3 className="text-lg font-semibold text-[var(--color-primary)]">{card.title}</h3>
+                <h3 className="text-lg font-semibold text-[var(--color-foreground)]">{card.title}</h3>
                 <p className="mt-2 text-sm text-[var(--color-muted-foreground)]">{card.content}</p>
               </article>
             ))}

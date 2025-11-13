@@ -68,7 +68,7 @@ export function SectionHeader({
       ) : null}
       <h2
         className={cn(
-          "text-3xl font-bold tracking-tight text-[var(--color-primary)] md:text-4xl",
+          "text-3xl font-bold tracking-tight text-[var(--color-foreground)] md:text-4xl",
           titleClassName,
         )}
       >

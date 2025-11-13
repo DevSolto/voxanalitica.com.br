@@ -53,11 +53,11 @@ export function InsightsSection({
           title={title}
           subtitle={subtitle}
           className="max-w-3xl"
-          titleClassName="text-3xl font-bold text-[var(--color-primary)] md:text-[40px]"
+          titleClassName="text-3xl font-bold text-[var(--color-foreground)] md:text-[40px]"
         />
         <Link
           href={ctaHref}
-          className="inline-flex items-center justify-center gap-2 rounded-full border border-[var(--color-primary)] px-5 py-3 text-sm font-semibold text-[var(--color-primary)] transition hover:bg-[var(--color-primary)] hover:text-[var(--color-primary-foreground)]"
+          className="inline-flex items-center justify-center gap-2 rounded-full border border-[color-mix(in_srgb,var(--color-primary)_65%,white)] px-5 py-3 text-sm font-semibold text-[var(--color-foreground)] transition hover:bg-[color-mix(in_srgb,var(--color-primary)_18%,transparent)]"
         >
           {ctaLabel}
           <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
@@ -68,7 +68,7 @@ export function InsightsSection({
           <article className="flex h-full flex-col justify-between rounded-3xl border border-[var(--color-border)] bg-[var(--color-background)] p-8 shadow-sm transition hover:-translate-y-1 hover:shadow-lg">
             <div className="space-y-4">
               <p className="text-xs font-semibold uppercase tracking-[0.3em] text-[color-mix(in_srgb,var(--color-muted)_60%,white)]">{featuredPost.category}</p>
-              <h3 className="text-3xl font-semibold text-[var(--color-primary)]">{featuredPost.title}</h3>
+              <h3 className="text-3xl font-semibold text-[var(--color-foreground)]">{featuredPost.title}</h3>
               <p className="text-base text-[var(--color-muted-foreground)]">{featuredPost.excerpt}</p>
             </div>
             <div className="flex flex-col">
@@ -80,7 +80,7 @@ export function InsightsSection({
               <div>
                 <Link
                   href={`/blog/${featuredPost.slug}`}
-                  className="inline-flex items-center gap-2 text-sm font-semibold text-[var(--color-primary)] hover:text-[color-mix(in_srgb,var(--color-primary)_80%,black)]"
+                  className="inline-flex items-center gap-2 text-sm font-semibold text-[var(--color-foreground)] hover:text-[var(--color-accent)]"
                 >
                   Ler artigo completo
                   <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
@@ -101,13 +101,13 @@ export function InsightsSection({
                 <span className="h-1 w-1 rounded-full bg-[var(--color-border)]" aria-hidden="true" />
                 <span>{formatDate(post.published_at)}</span>
               </div>
-              <h3 className="mt-3 text-xl font-semibold text-[var(--color-primary)]">{post.title}</h3>
+              <h3 className="mt-3 text-xl font-semibold text-[var(--color-foreground)]">{post.title}</h3>
               <p className="mt-2 text-sm text-[var(--color-muted-foreground)]">{post.excerpt}</p>
               <div className="mt-4 flex items-center justify-between text-sm text-[color-mix(in_srgb,var(--color-muted)_70%,white)]">
                 <span>{post.read_time} de leitura</span>
                 <Link
                   href={`/blog/${post.slug}`}
-                  className="inline-flex items-center gap-2 font-semibold text-[var(--color-primary)] hover:text-[color-mix(in_srgb,var(--color-primary)_80%,black)]"
+                  className="inline-flex items-center gap-2 font-semibold text-[var(--color-foreground)] hover:text-[var(--color-accent)]"
                 >
                   Ler artigo
                   <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
