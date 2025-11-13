@@ -85,10 +85,10 @@ export function Nav() {
   const closeMenu = () => setIsOpen(false);
 
   return (
-    <div className="sticky top-0 z-50 w-full bg-white/90 backdrop-blur border-b border-[#E9ECEF]">
+    <div className="sticky top-0 z-50 w-full border-b border-[color-mix(in_srgb,var(--color-primary)_35%,white)] bg-[var(--color-primary)]/95 text-[var(--color-primary-foreground)] backdrop-blur">
       <nav className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 md:px-6">
-        <Link href="#home" className="flex items-center gap-2 font-bold text-[#043873]">
-          <span className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-[#4F9CF9] text-white font-semibold">
+        <Link href="#home" className="flex items-center gap-2 font-bold text-[var(--color-primary-foreground)]">
+          <span className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-[var(--color-accent)] text-[var(--color-accent-foreground)] font-semibold">
             VA
           </span>
           <span className="hidden text-lg md:block">VoxAnalitica</span>
@@ -96,7 +96,7 @@ export function Nav() {
         <button
           type="button"
           onClick={toggleMenu}
-          className="inline-flex items-center justify-center rounded-full border border-[#DEE2E6] p-2 text-[#043873] lg:hidden"
+          className="inline-flex items-center justify-center rounded-full border border-[color-mix(in_srgb,var(--color-primary)_35%,var(--color-primary-foreground))] p-2 text-[var(--color-primary-foreground)] transition-colors lg:hidden hover:bg-[color-mix(in_srgb,var(--color-primary-foreground)_12%,transparent)]"
           aria-label={isOpen ? "Fechar menu" : "Abrir menu"}
           aria-expanded={isOpen}
         >
@@ -110,10 +110,10 @@ export function Nav() {
                 <Link
                   href={item.href}
                   className={cn(
-                    "rounded-full px-4 py-2 text-sm font-medium transition",
+                    "rounded-full px-4 py-2 text-sm font-semibold transition",
                     isActive
-                      ? "bg-[#4F9CF9]/10 text-[#043873]"
-                      : "text-[#495057] hover:text-[#043873]",
+                      ? "bg-[var(--color-accent)] text-[var(--color-accent-foreground)]"
+                      : "text-[color-mix(in_srgb,var(--color-primary-foreground)_80%,transparent)] hover:text-[var(--color-accent)]",
                   )}
                 >
                   {item.label}
@@ -125,7 +125,7 @@ export function Nav() {
       </nav>
       <div
         className={cn(
-          "lg:hidden", "transition-[max-height] duration-300 ease-in-out overflow-hidden border-t border-[#E9ECEF] bg-white/95",
+          "lg:hidden", "transition-[max-height] duration-300 ease-in-out overflow-hidden border-t border-[color-mix(in_srgb,var(--color-primary)_35%,var(--color-primary-foreground))] bg-[var(--color-primary)]",
           isOpen ? "max-h-96" : "max-h-0",
         )}
       >
@@ -138,10 +138,10 @@ export function Nav() {
                   href={item.href}
                   onClick={closeMenu}
                   className={cn(
-                    "block rounded-full px-4 py-2 text-sm font-medium",
+                    "block rounded-full px-4 py-2 text-sm font-semibold",
                     isActive
-                      ? "bg-[#4F9CF9]/10 text-[#043873]"
-                      : "text-[#495057] hover:bg-[#F1F3F5] hover:text-[#043873]",
+                      ? "bg-[var(--color-accent)] text-[var(--color-accent-foreground)]"
+                      : "text-[color-mix(in_srgb,var(--color-primary-foreground)_90%,transparent)] hover:bg-[color-mix(in_srgb,var(--color-primary-foreground)_12%,transparent)] hover:text-[var(--color-primary-foreground)]",
                   )}
                 >
                   {item.label}
