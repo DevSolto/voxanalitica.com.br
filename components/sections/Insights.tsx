@@ -47,7 +47,7 @@ export function InsightsSection({
 
   return (
     <Section id={sectionId}>
-      <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between bg-white/90">
+      <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
         <SectionHeader
           eyebrow="Blog"
           title={title}
