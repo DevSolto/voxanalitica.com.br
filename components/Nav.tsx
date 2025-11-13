@@ -27,9 +27,9 @@ export function Nav() {
   const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
-    const sections = Array.from(
-      document.querySelectorAll<HTMLElement>("[data-section-id]"),
-    );
+    const sections = NAV_ITEMS.map((item) =>
+      document.querySelector<HTMLElement>(`[data-section-id="${item.id}"]`),
+    ).filter((section): section is HTMLElement => Boolean(section));
 
     const observer = new IntersectionObserver(
       (entries) => {
@@ -39,14 +39,14 @@ export function Nav() {
 
         if (visible?.target) {
           const id = visible.target.getAttribute("data-section-id");
-          if (id && id !== activeId) {
-            setActiveId(id);
+          if (id) {
+            setActiveId((prev) => (prev === id ? prev : id));
           }
         }
       },
       {
         rootMargin: "-45% 0px -45% 0px",
-        threshold: [0.1, 0.25, 0.5, 0.75],
+        threshold: [0, 0.1, 0.25, 0.5, 0.75],
       },
     );
 
@@ -56,7 +56,7 @@ export function Nav() {
       sections.forEach((section) => observer.unobserve(section));
       observer.disconnect();
     };
-  }, [activeId]);
+  }, []);
 
   useEffect(() => {
     const handleResize = () => {
