@@ -104,7 +104,7 @@ export function Nav() {
         <button
           type="button"
           onClick={toggleMenu}
-          className="inline-flex items-center justify-center rounded-full border border-[color-mix(in_srgb,var(--color-primary)_35%,var(--color-primary-foreground))] p-2 text-[var(--color-primary-foreground)] transition-colors lg:hidden hover:bg-[color-mix(in_srgb,var(--color-primary-foreground)_12%,transparent)]"
+          className="inline-flex items-center justify-center rounded-full p-2 text-[var(--color-primary-foreground)] transition-colors lg:hidden hover:bg-[color-mix(in_srgb,var(--color-primary-foreground)_12%,transparent)]"
           aria-label={isOpen ? "Fechar menu" : "Abrir menu"}
           aria-expanded={isOpen}
         >
@@ -133,7 +133,7 @@ export function Nav() {
       </nav>
       <div
         className={cn(
-          "lg:hidden", "transition-[max-height] duration-300 ease-in-out overflow-hidden border-t border-[color-mix(in_srgb,var(--color-primary)_35%,var(--color-primary-foreground))] bg-[var(--color-primary)]",
+          "lg:hidden", "transition-[max-height] duration-300 ease-in-out overflow-hidden bg-[var(--color-primary)]",
           isOpen ? "max-h-96" : "max-h-0",
         )}
       >
