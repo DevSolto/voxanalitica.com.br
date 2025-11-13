@@ -9,7 +9,7 @@ import {
   AdvantageSection,
   type AdvantageContent,
 } from "@/components/sections/Advantage";
-import { TestimonialsSection } from "@/components/sections/Testimonials";
+import { CasesSection } from "@/components/sections/Cases";
 import { InsightsSection } from "@/components/sections/Insights";
 import { FaqSection } from "@/components/sections/Faq";
 import { FinalCtaSection } from "@/components/sections/FinalCta";
@@ -97,27 +97,32 @@ const advantageContent: AdvantageContent = {
   ],
 };
 
-const testimonials = [
+const successCases = [
   {
-    name: "Mariana Albuquerque",
-    role: "Secretária de Juventude",
-    company: "Prefeitura de João Pessoa",
-    quote:
-      "Conseguimos montar uma política de juventude com metas realistas porque tivemos evidências claras sobre necessidades e linguagem dos nossos jovens.",
+    title: "A Voz das Ruas e a Política Pública",
+    scenario:
+      "Uma Frente Parlamentar Municipalista precisava de subsídios para criar uma política pública de alto impacto e baixo custo.",
+    action:
+      "Realizamos uma Pesquisa Qualitativa de Rua aprofundada, capturando as demandas e sentimentos de um grupo específico (corredores de rua).",
+    result:
+      "O relatório final não apenas diagnosticou os problemas mas entregou um Manifesto dos Corredores com propostas acionáveis. O cliente pôde transformar a voz da base em um plano de ação robusto e factível, gerando capital político imediato e impacto social duradouro.",
   },
   {
-    name: "Rodrigo Farias",
-    role: "Head de Marketing",
-    company: "Fintech B2B",
-    quote:
-      "O material da VoxAnalitica virou apresentação oficial no conselho. Sintetiza dados complexos em argumentos simples para decisão.",
+    title: "Blindagem e Ajuste de Discurso",
+    scenario: "Um candidato a prefeito, com alta rejeição em um nicho específico, precisava reverter o quadro em 60 dias.",
+    action:
+      "Utilizamos a Pesquisa Híbrida Automatizada para segmentar o nicho de eleitores e aplicar um teste de discurso emocional. A análise de IA identificou que a rejeição era baseada em uma percepção de \"distância\" e não em fatos de gestão.",
+    result:
+      "O discurso foi ajustado para uma linguagem de proximidade e empatia, utilizando termos e narrativas extraídas diretamente das respostas emocionais dos eleitores. O candidato reverteu a rejeição no nicho e venceu a eleição por uma margem apertada, provando que a interpretação qualitativa foi o fator decisivo.",
   },
   {
-    name: "Ana Luiza Campos",
-    role: "Diretora de Pesquisa",
-    company: "Instituto Independente",
-    quote:
-      "A equipe consegue conectar campo, análise e storytelling multimídia em prazos que outras consultorias não conseguem atingir.",
+    title: "Diagnóstico de Conjuntura Política",
+    scenario:
+      "Um grupo político precisava entender a dinâmica de transferência de votos e a força de figuras políticas em uma cidade estratégica.",
+    action:
+      "Conduzimos Entrevistas em Profundidade com líderes locais e formadores de opinião, focando na percepção de continuidade de gestão e na influência de ex-prefeitos.",
+    result:
+      "O relatório forneceu um mapa de influência detalhado, indicando que a transferência de votos não seria automática, mas dependeria de um endosso explícito e da associação a projetos de alto impacto. Isso permitiu ao cliente reposicionar o apoio e garantir que a transferência de capital político fosse efetiva.",
   },
 ];
 
@@ -312,10 +317,10 @@ export default function HomePage() {
           }}
         />
         <AdvantageSection {...advantageContent} />
-        <TestimonialsSection
-          title="Confiança de gestores e líderes"
-          subtitle="Quem trabalha conosco destaca o equilíbrio entre profundidade analítica, velocidade e clareza na entrega."
-          items={testimonials}
+        <CasesSection
+          title="Nossas Vitórias"
+          subtitle="O Impacto da Inteligência Vox na Política"
+          cases={successCases}
         />
         <InsightsSection
           title="Insights e materiais exclusivos"
