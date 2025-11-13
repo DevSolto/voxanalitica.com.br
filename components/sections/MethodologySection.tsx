@@ -2,7 +2,7 @@
 
 import { Section, SectionHeader } from "@/components/Section";
 import { Button } from "@/components/ui/button";
-import { Database, MessageSquare, Zap } from "lucide-react";
+import { Database, MessageSquare, Radar, Zap } from "lucide-react";
 
 type MethodologyBlock = {
   icon: keyof typeof iconMap;
@@ -23,6 +23,7 @@ const iconMap = {
   MessageSquare,
   Database,
   Zap,
+  Radar,
 };
 
 export function MethodologySection({ title, subtitle, blocks, cta }: MethodologyProps) {

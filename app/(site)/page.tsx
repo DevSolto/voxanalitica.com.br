@@ -274,6 +274,19 @@ export default function HomePage() {
         "Captação Mista — combinação de tráfego pago e listas para maximizar a amostra.",
       ],
     },
+    {
+      icon: "Radar" as const,
+      title: "Monitoramento de Mídia & Inteligência de Dados",
+      subtitle: "O RADAR CONTÍNUO",
+      description:
+        "Acompanhamos, em tempo quase real, o que está sendo dito sobre seu nome, gestão ou pauta nas notícias locais, blogs, rádios e grupos de WhatsApp. Cruzamos esse volume de informação com dados de pesquisa para transformar ruído em sinal estratégico.",
+      items: [
+        "Farol do Nordeste — monitoramento automatizado de notícias, blogs e portais locais, com classificação por tema, ator político e município.",
+        "Escuta de Grupos e Redes — acompanhamento de grupos de WhatsApp, redes sociais e canais públicos, respeitando LGPD e limites éticos.",
+        "Alertas e Tendências — identificação precoce de crises, oportunidades e mudança de humor, alimentando ajustes rápidos de comunicação e agenda.",
+        "Painéis de Inteligência — consolidação em dashboards e relatórios executivos que integram campo, monitoramento e contexto político.",
+      ],
+    },
   ];
 
   return (
