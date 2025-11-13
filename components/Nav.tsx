@@ -94,10 +94,10 @@ export function Nav() {
           <Image
             src="/logo-vox-analitica.svg"
             alt="VoxAnalitica"
-            width={190}
-            height={64}
+            width={200}
+            height={74}
             priority
-            className="h-10 w-auto drop-shadow-[0_1px_2px_rgba(0,0,0,0.25)]"
+            className="h-14 w-auto drop-shadow-[0_1px_2px_rgba(0,0,0,0.25)]"
             sizes="(max-width: 768px) 140px, 190px"
           />
         </Link>
