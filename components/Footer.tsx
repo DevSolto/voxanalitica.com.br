@@ -114,7 +114,7 @@ export function Footer() {
             >
               <X className="h-4 w-4" aria-hidden="true" />
             </button>
-            <h3 id="privacy-policy-title" className="text-2xl font-semibold text-[var(--color-primary)]">
+            <h3 id="privacy-policy-title" className="text-2xl font-semibold text-[var(--color-foreground)]">
               Política de Privacidade VoxAnalitica
             </h3>
             <div className="mt-6 space-y-4 text-sm leading-relaxed text-[var(--color-muted-foreground)]">
