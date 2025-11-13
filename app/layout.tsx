@@ -1,15 +1,9 @@
 import "./globals.css";
-import { Inter, Montserrat } from "next/font/google";
+import { Montserrat } from "next/font/google";
 
-const headingFont = Montserrat({
+const montserrat = Montserrat({
   subsets: ["latin"],
-  variable: "--font-heading",
-  display: "swap",
-});
-
-const bodyFont = Inter({
-  subsets: ["latin"],
-  variable: "--font-body",
+  variable: "--font-montserrat",
   display: "swap",
 });
 
@@ -20,13 +14,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       className={[
         // Cores globais via tokens do @theme
         "bg-background text-foreground",
-        // Familia tipográfica padrão
+        // Família tipográfica padrão
         "font-sans",
-        headingFont.variable,
-        bodyFont.variable,
+        montserrat.variable,
       ].join(" ")}
     >
-      <body className="antialiased font-[var(--font-body,inherit)]">{children}</body>
+      <body className="antialiased">{children}</body>
     </html>
   );
 }
