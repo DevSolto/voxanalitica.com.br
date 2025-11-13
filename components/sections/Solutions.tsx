@@ -52,7 +52,7 @@ export function SolutionsSection({
   return (
     <Section id="solucoes" className="bg-[#F8F9FA]">
       <SectionHeader
-        eyebrow="Soluções"
+        eyebrow="Diferenciais"
         title={title}
         subtitle={subtitle}
         align="center"
@@ -61,7 +61,7 @@ export function SolutionsSection({
       {itemsTitle ? (
         <p className="mt-6 text-center text-base font-semibold text-[#212529]">{itemsTitle}</p>
       ) : null}
-      <SectionColumns className="mt-12 grid-cols-1 md:grid-cols-2 xl:grid-cols-3">
+      <SectionColumns className="mt-12 grid-cols-1 md:grid-cols-2">
         {items.map((item) => {
           const Icon = iconMap[item.icon] ?? MessageSquare;
           return (

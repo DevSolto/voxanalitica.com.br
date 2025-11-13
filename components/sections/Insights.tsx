@@ -47,7 +47,7 @@ export function InsightsSection({
 
   return (
     <Section id={sectionId}>
-      <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+      <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between bg-white/90">
         <SectionHeader
           eyebrow="Blog"
           title={title}
@@ -71,12 +71,13 @@ export function InsightsSection({
               <h3 className="text-3xl font-semibold text-[#043873]">{featuredPost.title}</h3>
               <p className="text-base text-[#495057]">{featuredPost.excerpt}</p>
             </div>
+            <div className="flex flex-col">
             <div className="mt-8 flex flex-wrap items-center gap-3 text-sm text-[#6C757D]">
               <span>{formatDate(featuredPost.published_at)}</span>
               <span className="h-1 w-1 rounded-full bg-[#CED4DA]" aria-hidden="true" />
               <span>{featuredPost.read_time} de leitura</span>
             </div>
-            <div className="mt-6">
+            <div className="">
               <Link
                 href={`/blog/${featuredPost.slug}`}
                 className="inline-flex items-center gap-2 text-sm font-semibold text-[#043873] hover:text-[#021F46]"
@@ -84,6 +85,7 @@ export function InsightsSection({
                 Ler artigo completo
                 <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
               </Link>
+            </div>
             </div>
           </article>
         ) : null}

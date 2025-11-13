@@ -137,7 +137,7 @@ const blogSection = {
       slug: "como-ler-pesquisas-eleitorais-sem-cair-em-armadilhas",
       title: "Como ler pesquisas eleitorais sem cair em armadilhas",
       excerpt:
-        "Margem de erro, recorte territorial, metodologia e recortes sociodemográficos: o que realmente importa antes de confiar em um número.",
+        "Margem de erro, recorte territorial, metodologia e recortes sociodemográficos: o que realmente importa antes de confiar em um número. Margem de erro, recorte territorial, metodologia e recortes sociodemográficos: o que realmente importa antes de confiar em um número. ",
       category: "Eleições",
       read_time: "8 min",
       published_at: "2025-09-10",
