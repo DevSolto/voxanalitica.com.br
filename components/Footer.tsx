@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useState } from "react";
 import Link from "next/link";
 import { Linkedin, Mail, MapPin, Phone, X } from "lucide-react";
+import Image from "next/image";
 
 const socialLinks = [
   { label: "LinkedIn", href: "https://www.linkedin.com/company/voxanalitica", icon: Linkedin },
@@ -39,12 +40,21 @@ export function Footer() {
     >
       <div className="mx-auto flex w-full max-w-6xl flex-col gap-10 px-4 py-12 md:px-6 md:py-16 lg:flex-row lg:justify-between">
         <div className="max-w-md space-y-4">
-          <div className="flex items-center gap-3">
-            <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-[var(--color-accent)] text-lg font-semibold text-[var(--color-accent-foreground)]">
-              VA
-            </span>
-            <p className="text-lg font-semibold">VoxAnalitica Pesquisa & Dados</p>
-          </div>
+          <Link
+            href="#home"
+            className="flex items-center gap-3 font-bold text-[var(--color-primary-foreground)]"
+            aria-label="VoxAnalitica"
+          >
+            <Image
+              src="/logo-vox-analitica.svg"
+              alt="VoxAnalitica"
+              width={200}
+              height={74}
+              priority
+              className="h-14 w-auto drop-shadow-[0_1px_2px_rgba(0,0,0,0.25)]"
+              sizes="(max-width: 768px) 140px, 190px"
+            />
+          </Link>
           <p className="text-sm text-white/70">
             Insights locais para decisões com menos risco. Combinamos automação, inteligência analítica e apresentação clara para acelerar decisões públicas e privadas.
           </p>
