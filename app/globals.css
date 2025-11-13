@@ -3,8 +3,11 @@
 
 /* === Tokens raiz (claro/escuro via media) === */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #f8fafc;
+  --foreground: #0f172a;
+  --muted: #e2e8f0;
+  --muted-foreground: #475569;
+  --border: #e2e8f0;
 
   /* Se você usa next/font (ex.: Geist), mapeie aqui: */
   /* --font-geist-sans: var(--your-loaded-sans); */
@@ -13,11 +16,15 @@
 
 /* Tema Tailwind a partir dos tokens (v4) */
 @theme {
+  --color-vox-blue: #1e3a6b;
+  --color-vox-yellow: #fea347;
+  --color-vox-muted: #475569;
+  --color-vox-border: #e2e8f0;
 
-  --color-brand-600: #043873;
-  --color-brand-400: #4F9CF9;
-  --color-accent-300: #FFE6A8;
-
+  --color-primary: var(--color-vox-blue);
+  --color-accent: var(--color-vox-yellow);
+  --color-border: var(--color-vox-border);
+  --color-muted: var(--color-vox-muted);
   --color-background: var(--background);
   --color-foreground: var(--foreground);
 
@@ -30,8 +37,11 @@
 /* Se preferir alternar por classe/atributo, veja a seção 3 */
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #0f172a;
+    --foreground: #f8fafc;
+    --muted: #1e293b;
+    --muted-foreground: #e2e8f0;
+    --border: #1e293b;
   }
 }
 
