@@ -46,7 +46,7 @@ export function Nav() {
       },
       {
         rootMargin: "-45% 0px -45% 0px",
-        threshold: [0.1, 0.25, 0.5, 0.75],
+        threshold: [0, 0.1, 0.25, 0.5, 0.75],
       },
     );
 
