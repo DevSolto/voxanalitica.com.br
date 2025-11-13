@@ -8,13 +8,25 @@ type ButtonVariant = "primary" | "secondary" | "outline";
 
 type ButtonSize = "md" | "lg";
 
+const focusBase =
+  "focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2";
+
 const variantClasses: Record<ButtonVariant, string> = {
-  primary:
-    "bg-[#043873] text-white shadow-sm hover:bg-[#043873]/90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#4F9CF9]",
-  secondary:
-    "bg-[#4F9CF9] text-white shadow-sm hover:bg-[#4F9CF9]/90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#043873]",
-  outline:
-    "border border-[#043873] text-[#043873] hover:bg-[#043873]/5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#4F9CF9]",
+  primary: cn(
+    "bg-[var(--color-primary)] text-[var(--color-primary-foreground)] shadow-sm hover:bg-[color-mix(in_srgb,var(--color-primary)_92%,white)]",
+    focusBase,
+    "focus-visible:outline-[var(--color-accent)]",
+  ),
+  secondary: cn(
+    "bg-[var(--color-accent)] text-[var(--color-accent-foreground)] shadow-sm hover:bg-[color-mix(in_srgb,var(--color-accent)_92%,white)]",
+    focusBase,
+    "focus-visible:outline-[var(--color-primary)]",
+  ),
+  outline: cn(
+    "border border-[var(--color-primary)] text-[var(--color-primary)] hover:bg-[color-mix(in_srgb,var(--color-primary)_8%,white)]",
+    focusBase,
+    "focus-visible:outline-[var(--color-accent)]",
+  ),
 };
 
 const sizeClasses: Record<ButtonSize, string> = {

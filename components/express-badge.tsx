@@ -16,8 +16,8 @@ export function ExpressBadge({ label, variant = "accent", icon, className }: Exp
       className={cn(
         "inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs font-semibold uppercase tracking-wide",
         variant === "accent"
-          ? "bg-[#FFE6A8] text-[#212529]"
-          : "border border-[#4F9CF9] text-[#043873]",
+          ? "bg-[var(--color-accent)] text-[var(--color-accent-foreground)]"
+          : "border border-[var(--color-primary)] text-[var(--color-primary)]",
         className,
       )}
     >
