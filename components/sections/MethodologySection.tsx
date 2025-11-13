@@ -30,7 +30,7 @@ export function MethodologySection({ title, subtitle, blocks, cta }: Methodology
   return (
     <Section id="metodologia">
       <SectionHeader eyebrow="Metodologia" title={title} subtitle={subtitle} className="max-w-3xl" />
-      <div className="mt-12 grid gap-6 md:grid-cols-2">
+      <div className="mt-12 grid gap-6 md:grid-cols-2 justify-center">
         {blocks.map((block) => {
           const Icon = iconMap[block.icon] ?? MessageSquare;
           return (
