@@ -1,6 +1,7 @@
 "use client";
 
-import { ChangeEvent, FormEvent, useMemo, useState } from "react";
+import type React from "react";
+import { FormEvent, useMemo, useState } from "react";
 import { Section, SectionHeader } from "@/components/Section";
 import { Button } from "@/components/ui/button";
 import { contactFormSchema, ContactFormInput, honeypotFieldName, MIN_SUBMIT_DELAY_MS } from "@/lib/validation/contact";
@@ -47,11 +48,13 @@ export function ContactSection({ title, subtitle }: ContactSectionProps) {
     message: fieldErrors.message?.[0],
   };
 
-  const handleChange = (field: keyof ContactFormValues) => (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setSubmitted(false);
-    setSubmitError(null);
-    setValues((prev) => ({ ...prev, [field]: event.target.value }));
-  };
+  const handleChange =
+    (field: keyof ContactFormValues) =>
+    (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+      setSubmitted(false);
+      setSubmitError(null);
+      setValues((prev: ContactFormValues) => ({ ...prev, [field]: event.target.value }));
+    };
 
   const handleBlur = (field: keyof ContactFormValues) => () => {
     setTouched((prev) => ({ ...prev, [field]: true }));
