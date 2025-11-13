@@ -1,6 +1,5 @@
 "use client";
 
-import type { JSX } from "react";
 import * as React from "react";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
@@ -47,11 +46,6 @@ type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & CommonButtonP
 type ButtonLinkProps = React.AnchorHTMLAttributes<HTMLAnchorElement> &
   CommonButtonProps & { href: string; as?: typeof Link | "a" };
 
-type ButtonComponent = {
-  (props: ButtonProps): JSX.Element;
-  Link(props: ButtonLinkProps): JSX.Element;
-};
-
 function BaseButton(
   { variant = "primary", size = "lg", className, icon, children, ...props }: ButtonProps,
   ref: React.Ref<HTMLButtonElement>,
@@ -96,10 +90,12 @@ function ButtonLink(
   );
 }
 
-const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(BaseButton) as ButtonComponent;
+const ButtonRoot = React.forwardRef<HTMLButtonElement, ButtonProps>(BaseButton);
+const ButtonLinkComponent = React.forwardRef<HTMLAnchorElement, ButtonLinkProps>(ButtonLink);
 
-Button.displayName = "Button";
-Button.Link = React.forwardRef<HTMLAnchorElement, ButtonLinkProps>(ButtonLink);
-Button.Link.displayName = "ButtonLink";
+ButtonRoot.displayName = "Button";
+ButtonLinkComponent.displayName = "ButtonLink";
+
+const Button = Object.assign(ButtonRoot, { Link: ButtonLinkComponent });
 
 export { Button };

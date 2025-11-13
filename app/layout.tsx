@@ -1,13 +1,7 @@
 import "./globals.css";
-import { Montserrat } from "next/font/google";
+import type { ReactNode } from "react";
 
-const montserrat = Montserrat({
-  subsets: ["latin"],
-  variable: "--font-montserrat",
-  display: "swap",
-});
-
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html
       lang="pt-BR"
@@ -16,7 +10,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         "text-foreground",
         // Família tipográfica padrão
         "font-sans",
-        montserrat.variable,
       ].join(" ")}
     >
       <body className="antialiased">{children}</body>

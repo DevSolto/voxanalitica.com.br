@@ -13,6 +13,9 @@
   /* Se você usa next/font (ex.: Geist), mapeie aqui: */
   /* --font-geist-sans: var(--your-loaded-sans); */
   /* --font-geist-mono: var(--your-loaded-mono); */
+
+  /* Fallback de tipografia para ambientes sem next/font */
+  --font-montserrat: ui-sans-serif;
 }
 
 /* Tema Tailwind a partir dos tokens (v4) */
