@@ -3,22 +3,22 @@
 
 /* === Tokens raiz (claro/escuro via data-theme) === */
 :root {
-  --color-brand-blue: #374e85;
+  --color-brand-blue: #2e4072;
   --color-brand-yellow: #c87a3a;
 
-  --background: #ffffff;
-  --foreground: #374e85;
-  --muted: #eef1f9;
-  --muted-foreground: #4b5a86;
-  --border: #d9deef;
+  --background: #f7f8fc;
+  --foreground: #0f1b3d;
+  --muted: #e6ebf5;
+  --muted-foreground: #1f2f57;
+  --border: #c3cce5;
 }
 
 [data-theme="dark"] {
-  --background: #374e85;
-  --foreground: #ffffff;
-  --muted: #2d3f75;
-  --muted-foreground: #e6ebff;
-  --border: #4c5fa1;
+  --background: #0f1a3b;
+  --foreground: #f2f4ff;
+  --muted: #1c2a52;
+  --muted-foreground: #d5deff;
+  --border: #93a6dd;
 }
 
 /* Tema Tailwind a partir dos tokens (v4) */
