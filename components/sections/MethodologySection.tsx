@@ -36,18 +36,18 @@ export function MethodologySection({ title, subtitle, blocks, cta }: Methodology
           return (
             <article
               key={block.title}
-              className="relative flex h-full flex-col items-center rounded-2xl border border-accent-foreground bg-[var(--color-background)] p-6 text-center shadow-sm"
+              className="relative flex h-full flex-col items-center rounded-2xl border border-accent-foreground bg-background p-6 text-center shadow-sm"
             >
-              <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-[color-mix(in_srgb,var(--color-primary)_12%,white)] text-[var(--color-primary)]">
+              <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/12 text-primary">
                 <Icon className="h-6 w-6" aria-hidden="true" />
               </div>
-              <p className="mt-4 text-xs font-semibold uppercase tracking-[0.3em] text-[color-mix(in_srgb,var(--color-muted)_60%,white)]">{block.subtitle}</p>
-              <h3 className="mt-1 text-lg font-semibold text-[var(--color-foreground)]">{block.title}</h3>
-              <p className="mt-4 text-sm text-[var(--color-muted-foreground)]">{block.description}</p>
+              <p className="mt-4 text-xs font-semibold uppercase tracking-[0.3em] text-muted/60">{block.subtitle}</p>
+              <h3 className="mt-1 text-lg font-semibold text-foreground">{block.title}</h3>
+              <p className="mt-4 text-sm text-muted-foreground">{block.description}</p>
               <ul className="mt-4 w-full space-y-3 text-left">
                 {block.items.map((item) => (
-                  <li key={item} className="flex items-start gap-2 text-sm text-[var(--color-foreground)]">
-                    <span className="mt-1 h-1.5 w-1.5 rounded-full bg-[var(--color-accent)]" aria-hidden="true" />
+                  <li key={item} className="flex items-start gap-2 text-sm text-foreground">
+                    <span className="mt-1 h-1.5 w-1.5 rounded-full bg-accent" aria-hidden="true" />
                     <span>{item}</span>
                   </li>
                 ))}
