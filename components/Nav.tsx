@@ -85,11 +85,11 @@ export function Nav() {
   const closeMenu = () => setIsOpen(false);
 
   return (
-    <div className="sticky top-0 z-50 w-full bg-[var(--color-primary)]/95 text-[var(--color-primary-foreground)] backdrop-blur">
+    <div className="sticky top-0 z-50 w-full bg-primary/95 text-primary-foreground backdrop-blur">
       <nav className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 md:px-6">
         <Link
           href="#home"
-          className="flex items-center gap-3 font-bold text-[var(--color-primary-foreground)]"
+          className="flex items-center gap-3 font-bold text-primary-foreground"
           aria-label="VoxAnalitica"
         >
           <Image
@@ -105,7 +105,7 @@ export function Nav() {
         <button
           type="button"
           onClick={toggleMenu}
-          className="inline-flex items-center justify-center rounded-full p-2 text-[var(--color-primary-foreground)] transition-colors lg:hidden hover:bg-[color-mix(in_srgb,var(--color-primary-foreground)_12%,transparent)]"
+          className="inline-flex items-center justify-center rounded-full p-2 text-primary-foreground transition-colors lg:hidden hover:bg-primary-foreground/12"
           aria-label={isOpen ? "Fechar menu" : "Abrir menu"}
           aria-expanded={isOpen}
         >
@@ -122,8 +122,8 @@ export function Nav() {
                     className={cn(
                       "rounded-full px-4 py-2 text-sm font-semibold transition",
                       isActive
-                        ? "bg-[var(--color-accent)] text-[var(--color-accent-foreground)]"
-                        : "text-[color-mix(in_srgb,var(--color-primary-foreground)_80%,transparent)] hover:text-[var(--color-accent)]",
+                        ? "bg-accent text-accent-foreground"
+                        : "text-primary-foreground/80 hover:text-accent",
                     )}
                   >
                     {item.label}
@@ -137,7 +137,7 @@ export function Nav() {
       </nav>
       <div
         className={cn(
-          "lg:hidden", "transition-[max-height] duration-300 ease-in-out overflow-hidden bg-[var(--color-primary)]",
+          "lg:hidden", "transition-[max-height] duration-300 ease-in-out overflow-hidden bg-primary",
           isOpen ? "max-h-96" : "max-h-0",
         )}
       >
@@ -152,8 +152,8 @@ export function Nav() {
                   className={cn(
                     "block rounded-full px-4 py-2 text-sm font-semibold",
                     isActive
-                      ? "bg-[var(--color-accent)] text-[var(--color-accent-foreground)]"
-                      : "text-[color-mix(in_srgb,var(--color-primary-foreground)_90%,transparent)] hover:bg-[color-mix(in_srgb,var(--color-primary-foreground)_12%,transparent)] hover:text-[var(--color-primary-foreground)]",
+                      ? "bg-accent text-accent-foreground"
+                      : "text-primary-foreground/90 hover:bg-primary-foreground/12 hover:text-primary-foreground",
                   )}
                 >
                   {item.label}
@@ -163,7 +163,7 @@ export function Nav() {
           })}
           <li>
             <div className="pt-3">
-              <ThemeToggle className="w-full justify-center bg-[color-mix(in_srgb,var(--color-primary-foreground)_12%,transparent)] text-[var(--color-primary-foreground)]" />
+              <ThemeToggle className="w-full justify-center bg-primary-foreground/12 text-primary-foreground" />
             </div>
           </li>
         </ul>

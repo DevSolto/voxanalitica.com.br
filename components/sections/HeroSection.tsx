@@ -109,13 +109,13 @@ export function HeroSection({ title, subtitle, primaryCta, secondaryCta, badges 
         )}
         ref={ref}
       >
-        <div className="text-accent-foreground inline-flex items-center gap-2 rounded-full bg-[color-mix(in_srgb,var(--color-primary)_6%,white)] px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] shadow-sm">
+        <div className="text-accent-foreground inline-flex items-center gap-2 rounded-full bg-primary/6 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] shadow-sm">
           <span>PESQUISA E INTELIGÊNCIA</span>
         </div>
         <h1 className="mt-6 max-w-4xl text-3xl font-bold leading-tight tracking-tight text-white md:text-5xl md:leading-[1.1]">
           {title}
         </h1>
-        <p className="mt-4 max-w-2xl text-base text-muted md:text-lg">{subtitle}</p>
+        <p className="mt-4 max-w-2xl text-base text-muted-foreground md:text-lg">{subtitle}</p>
         {badges.length > 0 && (
           <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
             {badges.map((badge) => (
@@ -163,8 +163,8 @@ export function HeroSection({ title, subtitle, primaryCta, secondaryCta, badges 
                 key={card.title}
                 className="rounded-2xl bg-primary p-6 text-left shadow-sm"
               >
-                <h3 className="text-lg font-semibold text-white">{card.title}</h3>
-                <p className="mt-2 text-sm text-muted">{card.content}</p>
+                <h3 className="text-lg font-semibold text-primary-foreground">{card.title}</h3>
+                <p className="mt-2 text-sm text-primary-foreground/80">{card.content}</p>
               </article>
             ))}
           </div>

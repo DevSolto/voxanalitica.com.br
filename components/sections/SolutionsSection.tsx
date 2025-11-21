@@ -50,7 +50,7 @@ export function SolutionsSection({
   secondaryCta,
 }: SolutionsProps) {
   return (
-    <Section id="solucoes" className="bg-[color-mix(in_srgb,var(--color-primary)_4%,var(--color-background))]">
+    <Section id="solucoes" className="bg-primary/4">
       <SectionHeader
         eyebrow="Diferenciais"
         title={title}
@@ -59,7 +59,7 @@ export function SolutionsSection({
         className="mx-auto max-w-3xl"
       />
       {itemsTitle ? (
-        <p className="mt-6 text-center text-base font-semibold text-[var(--color-foreground)]">{itemsTitle}</p>
+        <p className="mt-6 text-center text-base font-semibold text-foreground">{itemsTitle}</p>
       ) : null}
       <SectionColumns className="mt-12 grid-cols-1 md:grid-cols-2">
         {items.map((item) => {
@@ -67,25 +67,25 @@ export function SolutionsSection({
           return (
             <article
               key={item.title}
-              className="flex h-full flex-col rounded-2xl border border-accent-foreground bg-[var(--color-background)] p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-md"
+              className="flex h-full flex-col rounded-2xl border border-accent-foreground bg-background p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-md"
             >
-              <div className="mb-4 inline-flex h-11 w-11 items-center justify-center rounded-xl bg-[color-mix(in_srgb,var(--color-primary)_12%,white)] text-[var(--color-primary)]">
+              <div className="mb-4 inline-flex h-11 w-11 items-center justify-center rounded-xl bg-primary/12 text-primary">
                 <Icon className="h-5 w-5" aria-hidden="true" />
               </div>
-              <h3 className="text-lg font-semibold text-[var(--color-foreground)]">
+              <h3 className="text-lg font-semibold text-foreground">
                 {item.title}
                 {item.tag ? (
-                  <span className="ml-2 inline-flex items-center rounded-full bg-[color-mix(in_srgb,var(--color-accent)_35%,white)] px-2 py-0.5 text-[10px] font-medium text-[var(--color-primary)]">
+                  <span className="ml-2 inline-flex items-center rounded-full bg-accent/35 px-2 py-0.5 text-[10px] font-medium text-primary">
                     {item.tag}
                   </span>
                 ) : null}
               </h3>
-              <p className="mt-2 text-sm text-[var(--color-muted-foreground)]">{item.description}</p>
+              <p className="mt-2 text-sm text-muted-foreground">{item.description}</p>
               {item.bullets?.length ? (
-                <ul className="mt-4 space-y-2 text-sm text-[var(--color-muted-foreground)]">
+                <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
                   {item.bullets.map((bullet) => (
                     <li key={bullet} className="flex items-start gap-2">
-                      <span aria-hidden="true" className="mt-1 block h-1.5 w-1.5 rounded-full bg-[var(--color-accent)]" />
+                      <span aria-hidden="true" className="mt-1 block h-1.5 w-1.5 rounded-full bg-accent" />
                       <span>{bullet}</span>
                     </li>
                   ))}

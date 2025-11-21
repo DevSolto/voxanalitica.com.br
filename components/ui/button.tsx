@@ -13,19 +13,19 @@ const focusBase =
 
 const variantClasses: Record<ButtonVariant, string> = {
   primary: cn(
-    "bg-[var(--color-primary)] text-[var(--color-primary-foreground)] shadow-sm hover:bg-[color-mix(in_srgb,var(--color-primary)_92%,white)]",
+    "bg-primary text-primary-foreground shadow-sm hover:bg-primary/92",
     focusBase,
-    "focus-visible:outline-[var(--color-accent)]",
+    "focus-visible:outline-accent",
   ),
   secondary: cn(
-    "bg-[var(--color-accent)] text-[var(--color-accent-foreground)] shadow-sm hover:bg-[color-mix(in_srgb,var(--color-accent)_92%,white)]",
+    "bg-accent text-accent-foreground shadow-sm hover:bg-accent/92",
     focusBase,
-    "focus-visible:outline-[var(--color-primary)]",
+    "focus-visible:outline-primary",
   ),
   outline: cn(
-    "border border-[color-mix(in_srgb,var(--color-primary)_65%,white)] text-[var(--color-foreground)] hover:bg-[color-mix(in_srgb,var(--color-primary)_20%,transparent)]",
+    "border border-primary/65 text-foreground hover:bg-primary/20",
     focusBase,
-    "focus-visible:outline-[var(--color-accent)]",
+    "focus-visible:outline-accent",
   ),
 };
 

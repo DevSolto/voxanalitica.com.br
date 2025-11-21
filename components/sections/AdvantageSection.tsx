@@ -60,7 +60,7 @@ export function AdvantageSection({
         subtitle={subtitle}
         className="max-w-3xl"
         align="left"
-        subtitleClassName="text-base text-[var(--color-muted-foreground)] md:text-lg"
+        subtitleClassName="text-base text-muted-foreground md:text-lg"
       />
 
       <div className="mt-12 grid gap-6 md:grid-cols-2">
@@ -72,29 +72,29 @@ export function AdvantageSection({
               className="rounded-3xl border border-accent-foreground p-6 shadow-sm transition hover:shadow-md"
             >
               <div className="flex items-start gap-4">
-                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[color-mix(in_srgb,var(--color-primary)_12%,white)] text-[var(--color-primary)]">
+                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/12 text-primary">
                   <Icon className="h-5 w-5" aria-hidden="true" />
                 </div>
                 <div>
-                  <p className="text-xs font-semibold uppercase tracking-[0.3em] text-[color-mix(in_srgb,var(--color-muted)_60%,white)]">
+                  <p className="text-xs font-semibold uppercase tracking-[0.3em] text-muted/60">
                     {audience.subtitle}
                   </p>
-                  <h3 className="mt-2 text-xl font-semibold text-[var(--color-foreground)]">{audience.title}</h3>
+                  <h3 className="mt-2 text-xl font-semibold text-foreground">{audience.title}</h3>
                 </div>
               </div>
-              <p className="mt-4 text-sm leading-relaxed text-[var(--color-muted-foreground)]">{audience.description}</p>
+              <p className="mt-4 text-sm leading-relaxed text-muted-foreground">{audience.description}</p>
             </article>
           );
         })}
       </div>
 
-      <div className="mt-16 rounded-3xl bg-primary px-6 py-10 text-[var(--color-primary-foreground)] md:px-10">
+      <div className="mt-16 rounded-3xl bg-primary px-6 py-10 text-primary-foreground md:px-10">
         <div className="max-w-3xl">
-          <p className="text-sm font-semibold uppercase tracking-[0.3em] text-[var(--color-accent)]">
+          <p className="text-sm font-semibold uppercase tracking-[0.3em] text-accent">
             Ganhos estratégicos
           </p>
           <h3 className="mt-2 text-2xl font-semibold md:text-3xl">{benefitsTitle}</h3>
-          <p className="mt-3 text-base text-[color-mix(in_srgb,var(--color-primary-foreground)_80%,transparent)]">
+          <p className="mt-3 text-base text-primary-foreground/80">
             Transformamos inteligência política em ações concretas para quem precisa decidir com rapidez e segurança.
           </p>
         </div>
@@ -108,7 +108,7 @@ export function AdvantageSection({
                 </div>
                 <div>
                   <h4 className="text-lg font-semibold">{benefit.title}</h4>
-                  <p className="mt-1 text-sm leading-relaxed text-[color-mix(in_srgb,var(--color-primary-foreground)_80%,transparent)]">{benefit.description}</p>
+                  <p className="mt-1 text-sm leading-relaxed text-primary-foreground/80">{benefit.description}</p>
                 </div>
               </div>
             );

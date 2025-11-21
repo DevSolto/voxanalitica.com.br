@@ -36,13 +36,13 @@ export function Footer() {
     <footer
       id="politica"
       data-section-id="politica"
-      className="bg-[color-mix(in_srgb,var(--color-primary)_95%,black)] text-[var(--color-primary-foreground)]"
+      className="bg-primary/95 text-primary-foreground"
     >
       <div className="mx-auto flex w-full max-w-6xl flex-col gap-10 px-4 py-12 md:px-6 md:py-16 lg:flex-row lg:justify-between">
         <div className="max-w-md space-y-4">
           <Link
             href="#home"
-            className="flex items-center gap-3 font-bold text-[var(--color-primary-foreground)]"
+            className="flex items-center gap-3 font-bold text-primary-foreground"
             aria-label="VoxAnalitica"
           >
             <Image
@@ -55,30 +55,30 @@ export function Footer() {
               sizes="(max-width: 768px) 140px, 190px"
             />
           </Link>
-          <p className="text-sm text-white/70">
+          <p className="text-sm text-primary-foreground/70">
             Insights locais para decisões com menos risco. Combinamos automação, inteligência analítica e apresentação clara para acelerar decisões públicas e privadas.
           </p>
-          <div className="space-y-2 text-sm text-white/80">
+          <div className="space-y-2 text-sm text-primary-foreground/80">
             <p className="flex items-center gap-2">
               <MapPin className="h-4 w-4" aria-hidden="true" /> João Pessoa · Paraíba
             </p>
             <p className="flex items-center gap-2">
               <Mail className="h-4 w-4" aria-hidden="true" />
-              <a href="mailto:contato@voxanalitica.com.br" className="underline decoration-white/40 underline-offset-4 hover:decoration-white">
+              <a href="mailto:contato@voxanalitica.com.br" className="underline decoration-primary-foreground/40 underline-offset-4 hover:decoration-primary-foreground">
                 contato@voxanalitica.com.br
               </a>
             </p>
             <p className="flex items-center gap-2">
               <Phone className="h-4 w-4" aria-hidden="true" />
-              <a href="tel:+5583988880000" className="underline decoration-white/40 underline-offset-4 hover:decoration-white">
+              <a href="tel:+5583988880000" className="underline decoration-primary-foreground/40 underline-offset-4 hover:decoration-primary-foreground">
                 +55 (83) 98888-0000
               </a>
             </p>
           </div>
         </div>
-        <div className="flex flex-col justify-between gap-6 text-sm text-white/80">
+        <div className="flex flex-col justify-between gap-6 text-sm text-primary-foreground/80">
           <div>
-            <h4 className="text-sm font-semibold uppercase tracking-[0.3em] text-white/60">Redes</h4>
+            <h4 className="text-sm font-semibold uppercase tracking-[0.3em] text-primary-foreground/60">Redes</h4>
             <ul className="mt-3 space-y-2">
               {socialLinks.map((item) => (
                 <li key={item.label}>
@@ -86,7 +86,7 @@ export function Footer() {
                     href={item.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 text-sm text-white/80 hover:text-white"
+                    className="inline-flex items-center gap-2 text-sm text-primary-foreground/80 hover:text-primary-foreground"
                   >
                     <item.icon className="h-4 w-4" aria-hidden="true" />
                     {item.label}
@@ -99,11 +99,11 @@ export function Footer() {
             <button
               type="button"
               onClick={() => setOpen(true)}
-              className="rounded-full border border-white/40 px-4 py-2 text-sm font-semibold text-white transition hover:bg-white/10"
+              className="rounded-full border border-primary-foreground/40 px-4 py-2 text-sm font-semibold text-primary-foreground transition hover:bg-primary-foreground/10"
             >
               Ver Política de Privacidade
             </button>
-            <p className="mt-3 text-xs text-white/50">© {new Date().getFullYear()} VoxAnalitica. Todos os direitos reservados.</p>
+            <p className="mt-3 text-xs text-primary-foreground/50">© {new Date().getFullYear()} VoxAnalitica. Todos os direitos reservados.</p>
           </div>
         </div>
       </div>
@@ -114,20 +114,20 @@ export function Footer() {
             role="dialog"
             aria-modal="true"
             aria-labelledby="privacy-policy-title"
-            className="relative max-h-[90vh] w-full max-w-3xl overflow-y-auto rounded-3xl bg-[var(--color-background)] p-8 text-[var(--color-foreground)] shadow-2xl"
+            className="relative max-h-[90vh] w-full max-w-3xl overflow-y-auto rounded-3xl bg-background p-8 text-foreground shadow-2xl"
           >
             <button
               type="button"
               onClick={closeDialog}
-              className="absolute right-4 top-4 rounded-full border border-accent-foreground p-2 text-[var(--color-muted-foreground)] hover:text-[var(--color-foreground)]"
+              className="absolute right-4 top-4 rounded-full border border-accent-foreground p-2 text-muted-foreground hover:text-foreground"
               aria-label="Fechar Política de Privacidade"
             >
               <X className="h-4 w-4" aria-hidden="true" />
             </button>
-            <h3 id="privacy-policy-title" className="text-2xl font-semibold text-[var(--color-foreground)]">
+            <h3 id="privacy-policy-title" className="text-2xl font-semibold text-foreground">
               Política de Privacidade VoxAnalitica
             </h3>
-            <div className="mt-6 space-y-4 text-sm leading-relaxed text-[var(--color-muted-foreground)]">
+            <div className="mt-6 space-y-4 text-sm leading-relaxed text-muted-foreground">
               <p>
                 A VoxAnalitica coleta dados fornecidos diretamente pelos clientes para execução de projetos de pesquisa e análises de dados. Utilizamos as informações exclusivamente para cumprir os contratos firmados e gerar entregáveis com segurança.
               </p>
@@ -145,7 +145,7 @@ export function Footer() {
               <button
                 type="button"
                 onClick={closeDialog}
-                className="rounded-full border border-[color-mix(in_srgb,var(--color-primary)_65%,white)] px-4 py-2 text-sm font-semibold text-[var(--color-foreground)] hover:bg-[color-mix(in_srgb,var(--color-primary)_18%,transparent)]"
+                className="rounded-full border border-primary/65 px-4 py-2 text-sm font-semibold text-foreground hover:bg-primary/18"
               >
                 Entendi
               </button>

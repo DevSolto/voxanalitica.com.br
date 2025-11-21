@@ -21,7 +21,7 @@ export function Section({
     <section
       id={id}
       data-section-id={id}
-      className={cn("bg-[var(--color-background)] py-20 md:py-28", className)}
+      className={cn("bg-background py-20 md:py-28", className)}
       {...props}
     >
       <div className={cn("mx-auto w-full max-w-6xl px-4 md:px-6", containerClassName)}>
@@ -59,7 +59,7 @@ export function SectionHeader({
       {eyebrow ? (
         <p
           className={cn(
-            "text-sm font-semibold uppercase tracking-[0.2em] text-[var(--color-accent)]",
+            "text-sm font-semibold uppercase tracking-[0.2em] text-accent",
             eyebrowClassName,
           )}
         >
@@ -68,7 +68,7 @@ export function SectionHeader({
       ) : null}
       <h2
         className={cn(
-          "text-3xl font-bold tracking-tight text-[var(--color-foreground)] md:text-4xl",
+          "text-3xl font-bold tracking-tight text-foreground md:text-4xl",
           titleClassName,
         )}
       >
@@ -77,7 +77,7 @@ export function SectionHeader({
       {subtitle ? (
         <p
           className={cn(
-            "text-base text-[var(--color-muted-foreground)] md:text-lg",
+            "text-base text-muted-foreground md:text-lg",
             subtitleClassName,
           )}
         >

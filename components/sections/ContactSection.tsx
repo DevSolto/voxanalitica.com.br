@@ -117,7 +117,7 @@ export function ContactSection({ title, subtitle }: ContactSectionProps) {
   return (
     <Section id="contato">
       <SectionHeader eyebrow="Contato" title={title} subtitle={subtitle} align="center" className="mx-auto max-w-2xl" />
-      <div className="mx-auto mt-10 max-w-3xl rounded-3xl border border-accent-foreground bg-[var(--color-background)] p-8 shadow-sm">
+      <div className="mx-auto mt-10 max-w-3xl rounded-3xl border border-accent-foreground bg-background p-8 shadow-sm">
         <form className="space-y-6" noValidate onSubmit={handleSubmit}>
           <div className="hidden" aria-hidden="true">
             <label htmlFor="contact-website" className="sr-only">
@@ -135,7 +135,7 @@ export function ContactSection({ title, subtitle }: ContactSectionProps) {
           </div>
           <div className="grid gap-6 md:grid-cols-2">
             <div className="space-y-2">
-              <label htmlFor="contact-name" className="text-sm font-semibold text-[var(--color-foreground)]">
+              <label htmlFor="contact-name" className="text-sm font-semibold text-foreground">
                 Nome
               </label>
               <input
@@ -145,7 +145,7 @@ export function ContactSection({ title, subtitle }: ContactSectionProps) {
                 value={values.name}
                 onChange={handleChange("name")}
                 onBlur={handleBlur("name")}
-                className="w-full rounded-xl border border-accent-foreground px-4 py-3 text-sm focus:border-[var(--color-primary)] focus:outline-none focus:ring-2 focus:ring-[color-mix(in_srgb,var(--color-primary)_30%,transparent)]"
+                className="w-full rounded-xl border border-accent-foreground px-4 py-3 text-sm focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/30"
                 placeholder="Como podemos te chamar?"
                 aria-invalid={Boolean(touched.name && errors.name)}
                 aria-describedby={touched.name && errors.name ? "error-name" : undefined}
@@ -157,7 +157,7 @@ export function ContactSection({ title, subtitle }: ContactSectionProps) {
               ) : null}
             </div>
             <div className="space-y-2">
-              <label htmlFor="contact-email" className="text-sm font-semibold text-[var(--color-foreground)]">
+              <label htmlFor="contact-email" className="text-sm font-semibold text-foreground">
                 E-mail
               </label>
               <input
@@ -167,7 +167,7 @@ export function ContactSection({ title, subtitle }: ContactSectionProps) {
                 value={values.email}
                 onChange={handleChange("email")}
                 onBlur={handleBlur("email")}
-                className="w-full rounded-xl border border-accent-foreground px-4 py-3 text-sm focus:border-[var(--color-primary)] focus:outline-none focus:ring-2 focus:ring-[color-mix(in_srgb,var(--color-primary)_30%,transparent)]"
+                className="w-full rounded-xl border border-accent-foreground px-4 py-3 text-sm focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/30"
                 placeholder="email@empresa.com"
                 aria-invalid={Boolean(touched.email && errors.email)}
                 aria-describedby={touched.email && errors.email ? "error-email" : undefined}
@@ -181,7 +181,7 @@ export function ContactSection({ title, subtitle }: ContactSectionProps) {
           </div>
           <div className="grid gap-6 md:grid-cols-2">
             <div className="space-y-2">
-              <label htmlFor="contact-organization" className="text-sm font-semibold text-[var(--color-foreground)]">
+              <label htmlFor="contact-organization" className="text-sm font-semibold text-foreground">
                 Organização
               </label>
               <input
@@ -191,7 +191,7 @@ export function ContactSection({ title, subtitle }: ContactSectionProps) {
                 value={values.organization}
                 onChange={handleChange("organization")}
                 onBlur={handleBlur("organization")}
-                className="w-full rounded-xl border border-accent-foreground px-4 py-3 text-sm focus:border-[var(--color-primary)] focus:outline-none focus:ring-2 focus:ring-[color-mix(in_srgb,var(--color-primary)_30%,transparent)]"
+                className="w-full rounded-xl border border-accent-foreground px-4 py-3 text-sm focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/30"
                 placeholder="Empresa, órgão público ou projeto"
                 aria-invalid={Boolean(touched.organization && errors.organization)}
                 aria-describedby={touched.organization && errors.organization ? "error-organization" : undefined}
@@ -203,7 +203,7 @@ export function ContactSection({ title, subtitle }: ContactSectionProps) {
               ) : null}
             </div>
             <div className="space-y-2">
-              <label htmlFor="contact-phone" className="text-sm font-semibold text-[var(--color-foreground)]">
+              <label htmlFor="contact-phone" className="text-sm font-semibold text-foreground">
                 WhatsApp (opcional)
               </label>
               <input
@@ -213,7 +213,7 @@ export function ContactSection({ title, subtitle }: ContactSectionProps) {
                 value={values.phone}
                 onChange={handleChange("phone")}
                 onBlur={handleBlur("phone")}
-                className="w-full rounded-xl border border-accent-foreground px-4 py-3 text-sm focus:border-[var(--color-primary)] focus:outline-none focus:ring-2 focus:ring-[color-mix(in_srgb,var(--color-primary)_30%,transparent)]"
+                className="w-full rounded-xl border border-accent-foreground px-4 py-3 text-sm focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/30"
                 placeholder="(00) 90000-0000"
                 aria-invalid={Boolean(touched.phone && errors.phone)}
                 aria-describedby={touched.phone && errors.phone ? "error-phone" : undefined}
@@ -226,7 +226,7 @@ export function ContactSection({ title, subtitle }: ContactSectionProps) {
             </div>
           </div>
           <div className="space-y-2">
-            <label htmlFor="contact-message" className="text-sm font-semibold text-[var(--color-foreground)]">
+            <label htmlFor="contact-message" className="text-sm font-semibold text-foreground">
               Briefing do projeto
             </label>
             <textarea
@@ -236,7 +236,7 @@ export function ContactSection({ title, subtitle }: ContactSectionProps) {
               onChange={handleChange("message")}
               onBlur={handleBlur("message")}
               rows={5}
-              className="w-full rounded-xl border border-accent-foreground px-4 py-3 text-sm focus:border-[var(--color-primary)] focus:outline-none focus:ring-2 focus:ring-[color-mix(in_srgb,var(--color-primary)_30%,transparent)]"
+              className="w-full rounded-xl border border-accent-foreground px-4 py-3 text-sm focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/30"
               placeholder="Conte objetivo, público e prazos desejados"
               aria-invalid={Boolean(touched.message && errors.message)}
               aria-describedby={touched.message && errors.message ? "error-message" : undefined}
@@ -248,8 +248,8 @@ export function ContactSection({ title, subtitle }: ContactSectionProps) {
             ) : null}
           </div>
           <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-            <p className="text-xs text-[color-mix(in_srgb,var(--color-muted)_55%,white)]">
-              Ao enviar, você concorda com nossa <a href="#politica" className="font-semibold text-[var(--color-foreground)] underline decoration-[var(--color-accent)] decoration-2 underline-offset-2">Política de Privacidade</a>.
+            <p className="text-xs text-muted/55">
+              Ao enviar, você concorda com nossa <a href="#politica" className="font-semibold text-foreground underline decoration-accent decoration-2 underline-offset-2">Política de Privacidade</a>.
             </p>
             <Button type="submit" className="justify-center" disabled={isSubmitting}>
               {isSubmitting ? "Enviando..." : "Enviar briefing"}
