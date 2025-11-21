@@ -5,6 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { ThemeToggle } from "./ThemeToggle";
 
 export type NavItem = {
   id: string;
@@ -110,26 +111,29 @@ export function Nav() {
         >
           {isOpen ? <X className="h-5 w-5" aria-hidden="true" /> : <Menu className="h-5 w-5" aria-hidden="true" />}
         </button>
-        <ul className="hidden items-center gap-3 lg:flex">
-          {NAV_ITEMS.map((item) => {
-            const isActive = activeId === item.id;
-            return (
-              <li key={item.id}>
-                <Link
-                  href={item.href}
-                  className={cn(
-                    "rounded-full px-4 py-2 text-sm font-semibold transition",
-                    isActive
-                      ? "bg-[var(--color-accent)] text-[var(--color-accent-foreground)]"
-                      : "text-[color-mix(in_srgb,var(--color-primary-foreground)_80%,transparent)] hover:text-[var(--color-accent)]",
-                  )}
-                >
-                  {item.label}
-                </Link>
-              </li>
-            );
-          })}
-        </ul>
+        <div className="hidden items-center gap-3 lg:flex">
+          <ul className="flex items-center gap-3">
+            {NAV_ITEMS.map((item) => {
+              const isActive = activeId === item.id;
+              return (
+                <li key={item.id}>
+                  <Link
+                    href={item.href}
+                    className={cn(
+                      "rounded-full px-4 py-2 text-sm font-semibold transition",
+                      isActive
+                        ? "bg-[var(--color-accent)] text-[var(--color-accent-foreground)]"
+                        : "text-[color-mix(in_srgb,var(--color-primary-foreground)_80%,transparent)] hover:text-[var(--color-accent)]",
+                    )}
+                  >
+                    {item.label}
+                  </Link>
+                </li>
+              );
+            })}
+          </ul>
+          <ThemeToggle />
+        </div>
       </nav>
       <div
         className={cn(
@@ -157,6 +161,11 @@ export function Nav() {
               </li>
             );
           })}
+          <li>
+            <div className="pt-3">
+              <ThemeToggle className="w-full justify-center bg-[color-mix(in_srgb,var(--color-primary-foreground)_12%,transparent)] text-[var(--color-primary-foreground)]" />
+            </div>
+          </li>
         </ul>
       </div>
     </div>

@@ -1,5 +1,14 @@
 import "./globals.css";
 import type { ReactNode } from "react";
+import { Montserrat } from "next/font/google";
+
+import { ThemeProvider } from "@/components/theme-provider";
+
+const montserrat = Montserrat({
+  subsets: ["latin"],
+  variable: "--font-heading",
+  display: "swap",
+});
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
@@ -10,9 +19,12 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         "text-foreground",
         // Família tipográfica padrão
         "font-sans",
+        montserrat.variable,
       ].join(" ")}
     >
-      <body className="antialiased">{children}</body>
+      <body className="antialiased">
+        <ThemeProvider>{children}</ThemeProvider>
+      </body>
     </html>
   );
 }

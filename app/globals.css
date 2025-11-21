@@ -1,43 +1,41 @@
 @import "tailwindcss";
 @import "../styles/gradients.css";
 
-/* === Tokens raiz (claro/escuro via media) === */
+/* === Tokens raiz (claro/escuro via data-theme) === */
 :root {
-  /* Tema escuro padrão: fundo azul profundo e texto claro */
-  --background: #071836;
-  --foreground: #f1f5ff;
-  --muted: #10244d;
-  --muted-foreground: #c7d2fe;
-  --border: #163366;
+  --color-brand-blue: #374e85;
+  --color-brand-yellow: #c87a3a;
 
-  /* Se você usa next/font (ex.: Geist), mapeie aqui: */
-  /* --font-geist-sans: var(--your-loaded-sans); */
-  /* --font-geist-mono: var(--your-loaded-mono); */
+  --background: #ffffff;
+  --foreground: #374e85;
+  --muted: #eef1f9;
+  --muted-foreground: #4b5a86;
+  --border: #d9deef;
+}
 
-  /* Fallback de tipografia para ambientes sem next/font */
-  --font-montserrat: ui-sans-serif;
+[data-theme="dark"] {
+  --background: #374e85;
+  --foreground: #ffffff;
+  --muted: #2d3f75;
+  --muted-foreground: #e6ebff;
+  --border: #4c5fa1;
 }
 
 /* Tema Tailwind a partir dos tokens (v4) */
 @theme {
-  --color-vox-blue: #0f2a5c;
-  --color-vox-yellow: #ffb347;
-  --color-vox-muted: #7f8fb8;
-  --color-vox-border: #1e3a6b;
-
-  --color-primary: var(--color-vox-blue);
-  --color-primary-foreground: #f8fafc;
-  --color-accent: var(--color-vox-yellow);
-  --color-accent-foreground: var(--color-vox-blue);
-  --color-border: var(--color-vox-border);
-  --color-muted: var(--color-vox-muted);
+  --color-primary: var(--color-brand-blue);
+  --color-primary-foreground: #ffffff;
+  --color-accent: var(--color-brand-yellow);
+  --color-accent-foreground: #0b0f1c;
+  --color-border: var(--border);
+  --color-muted: var(--muted);
   --color-muted-foreground: var(--muted-foreground);
   --color-background: var(--background);
   --color-foreground: var(--foreground);
 
   /* Mapeando para utilities font-sans e font-mono */
-  --font-sans: var(--font-montserrat), ui-sans-serif, system-ui, sans-serif;
-  --font-heading-family: var(--font-heading), var(--font-montserrat), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-heading-family: var(--font-heading, "Montserrat"), "Montserrat", ui-sans-serif, system-ui, sans-serif;
 }
 
 /* Dark mode automático por media query */
@@ -56,9 +54,10 @@ html {
 /* Evite fixar font-family direto no body se vai usar font-sans do Tailwind.
    Se quiser um fallback duro enquanto configura next/font, pode deixar: */
 body {
-  background: #060e15;
+  background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-montserrat), ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-family: var(--font-sans);
+  transition: background-color 200ms ease, color 200ms ease;
 }
 
 h1,
