@@ -161,7 +161,7 @@ export function HeroSection({ title, subtitle, primaryCta, secondaryCta, badges 
             {cards.map((card) => (
               <article
                 key={card.title}
-                className="rounded-2xl bg-primary p-6 text-left shadow-sm"
+                className="rounded-2xl bg-primary p-6 text-left shadow-sm border border-white"
               >
                 <h3 className="text-lg font-semibold text-primary-foreground">{card.title}</h3>
                 <p className="mt-2 text-sm text-primary-foreground/80">{card.content}</p>
