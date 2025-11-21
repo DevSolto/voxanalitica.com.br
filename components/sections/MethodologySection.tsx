@@ -36,7 +36,7 @@ export function MethodologySection({ title, subtitle, blocks, cta }: Methodology
           return (
             <article
               key={block.title}
-              className="relative flex h-full flex-col items-center rounded-2xl border border-accent-foreground bg-background p-6 text-center shadow-sm"
+              className="relative flex h-full flex-col items-center rounded-2xl border border-white bg-background p-6 text-center shadow-sm"
             >
               <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/12 text-primary">
                 <Icon className="h-6 w-6" aria-hidden="true" />

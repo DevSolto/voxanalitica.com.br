@@ -67,7 +67,7 @@ export function SolutionsSection({
           return (
             <article
               key={item.title}
-              className="flex h-full flex-col rounded-2xl border border-accent-foreground bg-background p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-md"
+              className="flex h-full flex-col rounded-2xl border border-white bg-background p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-md"
             >
               <div className="mb-4 inline-flex h-11 w-11 items-center justify-center rounded-xl bg-primary/12 text-primary">
                 <Icon className="h-5 w-5" aria-hidden="true" />

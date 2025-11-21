@@ -43,7 +43,7 @@ export function FaqSection({ title, subtitle, items }: FaqProps) {
         {items.map((item, index) => {
           const isOpen = openIndex === index;
           return (
-            <div key={item.question} className="overflow-hidden rounded-2xl border border-accent-foreground bg-background">
+            <div key={item.question} className="overflow-hidden rounded-2xl border border-white bg-background">
               <button
                 type="button"
                 onClick={() => setOpenIndex(isOpen ? -1 : index)}

@@ -69,7 +69,7 @@ export function AdvantageSection({
           return (
             <article
               key={audience.title}
-              className="rounded-3xl border border-accent-foreground p-6 shadow-sm transition hover:shadow-md"
+              className="rounded-3xl border border-white p-6 shadow-sm transition hover:shadow-md"
             >
               <div className="flex items-start gap-4">
                 <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/12 text-primary">

@@ -65,7 +65,7 @@ export function InsightsSection({
     </div>
       <div className="mt-12 grid gap-8 lg:grid-cols-[1.1fr_0.9fr]">
         {featuredPost ? (
-          <article className="flex h-full flex-col justify-between rounded-3xl border border-accent-foreground bg-background p-8 shadow-sm transition hover:-translate-y-1 hover:shadow-lg">
+          <article className="flex h-full flex-col justify-between rounded-3xl border border-white bg-background p-8 shadow-sm transition hover:-translate-y-1 hover:shadow-lg">
             <div className="space-y-4">
               <p className="text-xs font-semibold uppercase tracking-[0.3em] text-muted/60">{featuredPost.category}</p>
               <h3 className="text-3xl font-semibold text-foreground">{featuredPost.title}</h3>
@@ -94,7 +94,7 @@ export function InsightsSection({
           {regularPosts.map((post) => (
             <article
               key={post.slug}
-              className="rounded-3xl border border-accent-foreground bg-background p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-md"
+              className="rounded-3xl border border-white bg-background p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-md"
             >
               <div className="flex flex-wrap items-center gap-3 text-xs font-semibold uppercase tracking-[0.3em] text-muted/60">
                 <span>{post.category}</span>
