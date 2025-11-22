@@ -85,11 +85,11 @@ export function Nav() {
   const closeMenu = () => setIsOpen(false);
 
   return (
-    <div className="sticky top-0 z-50 w-full bg-surface/90 text-text backdrop-blur border-b border-border/60">
+    <div className="sticky top-0 z-50 w-full bg-primary/95 text-primary-foreground backdrop-blur border-b border-border/60">
       <nav className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 md:px-6">
         <Link
           href="#home"
-          className="flex items-center gap-3 font-bold text-text"
+          className="flex items-center gap-3 font-bold text-primary-foreground"
           aria-label="VoxAnalitica"
         >
           <Image
@@ -105,7 +105,7 @@ export function Nav() {
         <button
           type="button"
           onClick={toggleMenu}
-          className="inline-flex items-center justify-center rounded-full p-2 text-text transition-colors lg:hidden hover:bg-accent/10"
+          className="inline-flex items-center justify-center rounded-full p-2 text-primary-foreground transition-colors lg:hidden hover:bg-accent/10"
           aria-label={isOpen ? "Fechar menu" : "Abrir menu"}
           aria-expanded={isOpen}
         >
@@ -123,7 +123,7 @@ export function Nav() {
                       "rounded-full px-4 py-2 text-sm font-semibold transition",
                       isActive
                         ? "bg-accent text-white shadow-sm"
-                        : "text-text/80 hover:text-accent",
+                        : "text-primary-foreground/80 hover:text-accent",
                     )}
                   >
                     {item.label}
@@ -153,7 +153,7 @@ export function Nav() {
                     "block rounded-full px-4 py-2 text-sm font-semibold",
                     isActive
                       ? "bg-accent text-white shadow-sm"
-                      : "text-text/90 hover:bg-accent/10 hover:text-text",
+                      : "text-primary-foreground/90 hover:bg-accent/10 hover:text-primary-foreground",
                   )}
                 >
                   {item.label}
@@ -163,7 +163,7 @@ export function Nav() {
           })}
           <li>
             <div className="pt-3">
-              <ThemeToggle className="w-full justify-center bg-text/10 text-text" />
+              <ThemeToggle className="w-full justify-center bg-text/10 text-primary-foreground" />
             </div>
           </li>
         </ul>
