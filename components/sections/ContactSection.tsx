@@ -252,10 +252,9 @@ export function ContactSection({ title, subtitle }: ContactSectionProps) {
               Ao enviar, você concorda com nossa <a href="#politica" className="font-semibold text-foreground underline decoration-accent decoration-2 underline-offset-2">Política de Privacidade</a>.
             </p>
             <Button
-              variant="primary"
+              variant="submit"
               type="submit"
               disabled={isSubmitting}
-              className="bg-accent hover:bg-accent/90"
             >
               {isSubmitting ? "Enviando..." : "Enviar briefing"}
             </Button>

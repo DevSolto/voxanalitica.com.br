@@ -4,7 +4,7 @@ import * as React from "react";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 
-type ButtonVariant = "primary" | "secondary" | "outline";
+type ButtonVariant = "primary" | "secondary" | "outline"|"submit";
 
 type ButtonSize = "md" | "lg";
 
@@ -27,6 +27,9 @@ const variantClasses: Record<ButtonVariant, string> = {
     focusBase,
     "focus-visible:outline-accent",
   ),
+  submit: cn(
+    "text-text bg-[#C87A3A] hover:bg-[#C87A3A]/90"
+  )
 };
 
 const sizeClasses: Record<ButtonSize, string> = {
