@@ -54,7 +54,7 @@ function BaseButton(
     <button
       ref={ref}
       className={cn(
-        "inline-flex items-center justify-center gap-2 rounded-full transition-colors duration-200",
+        "inline-flex items-center justify-center gap-2 rounded-full transition-colors duration-200 bg-surface",
         variantClasses[variant],
         sizeClasses[size],
         className,
@@ -77,7 +77,7 @@ function ButtonLink(
     <Component
       ref={ref}
       className={cn(
-        "inline-flex items-center justify-center gap-2 rounded-full transition-colors duration-200",
+        "inline-flex items-center justify-center gap-2 rounded-full transition-colors duration-200 bg-surface",
         variantClasses[variant],
         sizeClasses[size],
         className,

@@ -93,7 +93,7 @@ export function Nav() {
           aria-label="VoxAnalitica"
         >
           <Image
-            src="/logo-vox-analitica.svg"
+            src="/logos/VOX ANALÍTICA - LOGO PRINCIPAL - MARCAD´ÁGUA - BRANCA.png"
             alt="VoxAnalitica"
             width={200}
             height={74}
