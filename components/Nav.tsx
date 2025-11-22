@@ -5,7 +5,6 @@ import Link from "next/link";
 import Image from "next/image";
 import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { ThemeToggle } from "./ThemeToggle";
 
 export type NavItem = {
   id: string;
@@ -132,7 +131,6 @@ export function Nav() {
               );
             })}
           </ul>
-          <ThemeToggle />
         </div>
       </nav>
       <div
@@ -161,11 +159,6 @@ export function Nav() {
               </li>
             );
           })}
-          <li>
-            <div className="pt-3">
-              <ThemeToggle className="w-full justify-center bg-text/10 text-primary-foreground" />
-            </div>
-          </li>
         </ul>
       </div>
     </div>
