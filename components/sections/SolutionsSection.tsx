@@ -50,7 +50,7 @@ export function SolutionsSection({
   secondaryCta,
 }: SolutionsProps) {
   return (
-    <Section id="solucoes" className="bg-primary/4">
+    <Section id="solucoes" className="bg-bg">
       <SectionHeader
         eyebrow="Diferenciais"
         title={title}
@@ -67,9 +67,9 @@ export function SolutionsSection({
           return (
             <article
               key={item.title}
-              className="flex h-full flex-col rounded-2xl border border-white bg-background p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-md"
+              className="flex h-full flex-col rounded-2xl border border-border bg-surface p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-md"
             >
-              <div className="mb-4 inline-flex h-11 w-11 items-center justify-center rounded-xl bg-primary/12 text-primary">
+              <div className="mb-4 inline-flex h-11 w-11 items-center justify-center rounded-xl bg-accent/15 text-accent">
                 <Icon className="h-5 w-5" aria-hidden="true" />
               </div>
               <h3 className="text-lg font-semibold text-foreground">

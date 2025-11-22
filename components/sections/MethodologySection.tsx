@@ -28,7 +28,7 @@ const iconMap = {
 
 export function MethodologySection({ title, subtitle, blocks, cta }: MethodologyProps) {
   return (
-    <Section id="metodologia">
+    <Section id="metodologia" className="bg-bg">
       <SectionHeader eyebrow="Metodologia" title={title} subtitle={subtitle} className="max-w-3xl" />
       <div className="mt-12 grid gap-6 md:grid-cols-2 justify-center">
         {blocks.map((block) => {
@@ -36,9 +36,9 @@ export function MethodologySection({ title, subtitle, blocks, cta }: Methodology
           return (
             <article
               key={block.title}
-              className="relative flex h-full flex-col items-center rounded-2xl border border-white bg-background p-6 text-center shadow-sm"
+              className="relative flex h-full flex-col items-center rounded-2xl border border-border bg-surface p-6 text-center shadow-sm"
             >
-              <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/12 text-primary">
+              <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-accent/15 text-accent">
                 <Icon className="h-6 w-6" aria-hidden="true" />
               </div>
               <p className="mt-4 text-xs font-semibold uppercase tracking-[0.3em] text-muted/60">{block.subtitle}</p>

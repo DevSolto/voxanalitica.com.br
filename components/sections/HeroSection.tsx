@@ -101,7 +101,7 @@ export function HeroSection({ title, subtitle, primaryCta, secondaryCta, badges 
   const primaryRel = !primaryCta.disabled && isPrimaryExternal ? "noopener noreferrer" : undefined;
 
   return (
-    <Section id="home" className="relative isolate overflow-hidden hero-surface pb-20 pt-24 md:pb-24">
+    <Section id="home" className="relative isolate overflow-hidden hero-surface pb-20 pt-24 md:pb-24 bg-bg">
       <div
         className={cn(
           "flex flex-col items-center text-center", "transition-all duration-700",
@@ -109,10 +109,10 @@ export function HeroSection({ title, subtitle, primaryCta, secondaryCta, badges 
         )}
         ref={ref}
       >
-        <div className="text-accent-foreground inline-flex items-center gap-2 rounded-full bg-primary/6 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] shadow-sm">
+        <div className="inline-flex items-center gap-2 rounded-full bg-surface px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-text shadow-sm">
           <span>PESQUISA E INTELIGÊNCIA</span>
         </div>
-        <h1 className="mt-6 max-w-4xl text-3xl font-bold leading-tight tracking-tight text-white md:text-5xl md:leading-[1.1]">
+        <h1 className="mt-6 max-w-4xl text-3xl font-bold leading-tight tracking-tight text-text md:text-5xl md:leading-[1.1]">
           {title}
         </h1>
         <p className="mt-4 max-w-2xl text-base text-muted-foreground md:text-lg">{subtitle}</p>
@@ -161,10 +161,10 @@ export function HeroSection({ title, subtitle, primaryCta, secondaryCta, badges 
             {cards.map((card) => (
               <article
                 key={card.title}
-                className="rounded-2xl bg-primary p-6 text-left shadow-sm border border-white"
+                className="rounded-2xl border border-border bg-surface p-6 text-left text-text shadow-sm"
               >
-                <h3 className="text-lg font-semibold text-primary-foreground">{card.title}</h3>
-                <p className="mt-2 text-sm text-primary-foreground/80">{card.content}</p>
+                <h3 className="text-lg font-semibold text-text">{card.title}</h3>
+                <p className="mt-2 text-sm text-muted-foreground">{card.content}</p>
               </article>
             ))}
           </div>

@@ -16,9 +16,9 @@ export function ThemeToggle({ className }: { className?: string }) {
       onClick={toggleTheme}
       className={cn(
         "inline-flex items-center gap-2 rounded-full border px-3 py-2 text-sm font-semibold transition",
-        "border-border text-foreground",
-        "hover:border-accent/40 hover:text-foreground",
-        "bg-foreground/10",
+        "border-border text-text",
+        "bg-surface/80",
+        "hover:border-accent hover:text-text hover:shadow-sm",
         className,
       )}
       aria-label={isDark ? "Ativar modo claro" : "Ativar modo escuro"}

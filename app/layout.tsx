@@ -6,6 +6,7 @@ import { ThemeProvider } from "@/components/theme-provider";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
+  weight: ["600", "700"],
   variable: "--font-heading",
   display: "swap",
 });
@@ -22,7 +23,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         montserrat.variable,
       ].join(" ")}
     >
-      <body className="antialiased">
+      <body className="antialiased bg-bg text-text">
         <ThemeProvider>{children}</ThemeProvider>
       </body>
     </html>

@@ -15,7 +15,7 @@ type CasesSectionProps = {
 
 export function CasesSection({ title, subtitle, cases }: CasesSectionProps) {
   return (
-    <Section id="vitorias" className="bg-primary/4">
+    <Section id="vitorias" className="bg-bg">
       <SectionHeader
         eyebrow="Casos Reais"
         title={title}
@@ -27,7 +27,7 @@ export function CasesSection({ title, subtitle, cases }: CasesSectionProps) {
         {cases.map((impactCase) => (
           <article
             key={impactCase.title}
-            className="rounded-3xl bg-primary px-6 py-8 text-left text-primary-foreground shadow-sm"
+            className="rounded-3xl border border-border bg-surface px-6 py-8 text-left text-text shadow-sm"
           >
             <header>
               <p className="text-xs font-semibold uppercase tracking-[0.3em] text-accent">
@@ -37,21 +37,21 @@ export function CasesSection({ title, subtitle, cases }: CasesSectionProps) {
                 {impactCase.title}
               </h3>
             </header>
-            <dl className="mt-6 space-y-6 text-sm text-primary-foreground/80">
+            <dl className="mt-6 space-y-6 text-sm text-muted-foreground">
               <div>
-                <dt className="text-xs font-semibold uppercase tracking-[0.3em] text-primary-foreground/75">
+                <dt className="text-xs font-semibold uppercase tracking-[0.3em] text-text/80">
                   Cenário
                 </dt>
                 <dd className="mt-2 leading-relaxed">{impactCase.scenario}</dd>
               </div>
               <div>
-                <dt className="text-xs font-semibold uppercase tracking-[0.3em] text-primary-foreground/75">
+                <dt className="text-xs font-semibold uppercase tracking-[0.3em] text-text/80">
                   Ação Vox
                 </dt>
                 <dd className="mt-2 leading-relaxed">{impactCase.action}</dd>
               </div>
               <div>
-                <dt className="text-xs font-semibold uppercase tracking-[0.3em] text-primary-foreground/75">
+                <dt className="text-xs font-semibold uppercase tracking-[0.3em] text-text/80">
                   Resultado
                 </dt>
                 <dd className="mt-2 leading-relaxed">{impactCase.result}</dd>

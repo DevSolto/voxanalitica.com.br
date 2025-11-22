@@ -37,20 +37,20 @@ export function FaqSection({ title, subtitle, items }: FaqProps) {
   );
 
   return (
-    <Section id="faq" className="bg-primary/4">
+    <Section id="faq" className="bg-bg">
       <SectionHeader eyebrow="FAQ" title={title} subtitle={subtitle} className="mx-auto max-w-3xl text-center" align="center" />
       <div className="mx-auto mt-10 max-w-3xl space-y-3">
         {items.map((item, index) => {
           const isOpen = openIndex === index;
           return (
-            <div key={item.question} className="overflow-hidden rounded-2xl border border-white bg-background">
+            <div key={item.question} className="overflow-hidden rounded-2xl border border-border bg-surface">
               <button
                 type="button"
                 onClick={() => setOpenIndex(isOpen ? -1 : index)}
                 className="flex w-full items-center justify-between gap-4 px-6 py-4 text-left"
                 aria-expanded={isOpen}
               >
-                <span className="text-sm font-semibold text-foreground">{item.question}</span>
+                <span className="text-sm font-semibold text-text">{item.question}</span>
                 <ChevronDown
                   className={cn(
                     "h-5 w-5 text-muted-foreground transition-transform",
