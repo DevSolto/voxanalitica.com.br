@@ -46,29 +46,29 @@ export function InsightsSection({
   const regularPosts = posts.filter((post) => post.slug !== featuredPost?.slug);
 
   return (
-    <Section id={sectionId}>
+    <Section id={sectionId} className="bg-bg">
       <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
         <SectionHeader
-        eyebrow="Blog"
-        title={title}
-        subtitle={subtitle}
-        className="max-w-3xl"
-        titleClassName="text-3xl font-bold text-foreground md:text-[40px]"
-      />
-      <Link
-        href={ctaHref}
-        className="inline-flex items-center justify-center gap-2 rounded-full border border-primary/65 px-5 py-3 text-sm font-semibold text-foreground transition hover:bg-primary/18"
-      >
-        {ctaLabel}
-        <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
-      </Link>
-    </div>
+          eyebrow="Blog"
+          title={title}
+          subtitle={subtitle}
+          className="max-w-3xl"
+          titleClassName="text-3xl font-bold text-text md:text-[40px]"
+        />
+        <Link
+          href={ctaHref}
+          className="inline-flex items-center justify-center gap-2 rounded-full border border-accent px-5 py-3 text-sm font-semibold text-text transition hover:bg-accent/10"
+        >
+          {ctaLabel}
+          <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
+        </Link>
+      </div>
       <div className="mt-12 grid gap-8 lg:grid-cols-[1.1fr_0.9fr]">
         {featuredPost ? (
-          <article className="flex h-full flex-col justify-between rounded-3xl border border-white bg-background p-8 shadow-sm transition hover:-translate-y-1 hover:shadow-lg">
+          <article className="flex h-full flex-col justify-between rounded-3xl border border-border bg-surface p-8 shadow-sm transition hover:-translate-y-1 hover:shadow-lg">
             <div className="space-y-4">
               <p className="text-xs font-semibold uppercase tracking-[0.3em] text-muted/60">{featuredPost.category}</p>
-              <h3 className="text-3xl font-semibold text-foreground">{featuredPost.title}</h3>
+              <h3 className="text-3xl font-semibold text-text">{featuredPost.title}</h3>
               <p className="text-base text-muted-foreground">{featuredPost.excerpt}</p>
             </div>
             <div className="flex flex-col">
@@ -80,7 +80,7 @@ export function InsightsSection({
               <div>
                 <Link
                   href={`/blog/${featuredPost.slug}`}
-                  className="inline-flex items-center gap-2 text-sm font-semibold text-foreground hover:text-accent"
+                  className="inline-flex items-center gap-2 text-sm font-semibold text-text hover:text-accent"
                 >
                   Ler artigo completo
                   <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
@@ -94,20 +94,20 @@ export function InsightsSection({
           {regularPosts.map((post) => (
             <article
               key={post.slug}
-              className="rounded-3xl border border-white bg-background p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-md"
+              className="rounded-3xl border border-border bg-surface p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-md"
             >
               <div className="flex flex-wrap items-center gap-3 text-xs font-semibold uppercase tracking-[0.3em] text-muted/60">
                 <span>{post.category}</span>
                 <span className="h-1 w-1 rounded-full bg-accent-foreground" aria-hidden="true" />
                 <span>{formatDate(post.published_at)}</span>
               </div>
-              <h3 className="mt-3 text-xl font-semibold text-foreground">{post.title}</h3>
+              <h3 className="mt-3 text-xl font-semibold text-text">{post.title}</h3>
               <p className="mt-2 text-sm text-muted-foreground">{post.excerpt}</p>
               <div className="mt-4 flex items-center justify-between text-sm text-muted/70">
                 <span>{post.read_time} de leitura</span>
                 <Link
                   href={`/blog/${post.slug}`}
-                  className="inline-flex items-center gap-2 font-semibold text-foreground hover:text-accent"
+                  className="inline-flex items-center gap-2 font-semibold text-text hover:text-accent"
                 >
                   Ler artigo
                   <ArrowUpRight className="h-4 w-4" aria-hidden="true" />

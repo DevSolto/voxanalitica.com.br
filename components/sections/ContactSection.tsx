@@ -115,9 +115,9 @@ export function ContactSection({ title, subtitle }: ContactSectionProps) {
   };
 
   return (
-    <Section id="contato">
+    <Section id="contato" className="bg-bg">
       <SectionHeader eyebrow="Contato" title={title} subtitle={subtitle} align="center" className="mx-auto max-w-2xl" />
-      <div className="mx-auto mt-10 max-w-3xl rounded-3xl border border-white bg-background p-8 shadow-sm">
+      <div className="mx-auto mt-10 max-w-3xl rounded-3xl border border-border bg-surface p-8 shadow-sm">
         <form className="space-y-6" noValidate onSubmit={handleSubmit}>
           <div className="hidden" aria-hidden="true">
             <label htmlFor="contact-website" className="sr-only">
@@ -135,7 +135,7 @@ export function ContactSection({ title, subtitle }: ContactSectionProps) {
           </div>
           <div className="grid gap-6 md:grid-cols-2">
             <div className="space-y-2">
-              <label htmlFor="contact-name" className="text-sm font-semibold text-foreground">
+              <label htmlFor="contact-name" className="text-sm font-semibold text-text">
                 Nome
               </label>
               <input
@@ -145,7 +145,7 @@ export function ContactSection({ title, subtitle }: ContactSectionProps) {
                 value={values.name}
                 onChange={handleChange("name")}
                 onBlur={handleBlur("name")}
-                className="w-full rounded-xl border border-white px-4 py-3 text-sm focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/30"
+                className="w-full rounded-xl border border-border bg-bg px-4 py-3 text-sm text-text focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/30"
                 placeholder="Como podemos te chamar?"
                 aria-invalid={Boolean(touched.name && errors.name)}
                 aria-describedby={touched.name && errors.name ? "error-name" : undefined}
@@ -157,7 +157,7 @@ export function ContactSection({ title, subtitle }: ContactSectionProps) {
               ) : null}
             </div>
             <div className="space-y-2">
-              <label htmlFor="contact-email" className="text-sm font-semibold text-foreground">
+              <label htmlFor="contact-email" className="text-sm font-semibold text-text">
                 E-mail
               </label>
               <input
@@ -167,7 +167,7 @@ export function ContactSection({ title, subtitle }: ContactSectionProps) {
                 value={values.email}
                 onChange={handleChange("email")}
                 onBlur={handleBlur("email")}
-                className="w-full rounded-xl border border-white px-4 py-3 text-sm focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/30"
+                className="w-full rounded-xl border border-border bg-bg px-4 py-3 text-sm text-text focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/30"
                 placeholder="email@empresa.com"
                 aria-invalid={Boolean(touched.email && errors.email)}
                 aria-describedby={touched.email && errors.email ? "error-email" : undefined}
@@ -181,7 +181,7 @@ export function ContactSection({ title, subtitle }: ContactSectionProps) {
           </div>
           <div className="grid gap-6 md:grid-cols-2">
             <div className="space-y-2">
-              <label htmlFor="contact-organization" className="text-sm font-semibold text-foreground">
+              <label htmlFor="contact-organization" className="text-sm font-semibold text-text">
                 Organização
               </label>
               <input
@@ -191,7 +191,7 @@ export function ContactSection({ title, subtitle }: ContactSectionProps) {
                 value={values.organization}
                 onChange={handleChange("organization")}
                 onBlur={handleBlur("organization")}
-                className="w-full rounded-xl border border-white px-4 py-3 text-sm focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/30"
+                className="w-full rounded-xl border border-border bg-bg px-4 py-3 text-sm text-text focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/30"
                 placeholder="Empresa, órgão público ou projeto"
                 aria-invalid={Boolean(touched.organization && errors.organization)}
                 aria-describedby={touched.organization && errors.organization ? "error-organization" : undefined}
@@ -213,7 +213,7 @@ export function ContactSection({ title, subtitle }: ContactSectionProps) {
                 value={values.phone}
                 onChange={handleChange("phone")}
                 onBlur={handleBlur("phone")}
-                className="w-full rounded-xl border border-white px-4 py-3 text-sm focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/30"
+                className="w-full rounded-xl border border-border bg-bg px-4 py-3 text-sm text-text focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/30"
                 placeholder="(00) 90000-0000"
                 aria-invalid={Boolean(touched.phone && errors.phone)}
                 aria-describedby={touched.phone && errors.phone ? "error-phone" : undefined}
@@ -236,7 +236,7 @@ export function ContactSection({ title, subtitle }: ContactSectionProps) {
               onChange={handleChange("message")}
               onBlur={handleBlur("message")}
               rows={5}
-              className="w-full rounded-xl border border-white px-4 py-3 text-sm focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/30"
+              className="w-full rounded-xl border border-border bg-bg px-4 py-3 text-sm text-text focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/30"
               placeholder="Conte objetivo, público e prazos desejados"
               aria-invalid={Boolean(touched.message && errors.message)}
               aria-describedby={touched.message && errors.message ? "error-message" : undefined}

@@ -12,7 +12,7 @@ type FinalCtaProps = {
 
 export function FinalCtaSection({ title, subtitle, primaryCta, secondaryCta }: FinalCtaProps) {
   return (
-    <Section id="cta-final" className=" text-white">
+    <Section id="cta-final" className="bg-primary text-white">
       <div className="flex flex-col items-center gap-6 text-center">
         <SectionHeader
           eyebrow="Vamos conversar?"

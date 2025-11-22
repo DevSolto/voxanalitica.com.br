@@ -21,7 +21,7 @@ export function Section({
     <section
       id={id}
       data-section-id={id}
-      className={cn("bg-background py-20 md:py-28", className)}
+      className={cn("bg-bg py-20 md:py-28 text-text", className)}
       {...props}
     >
       <div className={cn("mx-auto w-full max-w-6xl px-4 md:px-6", containerClassName)}>
@@ -68,7 +68,7 @@ export function SectionHeader({
       ) : null}
       <h2
         className={cn(
-          "text-3xl font-bold tracking-tight text-foreground md:text-4xl",
+          "text-3xl font-bold tracking-tight text-text md:text-4xl",
           titleClassName,
         )}
       >

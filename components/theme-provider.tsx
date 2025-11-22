@@ -9,7 +9,7 @@ import {
   useState,
 } from "react";
 
-const THEME_STORAGE_KEY = "voxanalitica-theme";
+const THEME_STORAGE_KEY = "va-theme";
 
 export type Theme = "light" | "dark";
 
@@ -35,6 +35,7 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
 
   useEffect(() => {
     const root = document.documentElement;
+    root.classList.toggle("dark", theme === "dark");
     root.setAttribute("data-theme", theme);
     window.localStorage.setItem(THEME_STORAGE_KEY, theme);
   }, [theme]);
