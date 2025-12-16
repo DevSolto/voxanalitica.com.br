@@ -2,11 +2,25 @@
 
 import { useCallback, useEffect, useState } from "react";
 import Link from "next/link";
-import { Linkedin, Mail, MapPin, Phone, X } from "lucide-react";
+import {
+  Facebook,
+  Instagram,
+  Linkedin,
+  Mail,
+  MapPin,
+  MessageCircle,
+  Phone,
+  Twitter,
+  X,
+} from "lucide-react";
 import Image from "next/image";
 
 const socialLinks = [
   { label: "LinkedIn", href: "https://www.linkedin.com/company/voxanalitica", icon: Linkedin },
+  { label: "Instagram", href: "https://www.instagram.com/voxanalitica", icon: Instagram },
+  { label: "Facebook", href: "https://www.facebook.com/voxanalitica", icon: Facebook },
+  { label: "Twitter", href: "https://twitter.com/voxanalitica", icon: Twitter },
+  { label: "WhatsApp", href: "https://wa.me/5583988880000", icon: MessageCircle },
 ];
 
 export function Footer() {
