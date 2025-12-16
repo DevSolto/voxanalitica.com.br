@@ -76,7 +76,7 @@ export function AdvantageSection({
                   <Icon className="h-5 w-5" aria-hidden="true" />
                 </div>
                 <div>
-                  <p className="text-xs font-semibold uppercase tracking-[0.3em] text-muted/60">
+                  <p className="text-xs font-semibold uppercase tracking-[0.3em] text-white/75">
                     {audience.subtitle}
                   </p>
                   <h3 className="mt-2 text-xl font-semibold text-foreground">{audience.title}</h3>
@@ -103,12 +103,12 @@ export function AdvantageSection({
             const Icon = ICONS[benefit.icon];
             return (
               <div key={benefit.title} className="flex gap-4 rounded-2xl bg-surface/90 p-5 text-text">
-                <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-accent/15 text-accent">
+                <div className="flex h-11 w- px-3 items-center justify-center rounded-2xl bg-accent/15 text-accent">
                   <Icon className="h-5 w-5" aria-hidden="true" />
                 </div>
                 <div>
                   <h4 className="text-lg font-semibold">{benefit.title}</h4>
-                  <p className="mt-1 text-sm leading-relaxed text-muted-foreground">{benefit.description}</p>
+                  <p className="mt-1 text-sm leading-relaxed text-white/75">{benefit.description}</p>
                 </div>
               </div>
             );

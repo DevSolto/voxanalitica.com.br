@@ -313,8 +313,8 @@ export default function HomePage() {
           cards={heroCards}
         />
         <SolutionsSection
-          title="Vox Analytica: Ciência Política Aplicada à Vitória"
-          subtitle="A Vox Analytica nasceu da convicção de que a pesquisa política precisava evoluir. Fundada por especialistas com vasta experiência em campanhas e gestão pública, nossa empresa se estabeleceu como uma referência em inteligência estratégica no Nordeste, atuando onde a pesquisa tradicional falha: na captura da emoção e do sentimento não-racional do eleitor. Não somos apenas coletores de dados; somos tradutores de realidades políticas."
+          title="Vox Analitica: Ciência Política Aplicada à Vitória"
+          subtitle="A Vox Analitica nasceu da convicção de que a pesquisa política precisava evoluir. Fundada por especialistas com vasta experiência em campanhas e gestão pública, nossa empresa se estabeleceu como uma referência em inteligência estratégica no Nordeste, atuando onde a pesquisa tradicional falha: na captura da emoção e do sentimento não-racional do eleitor. Não somos apenas coletores de dados; somos tradutores de realidades políticas."
           itemsTitle="Nossos Diferenciais Metodológicos"
           items={solutionItems}
           primaryCta={{

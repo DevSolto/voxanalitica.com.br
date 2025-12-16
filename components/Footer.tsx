@@ -60,7 +60,7 @@ export function Footer() {
           </p>
           <div className="space-y-2 text-sm text-primary-foreground/80">
             <p className="flex items-center gap-2">
-              <MapPin className="h-4 w-4" aria-hidden="true" /> João Pessoa · Paraíba
+              <MapPin className="h-4 w-4" aria-hidden="true" /> Olinda · Pernambuco
             </p>
             <p className="flex items-center gap-2">
               <Mail className="h-4 w-4" aria-hidden="true" />
