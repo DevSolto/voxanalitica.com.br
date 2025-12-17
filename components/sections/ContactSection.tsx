@@ -256,7 +256,7 @@ export function ContactSection({ title, subtitle }: ContactSectionProps) {
               type="submit"
               disabled={isSubmitting}
             >
-              {isSubmitting ? "Enviando..." : "Enviar briefing"}
+              {isSubmitting ? "Enviando..." : "Enviar"}
             </Button>
           </div>
           {submitError ? (

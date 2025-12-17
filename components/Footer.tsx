@@ -16,7 +16,6 @@ import {
 import Image from "next/image";
 
 const socialLinks = [
-  { label: "LinkedIn", href: "https://www.linkedin.com/company/voxanalitica", icon: Linkedin },
   { label: "Instagram", href: "https://www.instagram.com/voxanalitica", icon: Instagram },
   { label: "Facebook", href: "https://www.facebook.com/voxanalitica", icon: Facebook },
   { label: "Twitter", href: "https://twitter.com/voxanalitica", icon: Twitter },
