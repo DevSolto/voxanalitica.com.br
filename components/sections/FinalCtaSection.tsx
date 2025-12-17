@@ -12,7 +12,10 @@ type FinalCtaProps = {
 
 export function FinalCtaSection({ title, subtitle, primaryCta, secondaryCta }: FinalCtaProps) {
   return (
-    <Section id="cta-final" className="bg-primary text-white">
+    <Section
+      id="cta-final"
+      className="bg-gradient-to-br from-primary via-primary/95 to-accent/40 text-primary-foreground"
+    >
       <div className="flex flex-col items-center gap-6 text-center">
         <SectionHeader
           eyebrow="Vamos conversar?"
@@ -20,9 +23,9 @@ export function FinalCtaSection({ title, subtitle, primaryCta, secondaryCta }: F
           subtitle={subtitle}
           align="center"
           className="mx-auto max-w-3xl"
-          eyebrowClassName="text-white/70"
-          titleClassName="text-white"
-          subtitleClassName="text-white/80"
+          eyebrowClassName="text-accent"
+          titleClassName="text-primary-foreground"
+          subtitleClassName="text-primary-foreground/85"
         />
         <div className="flex flex-col gap-3 sm:flex-row">
           <Button.Link
@@ -39,7 +42,7 @@ export function FinalCtaSection({ title, subtitle, primaryCta, secondaryCta }: F
               href={secondaryCta.href}
               aria-label={secondaryCta.ariaLabel ?? secondaryCta.label}
               variant="outline"
-              className="border-white text-white hover:bg-white/10"
+              className="border-primary-foreground text-primary-foreground hover:bg-primary-foreground/10"
             >
               {secondaryCta.label}
             </Button.Link>

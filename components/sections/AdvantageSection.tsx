@@ -76,7 +76,7 @@ export function AdvantageSection({
                   <Icon className="h-5 w-5" aria-hidden="true" />
                 </div>
                 <div>
-                  <p className="text-xs font-semibold uppercase tracking-[0.3em] text-white/75">
+                  <p className="text-xs font-semibold uppercase tracking-[0.3em] text-accent">
                     {audience.subtitle}
                   </p>
                   <h3 className="mt-2 text-xl font-semibold text-foreground">{audience.title}</h3>
@@ -88,7 +88,7 @@ export function AdvantageSection({
         })}
       </div>
 
-      <div className="mt-16 rounded-3xl bg-primary px-6 py-10 text-white md:px-10">
+      <div className="mt-16 rounded-3xl bg-gradient-to-br from-primary via-primary to-accent/40 px-6 py-10 text-primary-foreground md:px-10">
         <div className="max-w-3xl">
           <p className="text-sm font-semibold uppercase tracking-[0.3em] text-accent">
             Ganhos estratégicos
@@ -108,7 +108,7 @@ export function AdvantageSection({
                 </div>
                 <div>
                   <h4 className="text-lg font-semibold">{benefit.title}</h4>
-                  <p className="mt-1 text-sm leading-relaxed text-white/75">{benefit.description}</p>
+                  <p className="mt-1 text-sm leading-relaxed text-primary-foreground/85">{benefit.description}</p>
                 </div>
               </div>
             );

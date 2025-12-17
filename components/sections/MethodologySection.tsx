@@ -41,7 +41,7 @@ export function MethodologySection({ title, subtitle, blocks, cta }: Methodology
               <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-accent/15 text-accent">
                 <Icon className="h-6 w-6" aria-hidden="true" />
               </div>
-              <p className="mt-4 text-xs font-semibold uppercase tracking-[0.3em] text-white/75">{block.subtitle}</p>
+              <p className="mt-4 text-xs font-semibold uppercase tracking-[0.3em] text-accent">{block.subtitle}</p>
               <h3 className="mt-1 text-lg font-semibold text-foreground">{block.title}</h3>
               <p className="mt-4 text-sm text-muted-foreground">{block.description}</p>
               <ul className="mt-4 w-full space-y-3 text-left">

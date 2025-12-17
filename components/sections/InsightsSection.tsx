@@ -57,7 +57,7 @@ export function InsightsSection({
         />
         <Link
           href={ctaHref}
-          className="inline-flex items-center justify-center gap-2 rounded-full border border-accent px-5 py-3 text-sm font-semibold text-text transition hover:bg-accent/10"
+          className="inline-flex items-center justify-center gap-2 rounded-full border border-accent bg-accent/10 px-5 py-3 text-sm font-semibold text-text transition hover:bg-accent/20"
         >
           {ctaLabel}
           <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
@@ -67,14 +67,14 @@ export function InsightsSection({
         {featuredPost ? (
           <article className="flex h-full flex-col justify-between rounded-3xl border border-border bg-surface p-8 shadow-sm transition hover:-translate-y-1 hover:shadow-lg">
             <div className="space-y-4">
-              <p className="text-xs font-semibold uppercase tracking-[0.3em] text-  /60">{featuredPost.category}</p>
+              <p className="text-xs font-semibold uppercase tracking-[0.3em] text-accent/85">{featuredPost.category}</p>
               <h3 className="text-3xl font-semibold text-text">{featuredPost.title}</h3>
               <p className="text-base text-muted-foreground">{featuredPost.excerpt}</p>
             </div>
             <div className="flex flex-col">
-              <div className="mt-8 flex flex-wrap items-center gap-3 text-sm text-white/70">
+              <div className="mt-8 flex flex-wrap items-center gap-3 text-sm text-primary-foreground/80">
                 <span>{formatDate(featuredPost.published_at)}</span>
-                <span className="h-1 w-1 rounded-full bg-accent-foreground" aria-hidden="true" />
+                <span className="h-1 w-1 rounded-full bg-accent" aria-hidden="true" />
                 <span>{featuredPost.read_time} de leitura</span>
               </div>
               <div>
@@ -96,14 +96,14 @@ export function InsightsSection({
               key={post.slug}
               className="rounded-3xl border border-border bg-surface p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-md"
             >
-              <div className="flex flex-wrap items-center gap-3 text-xs font-semibold uppercase tracking-[0.3em] text-white/60">
+              <div className="flex flex-wrap items-center gap-3 text-xs font-semibold uppercase tracking-[0.3em] text-accent/80">
                 <span>{post.category}</span>
-                <span className="h-1 w-1 rounded-full bg-accent-foreground" aria-hidden="true" />
+                <span className="h-1 w-1 rounded-full bg-accent" aria-hidden="true" />
                 <span>{formatDate(post.published_at)}</span>
               </div>
               <h3 className="mt-3 text-xl font-semibold text-text">{post.title}</h3>
               <p className="mt-2 text-sm text-muted-foreground">{post.excerpt}</p>
-              <div className="mt-4 flex items-center justify-between text-sm text-white/70">
+              <div className="mt-4 flex items-center justify-between text-sm text-primary-foreground/80">
                 <span>{post.read_time} de leitura</span>
                 <Link
                   href={`/blog/${post.slug}`}

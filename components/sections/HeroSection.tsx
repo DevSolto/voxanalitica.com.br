@@ -109,8 +109,8 @@ export function HeroSection({ title, subtitle, primaryCta, secondaryCta, badges 
         )}
         ref={ref}
       >
-        <div className="inline-flex items-center gap-2 rounded-full bg-surface px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-text shadow-sm">
-          <span>PESQUISA E INTELIGÊNCIA</span>
+        <div className="inline-flex items-center gap-2 rounded-full bg-accent/15 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-accent shadow-sm">
+          <span>DADOS E INTELIGÊNCIA</span>
         </div>
         <h1 className="mt-6 max-w-4xl text-3xl font-bold leading-tight tracking-tight text-text md:text-5xl md:leading-[1.1]">
           {title}
@@ -161,7 +161,7 @@ export function HeroSection({ title, subtitle, primaryCta, secondaryCta, badges 
             {cards.map((card) => (
               <article
                 key={card.title}
-                className="rounded-2xl border border-border bg-surface p-6 text-left text-text shadow-sm"
+                className="rounded-2xl border border-accent/25 bg-surface p-6 text-left text-text shadow-sm"
               >
                 <h3 className="text-lg font-semibold text-text">{card.title}</h3>
                 <p className="mt-2 text-sm text-muted-foreground">{card.content}</p>
