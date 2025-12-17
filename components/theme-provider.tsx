@@ -21,14 +21,15 @@ type ThemeContextValue = {
 const ThemeContext = createContext<ThemeContextValue | undefined>(undefined);
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
-  const [theme, setTheme] = useState<Theme>("light");
+  const [theme, setTheme] = useState<Theme>(() => {
+    if (typeof window === "undefined") {
+      return "light";
+    }
 
-  useEffect(() => {
     const stored = window.localStorage.getItem(THEME_STORAGE_KEY) as Theme | null;
     const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-    const initialTheme = stored ?? (prefersDark ? "dark" : "light");
-    setTheme(initialTheme);
-  }, []);
+    return stored ?? (prefersDark ? "dark" : "light");
+  });
 
   useEffect(() => {
     const root = document.documentElement;

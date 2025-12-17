@@ -2,12 +2,12 @@
   .hero-surface {
     background-image: radial-gradient(
         ellipse at top right,
-        color-mix(in_srgb, var(--color-primary) 18%, transparent),
-        transparent 45%
+        color-mix(in_srgb, var(--color-primary) 22%, transparent),
+        transparent 44%
       ),
       radial-gradient(
         ellipse at bottom left,
-        color-mix(in_srgb, var(--color-accent) 22%, transparent),
+        color-mix(in_srgb, var(--color-accent) 36%, transparent),
         transparent 40%
       );
   }
