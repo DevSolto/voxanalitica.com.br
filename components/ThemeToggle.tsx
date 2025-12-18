@@ -30,7 +30,7 @@ export function ThemeToggle({ className }: { className?: string }) {
         "inline-flex items-center gap-2 rounded-full border px-3 py-2 text-sm font-semibold transition",
         "border-border text-text",
         "bg-surface/80",
-        "hover:border-accent hover:text-text hover:shadow-sm",
+        "hover:border-accent hover:bg-[var(--va-color-highlight)] hover:text-primary hover:shadow-sm",
         className,
       )}
       aria-label={label}

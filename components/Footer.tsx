@@ -5,7 +5,6 @@ import Link from "next/link";
 import {
   Facebook,
   Instagram,
-  Linkedin,
   Mail,
   MapPin,
   MessageCircle,
@@ -112,7 +111,7 @@ export function Footer() {
             <button
               type="button"
               onClick={() => setOpen(true)}
-              className="rounded-full border border-primary-foreground/40 px-4 py-2 text-sm font-semibold text-primary-foreground transition hover:bg-primary-foreground/10"
+              className="rounded-full border border-primary-foreground/40 px-4 py-2 text-sm font-semibold text-primary-foreground transition hover:bg-[var(--va-color-highlight)] hover:text-primary"
             >
               Ver Política de Privacidade
             </button>
@@ -158,7 +157,7 @@ export function Footer() {
               <button
                 type="button"
                 onClick={closeDialog}
-                className="rounded-full border border-primary/65 px-4 py-2 text-sm font-semibold text-foreground hover:bg-primary/18"
+                className="rounded-full border border-primary/65 px-4 py-2 text-sm font-semibold text-foreground hover:bg-[var(--va-color-highlight)] hover:text-primary"
               >
                 Entendi
               </button>

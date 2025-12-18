@@ -104,7 +104,7 @@ export function Nav() {
         <button
           type="button"
           onClick={toggleMenu}
-          className="inline-flex items-center justify-center rounded-full p-2 text-primary-foreground transition-colors lg:hidden hover:bg-accent/10"
+          className="inline-flex items-center justify-center rounded-full p-2 text-primary-foreground transition-colors lg:hidden hover:bg-[var(--va-color-highlight)] hover:text-primary"
           aria-label={isOpen ? "Fechar menu" : "Abrir menu"}
           aria-expanded={isOpen}
         >
