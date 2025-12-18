@@ -11,7 +11,7 @@ type ButtonSize = "md" | "lg";
 const focusBase =
   "focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2";
 
-const highlightHover = "hover:bg-[var(--va-color-highlight)] hover:text-primary";
+const highlightHover = "hover:bg-[var(--va-color-highlight)]";
 
 const variantClasses: Record<ButtonVariant, string> = {
   primary: cn(

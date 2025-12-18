@@ -173,11 +173,6 @@ const faqItems = [
       "Projetos express são entregues entre 24 e 72 horas após o campo. Estudos híbridos levam de 2 a 6 semanas, conforme a complexidade.",
   },
   {
-    question: "Quais canais vocês utilizam para coleta?",
-    answer:
-      "Operamos com WhatsApp, web, telefone assistido e parcerias de campo. A escolha depende do público-alvo e da taxa de resposta esperada.",
-  },
-  {
     question: "Vocês atendem órgãos públicos?",
     answer:
       "Sim. Adequamos contratos e fluxos à legislação vigente, com cláusulas de confidencialidade e aderência à LGPD.",
