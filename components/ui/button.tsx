@@ -11,24 +11,30 @@ type ButtonSize = "md" | "lg";
 const focusBase =
   "focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2";
 
+const highlightHover = "hover:bg-[var(--va-color-highlight)] hover:text-primary";
+
 const variantClasses: Record<ButtonVariant, string> = {
   primary: cn(
-    "bg-accent text-accent-foreground shadow-sm hover:bg-accent/92",
+    "bg-accent text-accent-foreground shadow-sm",
+    highlightHover,
     focusBase,
     "focus-visible:outline-accent",
   ),
   secondary: cn(
-    "bg-primary text-primary-foreground shadow-sm hover:bg-primary/92",
+    "bg-primary text-primary-foreground shadow-sm",
+    highlightHover,
     focusBase,
     "focus-visible:outline-accent",
   ),
   outline: cn(
-    "border border-accent/70 text-text hover:bg-accent/12",
+    "border border-accent/70 text-text",
+    highlightHover,
     focusBase,
     "focus-visible:outline-accent",
   ),
   submit: cn(
-    "bg-accent text-accent-foreground hover:bg-accent/90"
+    "bg-accent text-accent-foreground",
+    highlightHover,
   )
 };
 

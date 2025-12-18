@@ -47,7 +47,7 @@ export function FaqSection({ title, subtitle, items }: FaqProps) {
               <button
                 type="button"
                 onClick={() => setOpenIndex(isOpen ? -1 : index)}
-                className="flex w-full items-center justify-between gap-4 px-6 py-4 text-left"
+                className="flex w-full items-center justify-between gap-4 px-6 py-4 text-left transition-colors hover:bg-[var(--va-color-highlight)] hover:text-primary"
                 aria-expanded={isOpen}
               >
                 <span className="text-sm font-semibold text-text">{item.question}</span>

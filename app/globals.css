@@ -9,6 +9,7 @@
   --va-color-bg: #ffffff;
   --va-color-surface: #f4f6fb;
   --va-color-text: #374e85;
+  --va-color-highlight: #ffe6a8;
   --va-color-accent: #c87a3a;
 
   --background: var(--va-color-bg);
@@ -24,6 +25,7 @@
   --va-color-bg: #374e85;
   --va-color-surface: #2c3c6b;
   --va-color-text: #ffffff;
+  --va-color-highlight: #ffe6a8;
   --va-color-accent: #c87a3a;
 
   --background: var(--va-color-bg);
@@ -37,6 +39,7 @@
   --color-bg: var(--va-color-bg);
   --color-surface: var(--va-color-surface);
   --color-text: var(--va-color-text);
+  --color-highlight: var(--va-color-highlight);
   --color-accent: var(--va-color-accent);
 
   --color-primary: #374e85;
