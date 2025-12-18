@@ -14,7 +14,7 @@ export function FinalCtaSection({ title, subtitle, primaryCta, secondaryCta }: F
   return (
     <Section
       id="cta-final"
-      className="bg-gradient-to-br from-primary via-primary/95 to-accent/40 text-primary-foreground"
+      className=" text-primary-foreground"
     >
       <div className="flex flex-col items-center gap-6 text-center">
         <SectionHeader

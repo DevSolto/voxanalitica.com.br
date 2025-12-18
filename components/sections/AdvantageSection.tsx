@@ -88,7 +88,7 @@ export function AdvantageSection({
         })}
       </div>
 
-      <div className="mt-16 rounded-3xl bg-gradient-to-br from-primary via-primary to-accent/40 px-6 py-10 text-primary-foreground md:px-10">
+      <div className="mt-16 rounded-3xl  px-6 py-10 text-primary-foreground md:px-10">
         <div className="max-w-3xl">
           <p className="text-sm font-semibold uppercase tracking-[0.3em] text-accent">
             Ganhos estratégicos

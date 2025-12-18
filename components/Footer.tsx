@@ -59,7 +59,7 @@ export function Footer() {
             aria-label="VoxAnalitica"
           >
             <Image
-              src="/logos/VOX ANALÍTICA - LOGO PRINCIPAL - MARCAD´ÁGUA - BRANCA.png"
+              src="/logos/logo.png"
               alt="VoxAnalitica"
               width={200}
               height={74}
